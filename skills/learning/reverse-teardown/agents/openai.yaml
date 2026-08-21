@@ -1,0 +1,3 @@
+interface:
+  display_name: "Reverse Teardown"
+  short_description: "Break down why a great example works"

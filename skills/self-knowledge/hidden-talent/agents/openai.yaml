@@ -1,0 +1,5 @@
+interface:
+  display_name: "Hidden Talent"
+  short_description: "Excavate your buried talents over a deep interview"
+policy:
+  allow_implicit_invocation: false

@@ -1,0 +1,34 @@
+{
+  "name": "thinking-prompts",
+  "version": "0.1.0",
+  "description": "12 条辅助思考的中文提示语，原文逐字封装成 Skill。问清问题、学习、解决问题、决策、认识你自己。",
+  "author": {
+    "name": "LearnPrompt"
+  },
+  "repository": "https://github.com/LearnPrompt/thinking-prompts",
+  "license": "MIT",
+  "keywords": [
+    "prompts",
+    "thinking",
+    "chinese",
+    "first-principles",
+    "fact-check",
+    "decision-making",
+    "socratic"
+  ],
+  "skills": [
+    "./skills/which-prompt",
+    "./skills/asking/socratic-inquiry",
+    "./skills/learning/two-layer-explain",
+    "./skills/learning/reverse-teardown",
+    "./skills/learning/horizontal-vertical-analysis",
+    "./skills/learning/fact-check",
+    "./skills/solving/expert-panel",
+    "./skills/solving/first-principles",
+    "./skills/solving/cross-domain-borrow",
+    "./skills/deciding/steelman-both-sides",
+    "./skills/deciding/minimum-experiment",
+    "./skills/self-knowledge/hidden-talent",
+    "./skills/self-knowledge/life-design"
+  ]
+}

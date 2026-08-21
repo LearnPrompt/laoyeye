@@ -1,0 +1,21 @@
+{
+  "name": "learnprompt",
+  "owner": {
+    "name": "LearnPrompt"
+  },
+  "description": "思考提示语，作为可安装的 Claude Code 插件。",
+  "plugins": [
+    {
+      "name": "thinking-prompts",
+      "source": "./",
+      "description": "12 条辅助思考的中文提示语，原文逐字封装成 Skill。",
+      "category": "productivity",
+      "keywords": [
+        "prompts",
+        "thinking",
+        "chinese",
+        "decision-making"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,3 @@
+interface:
+  display_name: "Minimum Experiment"
+  short_description: "Replace speculation with a cheap reversible test"

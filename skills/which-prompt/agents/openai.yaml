@@ -1,0 +1,5 @@
+interface:
+  display_name: "Which Prompt"
+  short_description: "Route your situation to the right thinking prompt"
+policy:
+  allow_implicit_invocation: false

@@ -1,0 +1,3 @@
+interface:
+  display_name: "Fact Check"
+  short_description: "Split claim into fact, inference, judgement"

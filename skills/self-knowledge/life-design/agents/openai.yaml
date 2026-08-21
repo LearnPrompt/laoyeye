@@ -1,0 +1,5 @@
+interface:
+  display_name: "Life Design"
+  short_description: "Design three different five-year versions of your life"
+policy:
+  allow_implicit_invocation: false
