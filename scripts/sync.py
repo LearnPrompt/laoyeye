@@ -109,6 +109,7 @@ BUCKETS = {
     "learning": ("学习", "面对一个陌生的东西，四种需求，四条路。"),
     "solving": ("解决问题", "问题问清楚了，接下来是解。"),
     "deciding": ("决策", "两个答案都有道理的时候，你还是得选一个。"),
+    "doing": ("动手", "想清楚之后，把活派出去，再把摊子收干净。"),
     "self-knowledge": ("认识你自己", "人生的底色。这两条要花时间，值得。"),
 }
 
@@ -164,19 +165,40 @@ def build():
             yaml += ["policy:", "  allow_implicit_invocation: false"]
         (d / "agents" / "openai.yaml").write_text("\n".join(yaml) + "\n", encoding="utf-8")
 
+    write_bucket_readmes()
+
+
+def _user_invoked(bucket, name):
+    fm = (SKILLS / bucket / name / "SKILL.md").read_text(encoding="utf-8")
+    return "disable-model-invocation: true" in fm.split("---")[1]
+
+
+def write_bucket_readmes():
+    """每个 bucket 一份目录，本仓库原生的 12 条和收录来的老师们的 skill 一起列。"""
+    import importlib.util
+    spec = importlib.util.spec_from_file_location("vendor", ROOT / "scripts" / "vendor.py")
+    vendor = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(vendor)
+
     for bucket, (cn, tagline) in BUCKETS.items():
-        rows = [c for c in CATALOG if c[0] == bucket]
+        native = [(c[1], c[2], c[3], None) for c in CATALOG if c[0] == bucket]
+        guest = [(v[1], v[3], v[4], v[2].split("/")[0]) for v in vendor.VENDORED if v[0] == bucket]
+        rows = native + guest
+        model = [r for r in rows if not _user_invoked(bucket, r[0])]
+        user = [r for r in rows if _user_invoked(bucket, r[0])]
+
+        def fmt(r):
+            slug, title, one, src = r
+            tail = f"（`{slug}`，收录自 {src}）" if src else f"（`{slug}`）"
+            return f"- **[{title}](./{slug}/SKILL.md)**{tail}：{one}。"
+
         lines = [f"# {cn}", "", tagline, ""]
-        model = [c for c in rows if c[6]]
-        user = [c for c in rows if not c[6]]
         if model:
             lines += ["## 模型可唤起", "", "你说到相关的事，Agent 自己就会拿出来用。", ""]
-            lines += [f"- **[{c[2]}](./{c[1]}/SKILL.md)**（`{c[1]}`）：{c[3]}。" for c in model]
-            lines += [""]
+            lines += [fmt(r) for r in model] + [""]
         if user:
             lines += ["## 只有你能唤起", "", "太长太黏人，只有你亲口叫它才出现。", ""]
-            lines += [f"- **[{c[2]}](./{c[1]}/SKILL.md)**（`{c[1]}`）：{c[3]}。" for c in user]
-            lines += [""]
+            lines += [fmt(r) for r in user] + [""]
         (SKILLS / bucket / "README.md").write_text("\n".join(lines), encoding="utf-8")
 
     print(f"built {len(CATALOG)} skills")

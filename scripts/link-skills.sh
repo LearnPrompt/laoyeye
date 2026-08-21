@@ -15,6 +15,10 @@ for target in "$HOME/.claude/skills" "$HOME/.agents/skills" "${CODEX_HOME:-$HOME
       echo "skip   $link 已存在且不是软链，没动它"
       continue
     fi
+    if [ -L "$link" ] && [[ "$(readlink "$link")" != "$REPO"/* ]]; then
+      echo "skip   $link 指向别的仓库（$(readlink "$link")），没动它"
+      continue
+    fi
     ln -sfn "$skill" "$link"
     echo "link   $link -> $skill"
   done < <(find "$REPO/skills" -name SKILL.md -exec dirname {} \; | sort)

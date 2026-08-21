@@ -1,6 +1,6 @@
 MIT License
 
-Copyright (c) 2026 LearnPrompt
+Copyright (c) 2026 数字生命卡兹克
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -19,19 +19,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
----
-
-本许可覆盖仓库自己的代码与文档。
-
-sources/prompts.md 及各 SKILL.md 代码块内的 12 段提示语原文，著作权属数字生命卡兹克，
-出处见 README 的老师们一节。
-
-vendor/ 下是收录进来的第三方 skill 的 pristine 副本，各自沿用原许可，
-各自的 LICENSE 原样保存在同目录下：
-
-  vendor/mattpocock-skills/    Matt Pocock，MIT，见 vendor/mattpocock-skills/LICENSE
-  vendor/khazix-skills/        数字生命卡兹克，MIT，见 vendor/khazix-skills/LICENSE
-  vendor/partner-skill/        LearnPrompt，MIT
-
-skills/ 下由它们生成的目录同样沿用各自的原许可。

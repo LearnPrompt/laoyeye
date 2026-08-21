@@ -1,0 +1,47 @@
+{
+  "fetched": "2026-08-22",
+  "note": "老师们的 pristine 副本。改动只能靠 pull 重新同步，不许手改。",
+  "sources": {
+    "mattpocock-skills": {
+      "repo": "https://github.com/mattpocock/skills",
+      "commit": "5b15a47f2d7150f545fbcacbfe381787fc0230dc",
+      "license": "MIT",
+      "raw": "https://raw.githubusercontent.com/mattpocock/skills/{commit}",
+      "files": {
+        "LICENSE": "0e7ac423bf2c6e223b7c5b156f8cf72da49d748e56a1641402c31f22ad07dbb5",
+        "skills/productivity/grill-me/SKILL.md": "caaf8b8de1684f96e26b28f3c29189db5c89cce4b73e1c93d86164f66ef88637",
+        "skills/productivity/grill-me/agents/openai.yaml": "c061e39c3e0f9d865fb1b97556d485704af2a8a58f4b8221a8917a5c2074a32b",
+        "skills/productivity/grilling/SKILL.md": "10ff989e7498b23b5acb49d5048f11dcd906757d2f79c5cdf8a00001381296f2",
+        "skills/productivity/grilling/agents/openai.yaml": "1411d7df7d99b7e621a1ff8283c8133cc2464be63d064e52d8ce169c6800ee9b"
+      }
+    },
+    "khazix-skills": {
+      "repo": "https://github.com/KKKKhazix/khazix-skills",
+      "commit": "7a5c4934be4106ac740ffdb95280bb81b3f4b83c",
+      "license": "MIT",
+      "raw": "https://raw.githubusercontent.com/KKKKhazix/khazix-skills/{commit}",
+      "files": {
+        "LICENSE": "b7f53d07ea4ae2eef26a4f8b28cb7d4df95586e2aa713df408f1ffde9f5a0fea",
+        "leader/SKILL.md": "58fc7e8c5038b3f795a52985a5cd81abb4bf51075bf64705a3eaebe33cf4391b",
+        "leader/references/anatomy.md": "facbb9d160d506513f245fe2ad0eea0dc4a959a9573e5ae0e8c4f2f7598cc1d8",
+        "leader/references/style.md": "90a2ef1bc8b9181dfbf2d030891d91616bbfc4f28ec41aba018ddf0b6855c0b7",
+        "neat-freak/SKILL.md": "6c0ca2236d3518ccaad710f6db8e9c4aa7af67b685dc699ad347ae42186951e1",
+        "neat-freak/references/agent-paths.md": "8210a3cc1211283f71f068de99fd17e62fb9ce269ca6e693879ce6c30e31aff6",
+        "neat-freak/references/governance.md": "6bf4bbf171864f2c82a5f8b8cf441df043362e8790c69ddca38f207c38bb5f72",
+        "neat-freak/references/sync-matrix.md": "5c771ba2695a0d0dc54ef636531d61c916ed7f0f39db39827bbb330268f7648d",
+        "neat-freak/references/verification.md": "cd3f4bf5cdc59c3aa51db868801f7461563a4b4a58b72799a6753c1f863c4126",
+        "neat-freak/scripts/audit-inventory.sh": "260315d659f19e63a12065f9cadd9b57f9c1ddc867457f6c0f6fd87c003a7325"
+      }
+    },
+    "partner-skill": {
+      "repo": "https://github.com/LearnPrompt/partner-skill",
+      "commit": "3bf07bd8b3722e79ce5828f44342b9f259b414cc",
+      "license": "MIT",
+      "raw": null,
+      "files": {
+        "idea-king/SKILL.md": "2eaadda3704c716e5bc4c0fe2c7b53226bba0c634ccffc9da66eecd9b5f3ae90",
+        "idea-king/references/adversarial-checklist.md": "c017c24f252f63e40d9cbe6934eacc59d15562c8a1472f23ff15bb2e2ecb8990"
+      }
+    }
+  }
+}
