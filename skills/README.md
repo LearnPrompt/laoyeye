@@ -10,6 +10,6 @@
 | [`deciding/`](./deciding/README.md) | 决策 |
 | [`self-knowledge/`](./self-knowledge/README.md) | 认识你自己 |
 
-[`which-prompt/`](./which-prompt/SKILL.md) 是路由，不属于任何场景。不知道用哪条就敲 `/which-prompt`。
+[`junshi/`](./junshi/SKILL.md) 是路由，不属于任何场景。不知道用哪条就敲 `/junshi`。
 
 各个 bucket 下的 `SKILL.md` 是 `scripts/sync.py build` 生成的，不要手改，规矩见 [CLAUDE.md](../CLAUDE.md)。

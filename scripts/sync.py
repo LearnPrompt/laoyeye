@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""thinking-prompts 的提示语同步与校验工具。
+"""军师（junshi）的提示语同步与校验工具。
 
 真理只有一份：sources/prompts.md 里的 12 个代码块。
 build   把这 12 段原文灌进各个 SKILL.md。

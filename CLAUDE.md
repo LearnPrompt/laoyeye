@@ -18,7 +18,7 @@
 sources/prompts.md              12 条原文，唯一真理
 scripts/sync.py                 build / verify
 skills/<bucket>/<name>/SKILL.md 生成物
-skills/which-prompt/SKILL.md    路由，手写
+skills/junshi/SKILL.md    路由，手写
 ```
 
 五个 bucket 对应文章里的五个场景：`asking`、`learning`、`solving`、`deciding`、`self-knowledge`。
@@ -29,7 +29,7 @@ skills/which-prompt/SKILL.md    路由，手写
 2. 在 `scripts/sync.py` 的 `CATALOG` 里加一条，顺序必须和 `sources/prompts.md` 里的块顺序一一对应。
 3. 跑 `build`，再跑 `verify`。
 4. 更新 `README.md`、`README.en.md`、`.claude-plugin/plugin.json` 的 `skills` 数组。
-5. 更新 [which-prompt](./skills/which-prompt/SKILL.md)。**路由漏了一条，就是一个会撒谎的路由。**
+5. 更新 [军师 junshi](./skills/junshi/SKILL.md)。**路由漏了一条，就是一个会撒谎的路由。**
 
 ## 唤起方式
 
@@ -38,7 +38,7 @@ skills/which-prompt/SKILL.md    路由，手写
 - **模型可唤起**（默认）：`description` 里写足触发词，Agent 自己就能拿出来用。
 - **只有用户能唤起**：加 `disable-model-invocation: true`，同时在 `agents/openai.yaml` 里加 `policy.allow_implicit_invocation: false`。两处必须同时改，一个 Skill 在两个 harness 里要么都是用户唤起，要么都不是。
 
-目前只有三条是用户唤起：`which-prompt`、`hidden-talent`、`life-design`。后两条是半小时以上的深度追问，自动蹦出来只会烦人。这个判断标准写在 `CATALOG` 里那个 `model_invoked` 布尔值上，别绕过 `sync.py` 直接改 frontmatter。
+目前只有三条是用户唤起：`junshi`、`hidden-talent`、`life-design`。后两条是半小时以上的深度追问，自动蹦出来只会烦人。这个判断标准写在 `CATALOG` 里那个 `model_invoked` 布尔值上，别绕过 `sync.py` 直接改 frontmatter。
 
 ## 文风
 

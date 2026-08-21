@@ -1,22 +1,26 @@
 [中文](./README.md) · **English**
 
-# thinking-prompts
+# junshi 军师
 
-12 thinking prompts, packaged as skills with the original wording untouched. Say what you are stuck on, and the agent reaches for the right one.
+The strategist who sat beside the general. You bring the problem, it brings the play.
+
+Tell it what you are stuck on. It asks you a few things, then points at the one prompt that fits and runs it.
+
+Inside are 12 thinking prompts with the original wording untouched, across five situations: asking a sharper question, learning, solving, deciding, and knowing yourself.
 
 ## Install
 
 ```bash
-npx skills@latest add LearnPrompt/thinking-prompts
+npx skills@latest add LearnPrompt/junshi
 ```
 
 That is the whole setup. For a single prompt:
 
 ```bash
-npx skills@latest add LearnPrompt/thinking-prompts --skill=fact-check
+npx skills@latest add LearnPrompt/junshi --skill=fact-check
 ```
 
-If you do not know which one fits, type `/which-prompt` in a session, describe your situation, and it routes you and fires the right skill for you.
+If you do not know which one fits, type `/junshi` in a session, say what you are stuck on, and it routes you and fires the right skill for you.
 
 No skill support in your agent? These 12 never needed an install anyway. Open [sources/prompts.md](./sources/prompts.md), copy the one you want, paste it into any AI.
 
@@ -65,7 +69,7 @@ Two long interviews, half an hour and up. User-invoked only, so they never inter
 | [挖掘隐藏天赋 / Hidden talent](./skills/self-knowledge/hidden-talent/SKILL.md) | Looking back, assembling unrelated experiences into a talent manual |
 | [人生设计术 / Life design](./skills/self-knowledge/life-design/SKILL.md) | Looking forward, three different five-year versions all worth taking seriously |
 
-Plus one router: [which-prompt](./skills/which-prompt/SKILL.md), which answers which one to use.
+Plus the strategist itself at [skills/junshi](./skills/junshi/SKILL.md), whose whole job is routing your situation to one of the above.
 
 ## Why verbatim
 

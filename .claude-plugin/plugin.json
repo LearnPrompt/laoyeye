@@ -1,13 +1,14 @@
 {
-  "name": "thinking-prompts",
+  "name": "junshi",
   "version": "0.1.0",
-  "description": "12 条辅助思考的中文提示语，原文逐字封装成 Skill。问清问题、学习、解决问题、决策、认识你自己。",
+  "description": "军师 junshi。12 条辅助思考的中文提示语，原文逐字封装成 Skill。问清问题、学习、解决问题、决策、认识你自己。",
   "author": {
     "name": "LearnPrompt"
   },
-  "repository": "https://github.com/LearnPrompt/thinking-prompts",
+  "repository": "https://github.com/LearnPrompt/junshi",
   "license": "MIT",
   "keywords": [
+    "junshi",
     "prompts",
     "thinking",
     "chinese",
@@ -17,7 +18,7 @@
     "socratic"
   ],
   "skills": [
-    "./skills/which-prompt",
+    "./skills/junshi",
     "./skills/asking/socratic-inquiry",
     "./skills/learning/two-layer-explain",
     "./skills/learning/reverse-teardown",

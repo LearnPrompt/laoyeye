@@ -3,14 +3,15 @@
   "owner": {
     "name": "LearnPrompt"
   },
-  "description": "思考提示语，作为可安装的 Claude Code 插件。",
+  "description": "军师 junshi，作为可安装的 Claude Code 插件。",
   "plugins": [
     {
-      "name": "thinking-prompts",
+      "name": "junshi",
       "source": "./",
-      "description": "12 条辅助思考的中文提示语，原文逐字封装成 Skill。",
+      "description": "军师 junshi。12 条辅助思考的中文提示语，原文逐字封装成 Skill。",
       "category": "productivity",
       "keywords": [
+        "junshi",
         "prompts",
         "thinking",
         "chinese",

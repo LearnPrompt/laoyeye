@@ -1,22 +1,26 @@
 **中文** · [English](./README.en.md)
 
-# 思考提示语 · thinking-prompts
+# 军师 · junshi
 
-12 条辅助思考的提示语，原文封装成 Skill。装上以后，你说人话，Agent 自己去翻该用哪一条。
+你出想法，它出打法。
+
+装个军师。你把卡住的事跟它说，它先问你几句，再指一条该用的提示语并直接开跑。
+
+里面是 12 条辅助思考的提示语，原文一个字没改。问清问题、学习、解决问题、决策、认识你自己，五个场景各管一摊。
 
 ## 安装
 
 ```bash
-npx skills@latest add LearnPrompt/thinking-prompts
+npx skills@latest add LearnPrompt/junshi
 ```
 
 装完就能用。想只装其中一条：
 
 ```bash
-npx skills@latest add LearnPrompt/thinking-prompts --skill=fact-check
+npx skills@latest add LearnPrompt/junshi --skill=fact-check
 ```
 
-不知道该用哪条，在会话里敲 `/which-prompt`，描述你的处境，它指路并直接把对应的那条唤起来。
+不知道用哪条，在会话里敲 `/junshi`，说说你卡在哪，它指路并直接把对应的那条唤起来。
 
 你的 Agent 不支持 Skill 也没关系。这 12 条本来就不需要装任何东西，打开 [sources/prompts.md](./sources/prompts.md)，复制哪条用哪条，粘进任何一个 AI 都能跑。
 
@@ -63,7 +67,7 @@ npx skills@latest add LearnPrompt/thinking-prompts --skill=fact-check
 | [挖掘隐藏天赋](./skills/self-knowledge/hidden-talent/SKILL.md) | 往过去看，从那些看起来毫无关系的经历里拼出一份天赋说明书 |
 | [人生设计术](./skills/self-knowledge/life-design/SKILL.md) | 往未来看，给你三个完全不同、同样值得认真考虑的五年版本 |
 
-外加一条路由：[which-prompt](./skills/which-prompt/SKILL.md)，专门回答该用哪条。
+军师本人在 [skills/junshi](./skills/junshi/SKILL.md)，它的活就是把你的处境路由到上面某一条。
 
 ## 为什么是原文
 
