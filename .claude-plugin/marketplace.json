@@ -3,15 +3,15 @@
   "owner": {
     "name": "LearnPrompt"
   },
-  "description": "戒指老爷爷 ring-elder，作为可安装的 Claude Code 插件。",
+  "description": "戒指老爷爷 laoyeye，作为可安装的 Claude Code 插件。",
   "plugins": [
     {
-      "name": "ring-elder",
+      "name": "laoyeye",
       "source": "./",
-      "description": "戒指老爷爷 ring-elder。戒指里住着我的提示语老师们，18 条逐字收录。",
+      "description": "戒指老爷爷 laoyeye。戒指里住着我的提示语老师们，18 条逐字收录。",
       "category": "productivity",
       "keywords": [
-        "ring-elder",
+        "laoyeye",
         "prompts",
         "thinking",
         "chinese",

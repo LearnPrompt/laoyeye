@@ -1,14 +1,14 @@
 {
-  "name": "ring-elder",
-  "version": "0.4.0",
-  "description": "戒指老爷爷 ring-elder。戒指里住着我的提示语老师们：卡兹克 12 条提示语原文，加 Matt Pocock 的 grilling / teach、卡兹克的 leader / neat-freak、以及点子王。全部逐字收录。",
+  "name": "laoyeye",
+  "version": "0.5.0",
+  "description": "戒指老爷爷 laoyeye。戒指里住着我的提示语老师们：卡兹克 12 条提示语原文，加 Matt Pocock 的 grilling / teach、卡兹克的 leader / neat-freak、以及点子王。全部逐字收录。",
   "author": {
     "name": "LearnPrompt"
   },
-  "repository": "https://github.com/LearnPrompt/ring-elder",
+  "repository": "https://github.com/LearnPrompt/laoyeye",
   "license": "MIT",
   "keywords": [
-    "ring-elder",
+    "laoyeye",
     "prompts",
     "thinking",
     "chinese",
@@ -18,7 +18,7 @@
     "socratic"
   ],
   "skills": [
-    "./skills/ring-elder",
+    "./skills/laoyeye",
     "./skills/asking/socratic-inquiry",
     "./skills/learning/two-layer-explain",
     "./skills/learning/reverse-teardown",

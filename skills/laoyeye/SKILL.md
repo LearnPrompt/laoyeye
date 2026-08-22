@@ -1,5 +1,5 @@
 ---
-name: ring-elder
+name: laoyeye
 description: 戒指老爷爷。你把卡住的事跟它说，它先问你，再指一条该用的提示语或 skill 并直接开跑。这是这个仓库全部 18 条的路由。
 disable-model-invocation: true
 ---
