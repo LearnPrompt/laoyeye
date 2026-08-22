@@ -1,14 +1,14 @@
 {
-  "name": "junshi",
-  "version": "0.3.0",
-  "description": "军师 junshi。我的提示语老师们：卡兹克 12 条提示语原文，加上 Matt Pocock 的 grilling、卡兹克的 leader/neat-freak、以及点子王。全部逐字收录。",
+  "name": "ring-elder",
+  "version": "0.4.0",
+  "description": "戒指老爷爷 ring-elder。戒指里住着我的提示语老师们：卡兹克 12 条提示语原文，加 Matt Pocock 的 grilling / teach、卡兹克的 leader / neat-freak、以及点子王。全部逐字收录。",
   "author": {
     "name": "LearnPrompt"
   },
-  "repository": "https://github.com/LearnPrompt/junshi",
+  "repository": "https://github.com/LearnPrompt/ring-elder",
   "license": "MIT",
   "keywords": [
-    "junshi",
+    "ring-elder",
     "prompts",
     "thinking",
     "chinese",
@@ -18,7 +18,7 @@
     "socratic"
   ],
   "skills": [
-    "./skills/junshi",
+    "./skills/ring-elder",
     "./skills/asking/socratic-inquiry",
     "./skills/learning/two-layer-explain",
     "./skills/learning/reverse-teardown",

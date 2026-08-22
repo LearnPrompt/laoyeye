@@ -1,28 +1,28 @@
 [中文](./README.md) · **English**
 
-# junshi 军师
+# ring-elder 戒指老爷爷
 
-The strategist who sat beside the general. You bring the problem, it brings the play.
+Chinese web novels have a stock setup: the hero picks up a ring, and inside it lives the remnant soul of an ancient master. He does not fight the hero's battles. He hands over what he knows, a piece at a time. 戒指老爷爷, the old man in the ring.
 
-What is inside is **the people who taught me prompting**.
+This repo is that ring. What lives inside is **the people who taught me prompting**.
 
-Khazix (数字生命卡兹克) taught me how to ask, how to learn, and how to decide, and all 12 of his prompts are here verbatim. Matt Pocock taught me what being properly interrogated feels like, and his grilling does not stop until the design tree is empty. Plus my own idea-king, for tearing a plan apart once it looks finished.
+Khazix (数字生命卡兹克) taught me how to ask, how to learn, and how to decide, and all 12 of his prompts are here verbatim. Matt Pocock taught me what being properly interrogated feels like, and what it takes to actually learn a subject rather than follow it once. Plus my own idea-king, for tearing a plan apart once it looks finished.
 
 One rule: **whoever taught it owns it, and not one character changes.** The originals are kept here byte for byte, two guards enforce it, and the only thing I write is the few lines beside them.
 
 ## Install
 
 ```bash
-npx skills@latest add LearnPrompt/junshi
+npx skills@latest add LearnPrompt/ring-elder
 ```
 
 That is the whole setup. For a single skill:
 
 ```bash
-npx skills@latest add LearnPrompt/junshi --skill=fact-check
+npx skills@latest add LearnPrompt/ring-elder --skill=fact-check
 ```
 
-If you do not know which one fits, type `/junshi` in a session, say what you are stuck on, and it routes you and fires the right skill for you.
+If you do not know which one fits, type `/ring-elder` in a session, say what you are stuck on, and it routes you and fires the right skill for you.
 
 No skill support in your agent? Khazix's 12 never needed an install anyway. Open [sources/prompts.md](./sources/prompts.md), copy the one you want, paste it into any AI. Those 12 are in Chinese, which is how he wrote them and how they are kept here. Most models answer in whatever language you write back in.
 
@@ -34,7 +34,7 @@ No skill support in your agent? Khazix's 12 never needed an install anyway. Open
 | [Matt Pocock](https://github.com/mattpocock/skills) | Being interrogated until every branch is settled, and actually learning a subject | grilling + grill-me + teach | MIT |
 | Carl (me) | Tearing a finished-looking plan apart | idea-king | MIT |
 
-The 12 come from Khazix's 2026-08-21 piece [《都Agent时代了，我还是想分享给你这12个我最常用的Prompt。》](https://mp.weixin.qq.com/s/NAdhdFrUq9-BKelqzqpwBQ). The repo layout, the user-invoked versus model-invoked split, and the shape of the junshi router all follow Matt's [ask-matt](https://github.com/mattpocock/skills/tree/main/skills/engineering/ask-matt) and grill-me.
+The 12 come from Khazix's 2026-08-21 piece [《都Agent时代了，我还是想分享给你这12个我最常用的Prompt。》](https://mp.weixin.qq.com/s/NAdhdFrUq9-BKelqzqpwBQ). The repo layout, the user-invoked versus model-invoked split, and the shape of the ring-elder router all follow Matt's [ask-matt](https://github.com/mattpocock/skills/tree/main/skills/engineering/ask-matt) and grill-me.
 
 ## Contents
 
@@ -92,7 +92,7 @@ Two long interviews, half an hour and up. User-invoked only, so they never inter
 | [挖掘隐藏天赋 / Hidden talent](./skills/self-knowledge/hidden-talent/SKILL.md) | Looking back, assembling unrelated experiences into a talent manual |
 | [人生设计术 / Life design](./skills/self-knowledge/life-design/SKILL.md) | Looking forward, three different five-year versions all worth taking seriously |
 
-The strategist itself lives at [skills/junshi](./skills/junshi/SKILL.md), and its whole job is routing your situation to one of the above.
+The elder himself lives at [skills/ring-elder](./skills/ring-elder/SKILL.md), and his whole job is routing your situation to one of the above.
 
 ## Why verbatim
 

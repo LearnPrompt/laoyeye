@@ -1,28 +1,28 @@
 **中文** · [English](./README.en.md)
 
-# 军师 · junshi
+# 戒指老爷爷 · ring-elder
 
-你出想法，它出打法。
+萧炎捡到一枚戒指，里面住着药老。药老不替他打架，他把一身本事一点点传过去。
 
-这里面装的是**我的提示语老师们**。
+这个仓库就是这么回事。戒指里住着**我的提示语老师们**。
 
-教我怎么问、怎么学、怎么决策的是卡兹克，他那 12 条提示语原文全在里面。教我什么叫真正被拷问到底的是 Matt Pocock，他的 grilling 把决策树走空才收手。加上我自己那条点子王，方案成型之后找它拆台。
+教我怎么问、怎么学、怎么决策的是卡兹克，他那 12 条提示语原文全在里面。教我什么叫真正被拷问到底、怎么把一门东西真学下来的是 Matt Pocock。加上我自己那条点子王，方案成型之后找它拆台。
 
 一条规矩：**谁教的就是谁的，一个字不改**。老师们的原文在这里逐字保存，两道校验守着，我只写他们旁边那几行说明。
 
 ## 安装
 
 ```bash
-npx skills@latest add LearnPrompt/junshi
+npx skills@latest add LearnPrompt/ring-elder
 ```
 
 装完就能用。想只装其中一条：
 
 ```bash
-npx skills@latest add LearnPrompt/junshi --skill=fact-check
+npx skills@latest add LearnPrompt/ring-elder --skill=fact-check
 ```
 
-不知道用哪条，在会话里敲 `/junshi`，说说你卡在哪，军师指路并直接把对应的那条唤起来。
+不知道用哪条，在会话里敲 `/ring-elder`，说说你卡在哪，老爷爷指路并直接把对应的那条唤起来。
 
 你的 Agent 不支持 Skill 也没关系。卡兹克那 12 条本来就不需要装任何东西，打开 [sources/prompts.md](./sources/prompts.md)，复制哪条用哪条，粘进任何一个 AI 都能跑。
 
@@ -34,7 +34,7 @@ npx skills@latest add LearnPrompt/junshi --skill=fact-check
 | [Matt Pocock](https://github.com/mattpocock/skills) | 怎么被拷问到把每个分支都想清楚，怎么把一门东西真学下来 | grilling + grill-me + teach | MIT |
 | 卡尔（我自己） | 方案成型之后找人拆台 | 点子王 idea-king | MIT |
 
-卡兹克那 12 条来自他 2026 年 8 月 21 日的文章[《都Agent时代了，我还是想分享给你这12个我最常用的Prompt。》](https://mp.weixin.qq.com/s/NAdhdFrUq9-BKelqzqpwBQ)。仓库结构、user-invoked 与 model-invoked 的分法、军师这个路由的形状，学的是 Matt 的 [ask-matt](https://github.com/mattpocock/skills/tree/main/skills/engineering/ask-matt) 和 grill-me。
+卡兹克那 12 条来自他 2026 年 8 月 21 日的文章[《都Agent时代了，我还是想分享给你这12个我最常用的Prompt。》](https://mp.weixin.qq.com/s/NAdhdFrUq9-BKelqzqpwBQ)。仓库结构、user-invoked 与 model-invoked 的分法、老爷爷这个路由的形状，学的是 Matt 的 [ask-matt](https://github.com/mattpocock/skills/tree/main/skills/engineering/ask-matt) 和 grill-me。
 
 ## 目录
 
@@ -92,7 +92,7 @@ npx skills@latest add LearnPrompt/junshi --skill=fact-check
 | [挖掘隐藏天赋](./skills/self-knowledge/hidden-talent/SKILL.md) | 往过去看，从那些看起来毫无关系的经历里拼出一份天赋说明书 |
 | [人生设计术](./skills/self-knowledge/life-design/SKILL.md) | 往未来看，给你三个完全不同、同样值得认真考虑的五年版本 |
 
-军师本人在 [skills/junshi](./skills/junshi/SKILL.md)，它的活就是把你的处境路由到上面某一条。
+老爷爷本人在 [skills/ring-elder](./skills/ring-elder/SKILL.md)，他的活就是把你的处境路由到上面某一条。
 
 ## 为什么是原文
 

@@ -1,5 +1,5 @@
 interface:
-  display_name: "Junshi 军师"
+  display_name: "Ring Elder 戒指老爷爷"
   short_description: "Route what you are stuck on to the right thinking prompt"
 policy:
   allow_implicit_invocation: false

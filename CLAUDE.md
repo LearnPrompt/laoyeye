@@ -25,14 +25,14 @@ vendor/vendor.lock.json         每个文件的 sha256、上游仓库和 commit
 scripts/sync.py                 12 条提示语的 build / verify
 scripts/vendor.py               收录 skill 的 build / verify / pull
 skills/<bucket>/<name>/         生成物，全部
-skills/junshi/SKILL.md          军师路由，手写
+skills/ring-elder/SKILL.md          老爷爷路由，手写
 ```
 
 六个 bucket：`asking`、`learning`、`solving`、`deciding`、`doing`、`self-knowledge`。前五个对应卡兹克文章的场景，`doing` 是为收录进来的 leader 和 neat-freak 开的，它们不是提示语，是会真的动文件的 skill。
 
 ## 命名：前缀只为解决重名
 
-上游已经用某个名字发布过的 skill，收进来时加来源前缀（`matt-`、`kaz-`、`carl-`），这样用户同时装了上游和军师也不会撞车。没在别处以 skill 形式发布过的，保持原名——卡兹克那 12 条提示语只在文章里出现过，所以 `fact-check` 就叫 `fact-check`。
+上游已经用某个名字发布过的 skill，收进来时加来源前缀（`matt-`、`kaz-`、`carl-`），这样用户同时装了上游和戒指老爷爷也不会撞车。没在别处以 skill 形式发布过的，保持原名——卡兹克那 12 条提示语只在文章里出现过，所以 `fact-check` 就叫 `fact-check`。
 
 改名是 `scripts/vendor.py` 里 `VENDORED` 的 patches 声明的唯一一类改动。grill-me 正文里那句 `Call the Skill tool with "grilling"` 也跟着改成 `matt-grilling`，否则改完名它就指向一个不存在的 skill。这条也在 patches 里，一目了然。
 
@@ -42,7 +42,7 @@ skills/junshi/SKILL.md          军师路由，手写
 
 **收录一个 skill**：把上游文件按原路径放进 `vendor/<repo>/` → 更新 `vendor/vendor.lock.json`（repo、commit、每个文件的 sha256）→ 在 `scripts/vendor.py` 的 `VENDORED` 里加一条 → build → verify。上游许可必须允许再分发，并把上游的 LICENSE 一起放进 `vendor/<repo>/`。
 
-两种都要顺手更新：`README.md`、`README.en.md`、`.claude-plugin/plugin.json` 的 `skills` 数组，以及 [军师](./skills/junshi/SKILL.md)。**路由漏了一条，就是一个会撒谎的路由。**
+两种都要顺手更新：`README.md`、`README.en.md`、`.claude-plugin/plugin.json` 的 `skills` 数组，以及 [戒指老爷爷](./skills/ring-elder/SKILL.md)。**路由漏了一条，就是一个会撒谎的路由。**
 
 ## 唤起方式
 
@@ -51,7 +51,7 @@ skills/junshi/SKILL.md          军师路由，手写
 - **模型可唤起**（默认）：`description` 里写足触发词，Agent 自己就能拿出来用。
 - **只有用户能唤起**：加 `disable-model-invocation: true`，同时在 `agents/openai.yaml` 里加 `policy.allow_implicit_invocation: false`。
 
-目前五条是用户唤起：`junshi`、`matt-grill-me`、`matt-teach`、`hidden-talent`、`life-design`。收录来的沿用上游的身份，不动。本仓库原生那 12 条的身份写在 `CATALOG` 的 `model_invoked` 布尔值上，别绕过 `sync.py` 直接改 frontmatter。
+目前五条是用户唤起：`ring-elder`、`matt-grill-me`、`matt-teach`、`hidden-talent`、`life-design`。收录来的沿用上游的身份，不动。本仓库原生那 12 条的身份写在 `CATALOG` 的 `model_invoked` 布尔值上，别绕过 `sync.py` 直接改 frontmatter。
 
 收录来的 skill 里，只有 mattpocock 那三条上游带 `agents/openai.yaml`。khazix 的和点子王没有，这里也不替它们造一个——造了就不是原样收录了。
 
