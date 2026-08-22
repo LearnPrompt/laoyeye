@@ -43,7 +43,7 @@
       "repo": "https://github.com/LearnPrompt/partner-skill",
       "commit": "3bf07bd8b3722e79ce5828f44342b9f259b414cc",
       "license": "MIT",
-      "raw": null,
+      "raw": "https://raw.githubusercontent.com/LearnPrompt/partner-skill/{commit}",
       "files": {
         "idea-king/SKILL.md": "2eaadda3704c716e5bc4c0fe2c7b53226bba0c634ccffc9da66eecd9b5f3ae90",
         "idea-king/references/adversarial-checklist.md": "c017c24f252f63e40d9cbe6934eacc59d15562c8a1472f23ff15bb2e2ecb8990"

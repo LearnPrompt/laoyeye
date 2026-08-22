@@ -32,7 +32,7 @@ npx skills@latest add LearnPrompt/laoyeye --skill=fact-check
 |---|---|---|---|
 | [数字生命卡兹克](https://github.com/KKKKhazix/khazix-skills) | 怎么问、怎么学、怎么决策、怎么认识自己 | 12 条提示语原文 + 领导 + 洁癖 | 文章原文 / MIT |
 | [Matt Pocock](https://github.com/mattpocock/skills) | 怎么被拷问到把每个分支都想清楚，怎么把一门东西真学下来 | grilling + grill-me + teach | MIT |
-| 卡尔（我自己） | 方案成型之后找人拆台 | 点子王 idea-king | MIT |
+| [卡尔（我自己）](https://github.com/LearnPrompt/partner-skill) | 方案成型之后找人拆台 | 点子王 idea-king | MIT |
 
 卡兹克那 12 条来自他 2026 年 8 月 21 日的文章[《都Agent时代了，我还是想分享给你这12个我最常用的Prompt。》](https://mp.weixin.qq.com/s/NAdhdFrUq9-BKelqzqpwBQ)。仓库结构、user-invoked 与 model-invoked 的分法、老爷爷这个路由的形状，学的是 Matt 的 [ask-matt](https://github.com/mattpocock/skills/tree/main/skills/engineering/ask-matt) 和 grill-me。
 

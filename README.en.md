@@ -32,7 +32,7 @@ No skill support in your agent? Khazix's 12 never needed an install anyway. Open
 |---|---|---|---|
 | [数字生命卡兹克 / Khazix](https://github.com/KKKKhazix/khazix-skills) | Asking, learning, deciding, knowing yourself | 12 prompts + leader + neat-freak | article / MIT |
 | [Matt Pocock](https://github.com/mattpocock/skills) | Being interrogated until every branch is settled, and actually learning a subject | grilling + grill-me + teach | MIT |
-| Carl (me) | Tearing a finished-looking plan apart | idea-king | MIT |
+| [Carl (me)](https://github.com/LearnPrompt/partner-skill) | Tearing a finished-looking plan apart | idea-king | MIT |
 
 The 12 come from Khazix's 2026-08-21 piece [《都Agent时代了，我还是想分享给你这12个我最常用的Prompt。》](https://mp.weixin.qq.com/s/NAdhdFrUq9-BKelqzqpwBQ). The repo layout, the user-invoked versus model-invoked split, and the shape of the laoyeye router all follow Matt's [ask-matt](https://github.com/mattpocock/skills/tree/main/skills/engineering/ask-matt) and grill-me.
 

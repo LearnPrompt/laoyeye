@@ -133,15 +133,18 @@ def pull():
     changed = 0
     for repo, entry in lock["sources"].items():
         if not entry.get("raw"):
-            print(f"skip     {repo}（本地来源，没有上游 URL）")
+            print(f"WARN     {repo} 没有上游 URL，对不了账。收录来源必须是能公开取回的仓库。")
+            changed += 1
             continue
         for rel, want in entry["files"].items():
             url = entry["raw"].replace("{commit}", entry["commit"]) + "/" + rel
             got = subprocess.run(["curl", "-sS", "--max-time", "25", url], capture_output=True).stdout
             now = hashlib.sha256(got).hexdigest()
             if now != want:
-                print(f"UPSTREAM {repo}/{rel} 在钉住的 commit 上已经变了（不该发生，检查网络或 URL）")
+                print(f"UPSTREAM {repo}/{rel} 在钉住的 commit 上取回的内容对不上 lock（检查网络或 URL）")
                 changed += 1
+            else:
+                print(f"ok       {repo}/{rel}")
     print("上游对照完成" if not changed else f"{changed} 处异常")
 
 

@@ -40,7 +40,9 @@ skills/laoyeye/SKILL.md          老爷爷路由，手写
 
 **加一条提示语**：追加进 `sources/prompts.md` → 在 `scripts/sync.py` 的 `CATALOG` 里加一条（顺序必须跟文件里的块一一对应）→ build → verify。
 
-**收录一个 skill**：把上游文件按原路径放进 `vendor/<repo>/` → 更新 `vendor/vendor.lock.json`（repo、commit、每个文件的 sha256）→ 在 `scripts/vendor.py` 的 `VENDORED` 里加一条 → build → verify。上游许可必须允许再分发，并把上游的 LICENSE 一起放进 `vendor/<repo>/`。
+**收录一个 skill**：把上游文件按原路径放进 `vendor/<repo>/` → 更新 `vendor/vendor.lock.json`（repo、commit、`raw` 模板、每个文件的 sha256）→ 在 `scripts/vendor.py` 的 `VENDORED` 里加一条 → build → verify → pull。上游许可必须允许再分发，并把上游的 LICENSE 一起放进 `vendor/<repo>/`。
+
+**上游必须是能公开取回的仓库**，包括自己的。`carl-idea-king` 的上游是 `LearnPrompt/partner-skill`，不是本机那个工作目录——partner-skill 自己也发布 idea-king（它的 README 写明随 Partner 一起安装），所以这边永远是**下游镜像**，改动只从上游流过来，不反向。这样 partner-skill 保持自包含，不需要为了跑 Direction B 那道对抗式审查闸门先装老爷爷。没有 `raw` 的来源 `pull` 会报 WARN，因为对不了账。
 
 两种都要顺手更新：`README.md`、`README.en.md`、`.claude-plugin/plugin.json` 的 `skills` 数组，以及 [戒指老爷爷](./skills/laoyeye/SKILL.md)。**路由漏了一条，就是一个会撒谎的路由。**
 
