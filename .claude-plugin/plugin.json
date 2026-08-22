@@ -1,6 +1,6 @@
 {
   "name": "junshi",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "军师 junshi。我的提示语老师们：卡兹克 12 条提示语原文，加上 Matt Pocock 的 grilling、卡兹克的 leader/neat-freak、以及点子王。全部逐字收录。",
   "author": {
     "name": "LearnPrompt"
@@ -33,6 +33,7 @@
     "./skills/self-knowledge/life-design",
     "./skills/asking/matt-grilling",
     "./skills/asking/matt-grill-me",
+    "./skills/learning/matt-teach",
     "./skills/solving/carl-idea-king",
     "./skills/doing/kaz-leader",
     "./skills/doing/kaz-neat-freak"

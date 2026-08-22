@@ -31,7 +31,7 @@ No skill support in your agent? Khazix's 12 never needed an install anyway. Open
 | Teacher | What they taught | Kept here | License |
 |---|---|---|---|
 | [数字生命卡兹克 / Khazix](https://github.com/KKKKhazix/khazix-skills) | Asking, learning, deciding, knowing yourself | 12 prompts + leader + neat-freak | article / MIT |
-| [Matt Pocock](https://github.com/mattpocock/skills) | Being interrogated until every branch is settled | grilling + grill-me | MIT |
+| [Matt Pocock](https://github.com/mattpocock/skills) | Being interrogated until every branch is settled, and actually learning a subject | grilling + grill-me + teach | MIT |
 | Carl (me) | Tearing a finished-looking plan apart | idea-king | MIT |
 
 The 12 come from Khazix's 2026-08-21 piece [《都Agent时代了，我还是想分享给你这12个我最常用的Prompt。》](https://mp.weixin.qq.com/s/NAdhdFrUq9-BKelqzqpwBQ). The repo layout, the user-invoked versus model-invoked split, and the shape of the junshi router all follow Matt's [ask-matt](https://github.com/mattpocock/skills/tree/main/skills/engineering/ask-matt) and grill-me.
@@ -56,6 +56,7 @@ Replace the 【…】 placeholders with your own details. Bring your raw materia
 | [反向拆解 / Reverse teardown](./skills/learning/reverse-teardown/SKILL.md) | Take a great example apart and find which choices made the difference |
 | [横纵分析法 / Horizontal-vertical analysis](./skills/learning/horizontal-vertical-analysis/SKILL.md) | Vertical for how it got here, horizontal for how it differs from rivals |
 | [事实核查 / Fact check](./skills/learning/fact-check/SKILL.md) | Split a claim into fact, inference, and value judgement, then verify each |
+| [teach](./skills/learning/matt-teach/SKILL.md) · Matt | The four above are one-shot. This one runs across sessions and leaves lessons and reference sheets behind |
 
 ### 3. Solve
 
