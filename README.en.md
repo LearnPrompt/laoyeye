@@ -2,13 +2,11 @@
 
 # laoyeye 戒指老爷爷
 
-Chinese web novels have a stock setup: the hero picks up a ring, and inside it lives the remnant soul of an ancient master. He does not fight the hero's battles. He hands over what he knows, a piece at a time. 戒指老爷爷, the old man in the ring.
+In Chinese web novels the hero always has an old man living in his ring, who steps in with a plan when it matters. So why shouldn't we have our own old man, now that we work with AI all day.
 
-This repo is that ring. Everyone just calls him 老爷爷, laoyeye, the old man. What lives inside is **the people who taught me prompting**.
+I took every thinking prompt I actually used this year and forged them into one ring. 老爷爷, laoyeye, the old man. Anyone can have one.
 
-Khazix (数字生命卡兹克) taught me how to ask, how to learn, and how to decide, and all 12 of his prompts are here verbatim. Matt Pocock taught me what being properly interrogated feels like, and what it takes to actually learn a subject rather than follow it once. Plus my own idea-king, for tearing a plan apart once it looks finished.
-
-One rule: **whoever taught it owns it, and not one character changes.** The originals are kept here byte for byte, two guards enforce it, and the only thing I write is the few lines beside them.
+18 pieces across six situations. You do not memorise them. You say what you are stuck on, and he picks.
 
 ## Install
 
@@ -16,83 +14,97 @@ One rule: **whoever taught it owns it, and not one character changes.** The orig
 npx skills@latest add LearnPrompt/laoyeye
 ```
 
-That is the whole setup. For a single skill:
+That is the whole setup. For a single piece:
 
 ```bash
 npx skills@latest add LearnPrompt/laoyeye --skill=fact-check
 ```
 
-If you do not know which one fits, type `/laoyeye` in a session, say what you are stuck on, and it routes you and fires the right skill for you.
+If you do not know which one fits, type `/laoyeye` in a session, say what you are stuck on, and he routes you and fires the right one.
 
-No skill support in your agent? Khazix's 12 never needed an install anyway. Open [sources/prompts.md](./sources/prompts.md), copy the one you want, paste it into any AI. Those 12 are in Chinese, which is how he wrote them and how they are kept here. Most models answer in whatever language you write back in.
+No skill support in your agent? The 12 prompts never needed an install anyway. Open [sources/prompts.md](./sources/prompts.md), copy the one you want, paste it into any AI. Those 12 are in Chinese, which is how their author wrote them and how they are kept here. Most models answer in whatever language you write back in.
+
+## Why this exists
+
+It started as a small annoyance.
+
+I knew these prompts existed. I tried importing them through a plugin. I tried keeping them in a notes app so I could search. Every one of those is too heavy: when the moment comes, you first have to remember that you saved it, then go dig it out, then copy and paste.
+
+Later I was using someone else's skill collection. It had a pile of skills in it and I had no idea which to reach for, so I just asked it: here is my situation, which one do I want.
+
+That was the shape. One situation, several possible answers, and you do not have to remember any of them. You only have to describe where you are. Better than copying text around, better than burying it in an agent's docs, faster than installing a plugin.
+
+That is where the old man came from.
 
 ## The teachers
 
+What lives in the ring is not mine alone. Whoever taught it owns it, and not one character changes.
+
 | Teacher | What they taught | Kept here | License |
 |---|---|---|---|
-| [数字生命卡兹克 / Khazix](https://github.com/KKKKhazix/khazix-skills) | Asking, learning, deciding, knowing yourself | 12 prompts + leader + neat-freak | article / MIT |
-| [Matt Pocock](https://github.com/mattpocock/skills) | Being interrogated until every branch is settled, and actually learning a subject | grilling + grill-me + teach | MIT |
+| [数字生命卡兹克 / Khazix](https://github.com/KKKKhazix/khazix-skills) | Asking, learning, deciding, knowing yourself | 12 prompts, plus leader and neat-freak | article / MIT |
+| [Matt Pocock](https://github.com/mattpocock/skills) | Being interrogated until every branch is settled, and actually learning a subject | grilling, grill-me, teach | MIT |
 | [Carl (me)](https://github.com/LearnPrompt/partner-skill) | Tearing a finished-looking plan apart | idea-king | MIT |
 
-The 12 come from Khazix's 2026-08-21 piece [《都Agent时代了，我还是想分享给你这12个我最常用的Prompt。》](https://mp.weixin.qq.com/s/NAdhdFrUq9-BKelqzqpwBQ). The repo layout, the user-invoked versus model-invoked split, and the shape of the laoyeye router all follow Matt's [ask-matt](https://github.com/mattpocock/skills/tree/main/skills/engineering/ask-matt) and grill-me.
+The 12 prompts come from [this piece](https://mp.weixin.qq.com/s/NAdhdFrUq9-BKelqzqpwBQ) by Khazix. The repo layout, the user-invoked versus model-invoked split, and the shape of the laoyeye router all follow Matt's [ask-matt](https://github.com/mattpocock/skills/tree/main/skills/engineering/ask-matt) and grill-me.
 
-## Contents
+## The eighteen
 
 Replace the 【…】 placeholders with your own details. Bring your raw material along, context is cheap.
 
+The trigger column is what you actually say. The ones showing a slash command never appear on their own, and only start when you type them.
+
 ### 1. Ask a sharper question
 
-| | One line |
-|---|---|
-| [苏格拉底式提问 / Socratic inquiry](./skills/asking/socratic-inquiry/SKILL.md) | No advice yet, one question at a time, six at most |
-| [grilling](./skills/asking/matt-grilling/SKILL.md) · Matt | This one does not stop. Every branch of the design tree, until the frontier is empty |
-| [grill-me](./skills/asking/matt-grill-me/SKILL.md) · Matt | The user-invoked way into the one above |
+| | Trigger | One line |
+|---|---|---|
+| [苏格拉底式提问 / Socratic inquiry](./skills/asking/socratic-inquiry/SKILL.md) | 我不知道我到底想问什么 | No advice yet, one question at a time, six at most, until the real question surfaces |
+| [grilling](./skills/asking/matt-grilling/SKILL.md) · Matt | 把这个方案盘到底 | Maps the plan as a design tree and works every branch until the frontier is empty |
+| [grill-me](./skills/asking/matt-grill-me/SKILL.md) · Matt | `/matt-grill-me` | The same interrogation, started only when you ask for it by name |
 
 ### 2. Learn
 
-| | One line |
-|---|---|
-| [双层解释法 / Two-layer explanation](./skills/learning/two-layer-explain/SKILL.md) | Explained twice, novice then expert |
-| [反向拆解 / Reverse teardown](./skills/learning/reverse-teardown/SKILL.md) | Take a great example apart and find which choices made the difference |
-| [横纵分析法 / Horizontal-vertical analysis](./skills/learning/horizontal-vertical-analysis/SKILL.md) | Vertical for how it got here, horizontal for how it differs from rivals |
-| [事实核查 / Fact check](./skills/learning/fact-check/SKILL.md) | Split a claim into fact, inference, and value judgement, then verify each |
-| [teach](./skills/learning/matt-teach/SKILL.md) · Matt | The four above are one-shot. This one runs across sessions and leaves lessons and reference sheets behind |
+| | Trigger | One line |
+|---|---|---|
+| [双层解释法 / Two-layer explanation](./skills/learning/two-layer-explain/SKILL.md) | 这个概念给我讲透 | Explained twice, novice then expert, so you get past feeling like you understood |
+| [反向拆解 / Reverse teardown](./skills/learning/reverse-teardown/SKILL.md) | 拆解一下这个东西好在哪 | Take a great example apart and find which choices made the difference |
+| [横纵分析法 / Horizontal-vertical](./skills/learning/horizontal-vertical-analysis/SKILL.md) | 深度研究一下这家公司 | Vertical for how it got here, horizontal for how it differs from rivals |
+| [事实核查 / Fact check](./skills/learning/fact-check/SKILL.md) | 这个说法是真的吗 | Split a claim into fact, inference, and value judgement, then verify each |
+| [teach](./skills/learning/matt-teach/SKILL.md) · Matt | `/matt-teach` | Turns this directory into your private classroom, one small win per lesson, lessons and reference sheets kept |
 
 ### 3. Solve
 
-| | One line |
-|---|---|
-| [专家会诊 / Expert panel](./skills/solving/expert-panel/SKILL.md) | Three complementary views, then make them challenge each other |
-| [第一性原理 / First principles](./skills/solving/first-principles/SKILL.md) | Stop patching, strip it to bedrock facts and rebuild |
-| [跨领域借解 / Cross-domain borrowing](./skills/solving/cross-domain-borrow/SKILL.md) | Another field may have solved your problem a decade ago |
-| [idea-king](./skills/solving/carl-idea-king/SKILL.md) · Carl | First-principles decomposition plus adversarial review |
+| | Trigger | One line |
+|---|---|---|
+| [专家会诊 / Expert panel](./skills/solving/expert-panel/SKILL.md) | 找几个互补的专家会诊 | Three genuinely complementary views, then make them challenge each other |
+| [第一性原理 / First principles](./skills/solving/first-principles/SKILL.md) | 用第一性原理重新想一遍 | Stop patching, strip it to bedrock facts and rebuild |
+| [跨领域借解 / Cross-domain](./skills/solving/cross-domain-borrow/SKILL.md) | 别的行业怎么解决这个 | Another field may have solved your problem a decade ago |
+| [idea-king](./skills/solving/carl-idea-king/SKILL.md) · Carl | 点子王，拆一下这个方案 | Assume the plan will die, then go find out how |
 
 ### 4. Decide
 
-| | One line |
-|---|---|
-| [双向钢人论证 / Steelman both sides](./skills/deciding/steelman-both-sides/SKILL.md) | When both options look right, argue each at its strongest |
-| [用最小实验替代空想 / Minimum experiment](./skills/deciding/minimum-experiment/SKILL.md) | Some decisions stop getting clearer by thinking. Go test one |
+| | Trigger | One line |
+|---|---|---|
+| [双向钢人论证 / Steelman both sides](./skills/deciding/steelman-both-sides/SKILL.md) | 两边都论证到最强再让我选 | When both options look right, argue each at its strongest |
+| [最小实验 / Minimum experiment](./skills/deciding/minimum-experiment/SKILL.md) | 设计个七天能跑完的实验 | Stop simulating it in your head. Run it for seven days and let reality hand you the data |
 
 ### 5. Do
 
-Once it is clear, hand the work out, then clean up after it.
-
-| | One line |
-|---|---|
-| [leader](./skills/doing/kaz-leader/SKILL.md) · Khazix | Turn a one-line idea into a brief an agent can run all night on |
-| [neat-freak](./skills/doing/kaz-neat-freak/SKILL.md) · Khazix | Reconcile docs, rule files, and agent memory with what the code actually does |
+| | Trigger | One line |
+|---|---|---|
+| [leader](./skills/doing/kaz-leader/SKILL.md) · Khazix | 帮我给 agent 写个目标 | Turn a one-line idea into a brief an agent can run all night on |
+| [neat-freak](./skills/doing/kaz-neat-freak/SKILL.md) · Khazix | 收尾，把文档和记忆对齐 | Reconcile docs, rule files, and agent memory with what the code actually does |
 
 ### 6. Know yourself
 
-Two long interviews, half an hour and up. User-invoked only, so they never interrupt you on their own.
+Two long interviews, half an hour and up. They never interrupt you on their own.
 
-| | One line |
-|---|---|
-| [挖掘隐藏天赋 / Hidden talent](./skills/self-knowledge/hidden-talent/SKILL.md) | Looking back, assembling unrelated experiences into a talent manual |
-| [人生设计术 / Life design](./skills/self-knowledge/life-design/SKILL.md) | Looking forward, three different five-year versions all worth taking seriously |
+| | Trigger | One line |
+|---|---|---|
+| [挖掘隐藏天赋 / Hidden talent](./skills/self-knowledge/hidden-talent/SKILL.md) | `/hidden-talent` | Looking back, assembling unrelated experiences into a talent manual |
+| [人生设计术 / Life design](./skills/self-knowledge/life-design/SKILL.md) | `/life-design` | Looking forward, three different five-year versions all worth taking seriously |
 
-The elder himself lives at [skills/laoyeye](./skills/laoyeye/SKILL.md), and his whole job is routing your situation to one of the above.
+The old man himself lives at [skills/laoyeye](./skills/laoyeye/SKILL.md). Type `/laoyeye` to call him. His whole job is routing your situation to one of the eighteen.
 
 ## Why verbatim
 
@@ -104,12 +116,10 @@ Two guards, both exit 1:
 
 ```bash
 python3 scripts/sync.py verify     # the 12 prompts against sources/prompts.md, character by character
-python3 scripts/vendor.py verify   # vendored skills against vendor/ and vendor.lock.json
+python3 scripts/vendor.py verify   # the 6 vendored skills against vendor/ and vendor.lock.json
 ```
 
-The teachers' originals sit in [vendor/](./vendor/), pinned to specific commits. Generating into `skills/` does exactly one thing: rename, so the names do not collide with the upstream repos. Every patch applied is declared in `PATCHES` in `scripts/vendor.py`.
-
-To check upstream for changes, run `python3 scripts/vendor.py pull`.
+The teachers' originals sit in [vendor/](./vendor/), pinned to specific commits. Generating into `skills/` does exactly one thing: rename, so the names do not collide with the upstream repos. Every patch applied is declared in `scripts/vendor.py`. To check upstream for changes, run `python3 scripts/vendor.py pull`.
 
 ## License
 

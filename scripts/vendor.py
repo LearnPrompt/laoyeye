@@ -23,14 +23,14 @@ SKILLS = ROOT / "skills"
 # 前缀只为解决重名：上游已经用这个名字发布过，用户可能同时装着两边。
 VENDORED = [
     ("asking", "matt-grilling", "mattpocock-skills/skills/productivity/grilling", "拷问 grilling",
-     "决策树走空为止的无限拷问，苏格拉底那条最多六问就收，这条不收",
+     "把方案画成决策树，每个分支都问到底，走空为止。苏格拉底六问就收，这条不收",
      [("name: grilling", "name: matt-grilling")]),
     ("asking", "matt-grill-me", "mattpocock-skills/skills/productivity/grill-me", "拷问我 grill-me",
-     "上面那条的用户唤起版，敲了才出现",
+     "同一场拷问，改成只有你亲口喊才开始。Agent 自己调不动它",
      [("name: grill-me", "name: matt-grill-me"),
       ('Call the Skill tool with "grilling".', 'Call the Skill tool with "matt-grilling".')]),
     ("learning", "matt-teach", "mattpocock-skills/skills/productivity/teach", "教 teach",
-     "跨会话把一门东西真学下来，留下课件和速查表，学习那节其余四条都是单次的",
+     "把当前目录变成你的私人课堂，一节课一个小胜利，课件和速查表都留着给你复习",
      [("name: teach", "name: matt-teach")]),
     ("solving", "carl-idea-king", "partner-skill/idea-king", "点子王 idea-king",
      "第一性原理拆解加对抗式审查，方案成型之后找人拆台用",

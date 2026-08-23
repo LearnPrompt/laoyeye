@@ -2,13 +2,11 @@
 
 # 戒指老爷爷 · laoyeye
 
-萧炎捡到一枚戒指，里面住着药老。药老不替他打架，他把一身本事一点点传过去。
+小说里的主角都会有一个随身戒指的老爷爷，必要的时候帮他出谋划策。那我们在用 AI 的时候，为什么就不能拥有自己的老爷爷呢。
 
-这个仓库就是这么回事。戒指里住着**我的提示语老师们**。
+所以我把今年用到的辅助思考类型的提示语都熔炼起来，做成了这个每个人都可以拥有的戒指老爷爷。
 
-教我怎么问、怎么学、怎么决策的是卡兹克，他那 12 条提示语原文全在里面。教我什么叫真正被拷问到底、怎么把一门东西真学下来的是 Matt Pocock。加上我自己那条点子王，方案成型之后找它拆台。
-
-一条规矩：**谁教的就是谁的，一个字不改**。老师们的原文在这里逐字保存，两道校验守着，我只写他们旁边那几行说明。
+一共 18 件，分六个场景。你不用记住它们，说出你卡在哪就行，老爷爷点人。
 
 ## 安装
 
@@ -16,101 +14,113 @@
 npx skills@latest add LearnPrompt/laoyeye
 ```
 
-装完就能用。想只装其中一条：
+装完就能用。想只装其中一件：
 
 ```bash
 npx skills@latest add LearnPrompt/laoyeye --skill=fact-check
 ```
 
-不知道用哪条，在会话里敲 `/laoyeye`，说说你卡在哪，老爷爷指路并直接把对应的那条唤起来。
+不知道用哪件，在会话里敲 `/laoyeye`，说说你卡在哪，老爷爷指路并直接把对应的那件唤起来。
 
-你的 Agent 不支持 Skill 也没关系。卡兹克那 12 条本来就不需要装任何东西，打开 [sources/prompts.md](./sources/prompts.md)，复制哪条用哪条，粘进任何一个 AI 都能跑。
+你的 Agent 不支持 Skill 也没关系。那 12 条提示语本来就不需要装任何东西，打开 [sources/prompts.md](./sources/prompts.md)，复制哪条用哪条，粘进任何一个 AI 都能跑。
+
+## 为什么会有它
+
+起因是一个很小的烦恼。
+
+我知道有这些 prompt，也试过用插件快速导入，试过存进备忘录方便搜索。但这些方式都太重了。真到要用的时候，你得先记起来自己存过，再翻出来，再复制粘贴。
+
+后来我在用别人做好的 skill 集合，里面内置了一堆 skill，我一开始不知道怎么用，于是干脆去问它：我现在这个情况该用哪个。
+
+那一下我意识到这才是对的形态。一个场景里可以有好几种应对方式，而你不需要记住它们，只需要说出你的处境。这比在外面复制各种内容好，比写进 Agent 的文档里好，也比装插件快。
+
+戒指老爷爷就是这么来的。
 
 ## 老师们
 
+戒指里住着的不是我一个人的东西。谁教的就是谁的，原文一个字不改。
+
 | 老师 | 教的是 | 收录了 | 许可 |
 |---|---|---|---|
-| [数字生命卡兹克](https://github.com/KKKKhazix/khazix-skills) | 怎么问、怎么学、怎么决策、怎么认识自己 | 12 条提示语原文 + 领导 + 洁癖 | 文章原文 / MIT |
-| [Matt Pocock](https://github.com/mattpocock/skills) | 怎么被拷问到把每个分支都想清楚，怎么把一门东西真学下来 | grilling + grill-me + teach | MIT |
-| [卡尔（我自己）](https://github.com/LearnPrompt/partner-skill) | 方案成型之后找人拆台 | 点子王 idea-king | MIT |
+| [数字生命卡兹克](https://github.com/KKKKhazix/khazix-skills) | 怎么问、怎么学、怎么决策、怎么认识自己 | 12 条提示语原文，加领导、洁癖 | 原文 / MIT |
+| [Matt Pocock](https://github.com/mattpocock/skills) | 怎么被拷问到把每个分支都想清楚，怎么把一门东西真学下来 | 拷问、拷问我、教 | MIT |
+| [卡尔（我自己）](https://github.com/LearnPrompt/partner-skill) | 方案成型之后找人拆台 | 点子王 | MIT |
 
-卡兹克那 12 条来自他 2026 年 8 月 21 日的文章[《都Agent时代了，我还是想分享给你这12个我最常用的Prompt。》](https://mp.weixin.qq.com/s/NAdhdFrUq9-BKelqzqpwBQ)。仓库结构、user-invoked 与 model-invoked 的分法、老爷爷这个路由的形状，学的是 Matt 的 [ask-matt](https://github.com/mattpocock/skills/tree/main/skills/engineering/ask-matt) 和 grill-me。
+那 12 条提示语出自卡兹克的[这篇文章](https://mp.weixin.qq.com/s/NAdhdFrUq9-BKelqzqpwBQ)。仓库结构、user-invoked 与 model-invoked 的分法、老爷爷这个路由的形状，学的是 Matt 的 [ask-matt](https://github.com/mattpocock/skills/tree/main/skills/engineering/ask-matt) 和 grill-me。
 
-## 目录
+## 十八件
 
-把【】里的内容换成你自己的信息。手上有原始材料就一起丢上去，这年头不怕上下文多。
+【】里的内容换成你自己的信息。手上有原始材料就一起丢上去，这年头不怕上下文多。
+
+触发语那一列是你直接说出口的话。带斜杠的那几件不会自己出现，只有你亲口敲才启动。
 
 ### 一、问清问题
 
-| | 一句话 |
-|---|---|
-| [苏格拉底式提问](./skills/asking/socratic-inquiry/SKILL.md) | 先别急着要答案，让它把你真正该问的那个问题问出来，最多六问就收 |
-| [拷问 grilling](./skills/asking/matt-grilling/SKILL.md) · Matt | 这条不收。决策树每个分支都问到底，走空为止 |
-| [拷问我 grill-me](./skills/asking/matt-grill-me/SKILL.md) · Matt | 上面那条的用户唤起版，敲了才出现 |
+| | 触发语 | 一句话 |
+|---|---|---|
+| [苏格拉底式提问](./skills/asking/socratic-inquiry/SKILL.md) | 我不知道我到底想问什么 | 先别急着要答案，让它把你真正该问的那个问题问出来，最多六问就收 |
+| [拷问](./skills/asking/matt-grilling/SKILL.md) · Matt | 把这个方案盘到底 | 把方案画成决策树，每个分支都问到底，走空为止 |
+| [拷问我](./skills/asking/matt-grill-me/SKILL.md) · Matt | `/matt-grill-me` | 同一场拷问，改成只有你亲口喊才开始 |
 
 ### 二、学习
 
-| | 一句话 |
-|---|---|
-| [双层解释法](./skills/learning/two-layer-explain/SKILL.md) | 小白版和专业版各讲一遍，别停在好像懂了 |
-| [反向拆解](./skills/learning/reverse-teardown/SKILL.md) | 看到一个牛逼的成品，把它为什么牛逼拆出来 |
-| [横纵分析法](./skills/learning/horizontal-vertical-analysis/SKILL.md) | 纵轴看它怎么走到今天，横轴看它跟对手差在哪 |
-| [事实核查](./skills/learning/fact-check/SKILL.md) | 把事实、推论、价值判断拆开，一条条验 |
-| [教 teach](./skills/learning/matt-teach/SKILL.md) · Matt | 上面四条都是单次的。这条跨会话把一门东西真学下来，留下课件和速查表 |
+| | 触发语 | 一句话 |
+|---|---|---|
+| [双层解释法](./skills/learning/two-layer-explain/SKILL.md) | 这个概念给我讲透 | 小白版和专业版各讲一遍，别停在好像懂了 |
+| [反向拆解](./skills/learning/reverse-teardown/SKILL.md) | 拆解一下这个东西好在哪 | 看到一个牛逼的成品，把它为什么牛逼拆出来 |
+| [横纵分析法](./skills/learning/horizontal-vertical-analysis/SKILL.md) | 深度研究一下这家公司 | 纵轴看它怎么走到今天，横轴看它跟对手差在哪 |
+| [事实核查](./skills/learning/fact-check/SKILL.md) | 这个说法是真的吗 | 把事实、推论、价值判断拆开，一条条验 |
+| [教](./skills/learning/matt-teach/SKILL.md) · Matt | `/matt-teach` | 把当前目录变成你的私人课堂，一节课一个小胜利，课件和速查表都留着 |
 
 ### 三、解决问题
 
-| | 一句话 |
-|---|---|
-| [专家会诊](./skills/solving/expert-panel/SKILL.md) | 组一个真正互补的专家团，然后让他们互相质疑 |
-| [第一性原理](./skills/solving/first-principles/SKILL.md) | 别再打补丁了，拆回最底层重新推一遍 |
-| [跨领域借解](./skills/solving/cross-domain-borrow/SKILL.md) | 你这个问题，别的行业可能十几年前就解决了 |
-| [点子王 idea-king](./skills/solving/carl-idea-king/SKILL.md) · 卡尔 | 第一性原理拆解加对抗式审查，专治方案自我感觉良好 |
+| | 触发语 | 一句话 |
+|---|---|---|
+| [专家会诊](./skills/solving/expert-panel/SKILL.md) | 找几个互补的专家会诊 | 组一个真正互补的专家团，然后让他们互相质疑 |
+| [第一性原理](./skills/solving/first-principles/SKILL.md) | 用第一性原理重新想一遍 | 别再打补丁了，拆回最底层重新推 |
+| [跨领域借解](./skills/solving/cross-domain-borrow/SKILL.md) | 别的行业怎么解决这个 | 你这个问题，别的行业可能十几年前就解决了 |
+| [点子王](./skills/solving/carl-idea-king/SKILL.md) · 卡尔 | 点子王，拆一下这个方案 | 假设方案会死，然后去找它是怎么死的 |
 
 ### 四、决策
 
-| | 一句话 |
-|---|---|
-| [双向钢人论证](./skills/deciding/steelman-both-sides/SKILL.md) | 两个选项都有道理的时候，把两边都论证到最强 |
-| [用最小实验替代空想](./skills/deciding/minimum-experiment/SKILL.md) | 有些决定，再想也不会更清楚了，去试 |
+| | 触发语 | 一句话 |
+|---|---|---|
+| [双向钢人论证](./skills/deciding/steelman-both-sides/SKILL.md) | 两边都论证到最强再让我选 | 两个选项都有道理的时候，把两边都论证到最强 |
+| [最小实验](./skills/deciding/minimum-experiment/SKILL.md) | 设计个七天能跑完的实验 | 别再推演了，花七天真跑一次，让现实给你数据 |
 
 ### 五、动手
 
-想清楚之后，把活派出去，再把摊子收干净。
-
-| | 一句话 |
-|---|---|
-| [领导 leader](./skills/doing/kaz-leader/SKILL.md) · 卡兹克 | 把一句话的想法拆成 agent 能独立跑一整夜的任务书 |
-| [洁癖 neat-freak](./skills/doing/kaz-neat-freak/SKILL.md) · 卡兹克 | 干完活跑一下，把文档、规则文件、agent 记忆跟代码真实状态对齐 |
+| | 触发语 | 一句话 |
+|---|---|---|
+| [领导](./skills/doing/kaz-leader/SKILL.md) · 卡兹克 | 帮我给 agent 写个目标 | 把一句话的想法拆成 agent 能独立跑一整夜的任务书 |
+| [洁癖](./skills/doing/kaz-neat-freak/SKILL.md) · 卡兹克 | 收尾，把文档和记忆对齐 | 干完活跑一下，让文档、规则文件、agent 记忆跟代码的真实状态对上 |
 
 ### 六、认识你自己
 
-这两条是长对话，动辄半小时以上，只有你亲口叫才出现，不会自己蹦出来烦你。
+这两件是长对话，动辄半小时以上，只有你亲口叫才出现，不会自己蹦出来烦你。
 
-| | 一句话 |
-|---|---|
-| [挖掘隐藏天赋](./skills/self-knowledge/hidden-talent/SKILL.md) | 往过去看，从那些看起来毫无关系的经历里拼出一份天赋说明书 |
-| [人生设计术](./skills/self-knowledge/life-design/SKILL.md) | 往未来看，给你三个完全不同、同样值得认真考虑的五年版本 |
+| | 触发语 | 一句话 |
+|---|---|---|
+| [挖掘隐藏天赋](./skills/self-knowledge/hidden-talent/SKILL.md) | `/hidden-talent` | 往过去看，从那些看起来毫无关系的经历里拼出一份天赋说明书 |
+| [人生设计术](./skills/self-knowledge/life-design/SKILL.md) | `/life-design` | 往未来看，给你三个完全不同、同样值得认真考虑的五年版本 |
 
-老爷爷本人在 [skills/laoyeye](./skills/laoyeye/SKILL.md)，他的活就是把你的处境路由到上面某一条。
+老爷爷本人在 [skills/laoyeye](./skills/laoyeye/SKILL.md)，敲 `/laoyeye` 叫他。他的活就是把你的处境路由到上面某一件。
 
 ## 为什么是原文
 
 Skill 化的常见做法是把提示语拆成 Agent 风格的流程步骤、加上分支和检查清单。这里刻意不这么干。
 
-这些都是成品，效果来自具体措辞、追问节奏和输出顺序。「每次只问一个问题，不要提前给我一整套问卷」压成「请逐步提问」，模型立刻会把六个问题一次倒出来，整条提示语当场作废。所以重写一遍就是另一个东西了。
+这些都是成品，效果来自具体措辞、追问节奏和输出顺序。把「每次只问一个问题，不要提前给我一整套问卷」压成「请逐步提问」，模型立刻会把六个问题一次倒出来，整条提示语当场作废。所以重写一遍就是另一个东西了。
 
 守卫有两道，都会退出 1：
 
 ```bash
 python3 scripts/sync.py verify     # 12 条提示语 vs sources/prompts.md，逐字
-python3 scripts/vendor.py verify   # 收录的 skill vs vendor/ 与 vendor.lock.json，逐字
+python3 scripts/vendor.py verify   # 6 个收录的 skill vs vendor/ 与 vendor.lock.json，逐字
 ```
 
-老师们的原文躺在 [vendor/](./vendor/)，钉在具体 commit 上。生成到 `skills/` 时只做一件事：改名字，避开跟上游仓库的重名。改了哪几处写在 `scripts/vendor.py` 的 `PATCHES` 里，一目了然。
-
-想跟上游同步就跑 `python3 scripts/vendor.py pull`。
+老师们的原文躺在 [vendor/](./vendor/)，钉在具体 commit 上。生成到 `skills/` 时只做一件事：改名字，避开跟上游仓库的重名。改了哪几处写在 `scripts/vendor.py` 的 patches 里，一目了然。想跟上游同步就跑 `python3 scripts/vendor.py pull`。
 
 ## License
 
-仓库自己的代码与文档 MIT。收录的 skill 各自沿用原许可，原样保存在 [vendor/](./vendor/) 下，含各自的 LICENSE。卡兹克那 12 条提示语的著作权属原作者，本仓库只做封装和校验，不主张任何权利。
+仓库自己的代码与文档 MIT。收录的 skill 各自沿用原许可，原样保存在 [vendor/](./vendor/) 下，含各自的 LICENSE。那 12 条提示语的著作权属原作者，本仓库只做封装和校验，不主张任何权利。
