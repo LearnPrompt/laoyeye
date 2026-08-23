@@ -30,11 +30,11 @@ It started as a small annoyance.
 
 I knew these prompts existed. I tried importing them through a plugin. I tried keeping them in a notes app so I could search. Every one of those is too heavy: when the moment comes, you first have to remember that you saved it, then go dig it out, then copy and paste.
 
-Later I was using someone else's skill collection. It had a pile of skills in it and I had no idea which to reach for, so I just asked it: here is my situation, which one do I want.
+Later I was using Matt Pocock's skills. There is a pile of them and I had no idea which to reach for, so I just asked his [ask-matt](https://github.com/mattpocock/skills/tree/main/skills/engineering/ask-matt): here is my situation, which one do I want.
 
 That was the shape. One situation, several possible answers, and you do not have to remember any of them. You only have to describe where you are. Better than copying text around, better than burying it in an agent's docs, faster than installing a plugin.
 
-That is where the old man came from.
+That is where the old man came from, and his routing is modelled on ask-matt.
 
 ## The teachers
 

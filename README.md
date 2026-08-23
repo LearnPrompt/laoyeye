@@ -30,11 +30,11 @@ npx skills@latest add LearnPrompt/laoyeye --skill=fact-check
 
 我知道有这些 prompt，也试过用插件快速导入，试过存进备忘录方便搜索。但这些方式都太重了。真到要用的时候，你得先记起来自己存过，再翻出来，再复制粘贴。
 
-后来我在用别人做好的 skill 集合，里面内置了一堆 skill，我一开始不知道怎么用，于是干脆去问它：我现在这个情况该用哪个。
+后来我在用 Matt Pocock 那套 skill，里面内置了一堆，我一开始不知道该拿哪个，于是干脆去问他的 [ask-matt](https://github.com/mattpocock/skills/tree/main/skills/engineering/ask-matt)：我现在这个情况该用哪个。
 
 那一下我意识到这才是对的形态。一个场景里可以有好几种应对方式，而你不需要记住它们，只需要说出你的处境。这比在外面复制各种内容好，比写进 Agent 的文档里好，也比装插件快。
 
-戒指老爷爷就是这么来的。
+戒指老爷爷就是这么来的，指路那部分是照着 ask-matt 学的。
 
 ## 老师们
 
