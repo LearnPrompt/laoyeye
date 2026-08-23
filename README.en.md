@@ -14,10 +14,10 @@ I took every thinking prompt I actually used this year and forged them into one 
 npx skills@latest add LearnPrompt/laoyeye
 ```
 
-That is the whole setup. For a single piece:
+That is the whole setup. For a single piece (note the space, not an equals sign — `--skill=fact-check` does not error, it quietly installs all 20):
 
 ```bash
-npx skills@latest add LearnPrompt/laoyeye --skill=fact-check
+npx skills@latest add LearnPrompt/laoyeye --skill fact-check
 ```
 
 If you do not know which one fits, type `/laoyeye` in a session, say what you are stuck on, and he routes you and fires the right one.

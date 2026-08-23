@@ -14,10 +14,10 @@
 npx skills@latest add LearnPrompt/laoyeye
 ```
 
-装完就能用。想只装其中一件：
+装完就能用。想只装其中一件（注意 `--skill` 后面是空格不是等号，写成 `--skill=fact-check` 不会报错，会把 20 件全装上）：
 
 ```bash
-npx skills@latest add LearnPrompt/laoyeye --skill=fact-check
+npx skills@latest add LearnPrompt/laoyeye --skill fact-check
 ```
 
 不知道用哪件，在会话里敲 `/laoyeye`，说说你卡在哪，老爷爷指路并直接把对应的那件唤起来。
