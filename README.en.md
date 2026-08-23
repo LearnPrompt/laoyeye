@@ -6,7 +6,7 @@ In Chinese web novels the hero always has an old man living in his ring, who ste
 
 I took every thinking prompt I actually used this year and forged them into one ring. 老爷爷, laoyeye, the old man. Anyone can have one.
 
-18 pieces across six situations. You do not memorise them. You say what you are stuck on, and he picks.
+19 pieces across six situations. You do not memorise them. You say what you are stuck on, and he picks.
 
 ## Install
 
@@ -22,7 +22,7 @@ npx skills@latest add LearnPrompt/laoyeye --skill=fact-check
 
 If you do not know which one fits, type `/laoyeye` in a session, say what you are stuck on, and he routes you and fires the right one.
 
-No skill support in your agent? The 12 prompts never needed an install anyway. Open [sources/prompts.md](./sources/prompts.md), copy the one you want, paste it into any AI. Those 12 are in Chinese, which is how their author wrote them and how they are kept here. Most models answer in whatever language you write back in.
+No skill support in your agent? Khazix's 13 prompts never needed an install anyway. Open [sources/prompts.md](./sources/prompts.md), copy the one you want, paste it into any AI. Those 12 are in Chinese, which is how their author wrote them and how they are kept here. Most models answer in whatever language you write back in.
 
 ## Why this exists
 
@@ -42,13 +42,13 @@ What lives in the ring is not mine alone. Whoever taught it owns it, and not one
 
 | Teacher | What they taught | Kept here | License |
 |---|---|---|---|
-| [数字生命卡兹克 / Khazix](https://github.com/KKKKhazix/khazix-skills) | Asking, learning, deciding, knowing yourself | 12 prompts, plus leader and neat-freak | article / MIT |
+| [数字生命卡兹克 / Khazix](https://github.com/KKKKhazix/khazix-skills) | Asking, learning, deciding, knowing yourself | 13 prompts, plus leader and neat-freak | article / MIT |
 | [Matt Pocock](https://github.com/mattpocock/skills) | Being interrogated until every branch is settled, and actually learning a subject | grilling, grill-me, teach | MIT |
 | [Carl (me)](https://github.com/LearnPrompt/partner-skill) | Tearing a finished-looking plan apart | idea-king | MIT |
 
-The 12 prompts come from [this piece](https://mp.weixin.qq.com/s/NAdhdFrUq9-BKelqzqpwBQ) by Khazix. The repo layout, the user-invoked versus model-invoked split, and the shape of the laoyeye router all follow Matt's [ask-matt](https://github.com/mattpocock/skills/tree/main/skills/engineering/ask-matt) and grill-me.
+The 13 prompts come from [this piece](https://mp.weixin.qq.com/s/NAdhdFrUq9-BKelqzqpwBQ) and [this one](https://mp.weixin.qq.com/s/L1ISA0FvxY_7OR994RttWw) by Khazix. The fable method started with Anthropic's [Amanda Askell](https://askell.io/); Khazix added the anti-cliche blacklists and the two check questions. The repo layout, the user-invoked versus model-invoked split, and the shape of the laoyeye router all follow Matt's [ask-matt](https://github.com/mattpocock/skills/tree/main/skills/engineering/ask-matt) and grill-me.
 
-## The eighteen
+## The nineteen
 
 Replace the 【…】 placeholders with your own details. Bring your raw material along, context is cheap.
 
@@ -70,6 +70,7 @@ The trigger column is what you actually say. The ones showing a slash command ne
 | [反向拆解 / Reverse teardown](./skills/learning/reverse-teardown/SKILL.md) | 拆解一下这个东西好在哪 | Take a great example apart and find which choices made the difference |
 | [横纵分析法 / Horizontal-vertical](./skills/learning/horizontal-vertical-analysis/SKILL.md) | 深度研究一下这家公司 | Vertical for how it got here, horizontal for how it differs from rivals |
 | [事实核查 / Fact check](./skills/learning/fact-check/SKILL.md) | 这个说法是真的吗 | Split a claim into fact, inference, and value judgement, then verify each |
+| [寓言故事 / Parable](./skills/learning/parable/SKILL.md) | 用寓言给我讲讲这个概念 | Never names the concept. Tells you a story instead, and you work it out yourself |
 | [teach](./skills/learning/matt-teach/SKILL.md) · Matt | `/matt-teach` | Turns this directory into your private classroom, one small win per lesson, lessons and reference sheets kept |
 
 ### 3. Solve
@@ -104,7 +105,7 @@ Two long interviews, half an hour and up. They never interrupt you on their own.
 | [挖掘隐藏天赋 / Hidden talent](./skills/self-knowledge/hidden-talent/SKILL.md) | `/hidden-talent` | Looking back, assembling unrelated experiences into a talent manual |
 | [人生设计术 / Life design](./skills/self-knowledge/life-design/SKILL.md) | `/life-design` | Looking forward, three different five-year versions all worth taking seriously |
 
-The old man himself lives at [skills/laoyeye](./skills/laoyeye/SKILL.md). Type `/laoyeye` to call him. His whole job is routing your situation to one of the eighteen.
+The old man himself lives at [skills/laoyeye](./skills/laoyeye/SKILL.md). Type `/laoyeye` to call him. His whole job is routing your situation to one of the nineteen.
 
 ## Why verbatim
 
@@ -115,7 +116,7 @@ These are finished work. Their effect comes from the specific wording, the pacin
 Two guards, both exit 1:
 
 ```bash
-python3 scripts/sync.py verify     # the 12 prompts against sources/prompts.md, character by character
+python3 scripts/sync.py verify     # the 13 prompts against sources/prompts.md, character by character
 python3 scripts/vendor.py verify   # the 6 vendored skills against vendor/ and vendor.lock.json
 ```
 
@@ -123,4 +124,4 @@ The teachers' originals sit in [vendor/](./vendor/), pinned to specific commits.
 
 ## License
 
-MIT for this repo's own code and docs. Vendored skills keep their original licenses, preserved as-is under [vendor/](./vendor/) along with each LICENSE file. The 12 prompts remain their author's. This repo packages and verifies, and claims no rights over the content.
+MIT for this repo's own code and docs. Vendored skills keep their original licenses, preserved as-is under [vendor/](./vendor/) along with each LICENSE file. The 13 prompts remain their author's. This repo packages and verifies, and claims no rights over the content.

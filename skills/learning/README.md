@@ -1,6 +1,6 @@
 # 学习
 
-听懂一个东西有四条路，学会一门东西有第五条。
+听懂一个东西有几条路，直着讲绕着讲各一条；学会一门东西另有一条。
 
 ## 模型可唤起
 
@@ -10,6 +10,7 @@
 - **[反向拆解](./reverse-teardown/SKILL.md)**（`reverse-teardown`）：看到一个牛逼的成品，把它为什么牛逼拆出来。
 - **[横纵分析法](./horizontal-vertical-analysis/SKILL.md)**（`horizontal-vertical-analysis`）：纵轴看它怎么走到今天，横轴看它跟对手差在哪。
 - **[事实核查](./fact-check/SKILL.md)**（`fact-check`）：把事实、推论、价值判断拆开，一条条验。
+- **[寓言故事](./parable/SKILL.md)**（`parable`）：不直接讲这个概念，给你讲个故事，读完你自己悟到。
 
 ## 只有你能唤起
 

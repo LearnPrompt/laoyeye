@@ -89,6 +89,13 @@ CATALOG = [
         True, "Minimum Experiment", "Replace speculation with a cheap reversible test",
     ),
     (
+        "learning", "parable", "寓言故事",
+        "不直接讲这个概念，给你讲个故事，读完你自己悟到",
+        "硬啃定义记不住，故事能记一辈子。这条让 AI 围绕一个概念写一则寓言，全程不出现概念名称、不用术语，只在接近结尾时才让你隐约意识到讲的是什么。\n\n故事讲完再给概念解析，最后出两道题：一道验你是不是真懂了核心而不只是记住情节，一道验你能不能把它迁移到别的领域。\n\n提示语里带一份防套路黑名单（意象、地名、结构、角色、开头），因为 AI 写故事特别爱掉进钟表匠、河流、回声城那套模板。",
+        "寓言故事提示语原文。用户想快速理解一个陌生概念、术语或名词，而且希望记得住时使用。触发词包括 用寓言讲讲、讲个故事帮我理解、这个概念是什么意思、给我打个比方、寓言、5 分钟搞懂。产出一则不点破概念的寓言，加概念解析，再加两道检验题。原始思路来自 Anthropic 的 Amanda Askell。",
+        True, "Parable", "Explain a concept through a fable that never names it",
+    ),
+    (
         "self-knowledge", "hidden-talent", "挖掘隐藏天赋",
         "从你那些看起来毫无关系的经历里，拼出一份天赋说明书",
         "适合还想找到自己天赋的人，也适合觉得自己没什么天赋、正在怀疑自己的人。\n\n它会深度追问你十六岁前的废寝忘食、改不掉的顽固缺点、无意识胜任区、能量地图和你嫉妒过的人，最后写一份一万字左右的个人天赋使用说明书。\n\n动辄半小时以上，答得越真实越具体，产出越有用。中途别跑。",
@@ -106,7 +113,7 @@ CATALOG = [
 
 BUCKETS = {
     "asking": ("问清问题", "只有知道自己真正想问的是什么，才有后面的一切。"),
-    "learning": ("学习", "听懂一个东西有四条路，学会一门东西有第五条。"),
+    "learning": ("学习", "听懂一个东西有几条路，直着讲绕着讲各一条；学会一门东西另有一条。"),
     "solving": ("解决问题", "问题问清楚了，接下来是解。"),
     "deciding": ("决策", "两个答案都有道理的时候，你还是得选一个。"),
     "doing": ("动手", "想清楚之后，把活派出去，再把摊子收干净。"),
@@ -128,11 +135,27 @@ def usage_block(has_slots):
 禁止改写、精简、扩写、翻译、重排、加小标题，禁止把它替换成你自己的流程，也禁止把多轮追问压缩成一次性问卷。用户手上有原始材料（文档、截图、链接、聊天记录）就一并读进来，上下文多不是问题。"""
 
 
+PATH_LINE = re.compile(r"^`skills/([^/`]+)/([^/`]+)`\s*$", re.M)
+
+
 def read_source_blocks():
+    """按顺序取出 12+ 段原文，并确认每段上面那行路径跟 CATALOG 一一对上。
+
+    只比对数量是不够的：块的顺序和 CATALOG 的顺序一旦错位，build 会把每段
+    原文写进错误的 SKILL.md，而 verify 用同一套错位配对再比一遍，照样全绿。
+    路径行是唯一能钉死配对关系的东西，所以它才是真正的校验。
+    """
     text = SOURCES.read_text(encoding="utf-8")
     blocks = FENCE.findall(text)
     if len(blocks) != len(CATALOG):
         sys.exit(f"sources/prompts.md 里有 {len(blocks)} 段提示语，CATALOG 里有 {len(CATALOG)} 条，对不上")
+    paths = PATH_LINE.findall(text)
+    if len(paths) != len(CATALOG):
+        sys.exit(f"sources/prompts.md 里有 {len(paths)} 行 `skills/<bucket>/<name>` 路径，CATALOG 里有 {len(CATALOG)} 条，对不上")
+    for i, ((bucket, name), (cb, cn, *_rest)) in enumerate(zip(paths, CATALOG)):
+        if (bucket, name) != (cb, cn):
+            sys.exit(f"第 {i + 1} 段错位：sources 写的是 skills/{bucket}/{name}，CATALOG 第 {i + 1} 条是 skills/{cb}/{cn}。"
+                     f"\n两边顺序必须一一对应，否则原文会被写进错误的 SKILL.md 而校验发现不了。")
     return blocks
 
 

@@ -6,7 +6,7 @@
 
 | | 原文放哪 | 生成到哪 | 守卫 |
 |---|---|---|---|
-| 卡兹克 12 条提示语 | `sources/prompts.md` | 各 `SKILL.md` 里的 markdown 代码块 | `python3 scripts/sync.py verify` |
+| 卡兹克 13 条提示语 | `sources/prompts.md` | 各 `SKILL.md` 里的 markdown 代码块 | `python3 scripts/sync.py verify` |
 | 收录的 6 个 skill | `vendor/`（钉在 commit 上） | `skills/<bucket>/<name>/` 整个目录 | `python3 scripts/vendor.py verify` |
 
 ## 铁律：都不许手改
@@ -32,7 +32,7 @@ skills/laoyeye/SKILL.md          老爷爷路由，手写
 
 ## 命名：前缀只为解决重名
 
-上游已经用某个名字发布过的 skill，收进来时加来源前缀（`matt-`、`kaz-`、`carl-`），这样用户同时装了上游和戒指老爷爷也不会撞车。没在别处以 skill 形式发布过的，保持原名——卡兹克那 12 条提示语只在文章里出现过，所以 `fact-check` 就叫 `fact-check`。
+上游已经用某个名字发布过的 skill，收进来时加来源前缀（`matt-`、`kaz-`、`carl-`），这样用户同时装了上游和戒指老爷爷也不会撞车。没在别处以 skill 形式发布过的，保持原名——卡兹克那 13 条提示语只在文章里出现过，所以 `fact-check` 就叫 `fact-check`。
 
 改名是 `scripts/vendor.py` 里 `VENDORED` 的 patches 声明的唯一一类改动。grill-me 正文里那句 `Call the Skill tool with "grilling"` 也跟着改成 `matt-grilling`，否则改完名它就指向一个不存在的 skill。这条也在 patches 里，一目了然。
 
