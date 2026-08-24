@@ -127,6 +127,15 @@ BUCKETS = {
     "self-knowledge": ("认识你自己", "人生的底色。这两条要花时间，值得。"),
 }
 
+# 按条挂在代码块外面的执行注记。原文的缺口只能在这里补，不许伸进代码块。
+NOTES = {
+    "socratic-inquiry": """## 首轮怎么办
+
+原文规则四要求每次提问前，用一句话说明上一条回答让你更新了什么判断。第一问之前还没有任何回答，这条在首轮无从执行。首轮直接问第一个问题，不要编造一句判断更新来凑格式；规则四从第二问起逐问执行。
+
+这是写在代码块外的下游补丁，原文未动。""",
+}
+
 _RUN_WITH_SLOTS = "把【】里的内容换成用户给的真实信息，然后严格照提示语里的规则做事"
 _RUN_NO_SLOTS = "直接按提示语里的角色和流程走"
 
@@ -183,7 +192,10 @@ def build():
 
         # 跨行的【…】是原文自带的引用括号（如乔哈里视窗整段），不是待填槽位
         placeholders = sorted(set(re.findall(r"【[^】\n]{1,40}】", body)))
-        parts = ["\n".join(fm), "", f"# {cn}", "", when, "", usage_block(bool(placeholders)), "", "```markdown", body.rstrip("\n"), "```"]
+        parts = ["\n".join(fm), "", f"# {cn}", "", when, "", usage_block(bool(placeholders))]
+        if name in NOTES:
+            parts += ["", NOTES[name]]
+        parts += ["", "```markdown", body.rstrip("\n"), "```"]
         if placeholders:
             parts += ["", "## 用户要填的位置", ""]
             parts += [f"- `{p}`" for p in placeholders]

@@ -50,6 +50,14 @@ npx skills@latest add LearnPrompt/laoyeye --skill fact-check
 
 那 13 条提示语出自卡兹克的[这篇](https://mp.weixin.qq.com/s/NAdhdFrUq9-BKelqzqpwBQ)和[这篇](https://mp.weixin.qq.com/s/L1ISA0FvxY_7OR994RttWw)。寓言故事那条的原始思路来自 Anthropic 的 [Amanda Askell](https://askell.io/)，卡兹克在她基础上加了防套路黑名单和两道检验题。仓库结构、user-invoked 与 model-invoked 的分法、老爷爷这个路由的形状，学的是 Matt 的 [ask-matt](https://github.com/mattpocock/skills/tree/main/skills/engineering/ask-matt) 和 grill-me。
 
+## 跟上游同装会怎样
+
+有人会同时装老爷爷和老师们的原仓库。说清楚三句话：
+
+- **名字不会冲突。**收录件都带来源前缀（matt-、kaz-、carl-），21 个名字跟上游发布的名字零重合，安装不会覆盖你已装的任何东西。
+- **内容会重复，但无害。**同一件东西两边各有一份时，模型选中哪份拿到的行为都一样，因为这里的副本跟钉住的上游 commit 逐字一致。代价只是多占一份描述的上下文。
+- **要维护的只有同步。**上游哪天改了行为而这里没跟，重复才会从无害变成行为不稳定——同一句话，两次得到两种反应。`python3 scripts/vendor.py pull` 一条命令对账，照出漂移就重新收录。
+
 ## 二十一件
 
 【】里的内容换成你自己的信息。手上有原始材料就一起丢上去，这年头不怕上下文多。

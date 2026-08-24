@@ -50,6 +50,14 @@ One more prompt, the Johari window, circulates online unsigned; if you are its a
 
 The 13 prompts come from [this piece](https://mp.weixin.qq.com/s/NAdhdFrUq9-BKelqzqpwBQ) and [this one](https://mp.weixin.qq.com/s/L1ISA0FvxY_7OR994RttWw) by Khazix. The fable method started with Anthropic's [Amanda Askell](https://askell.io/); Khazix added the anti-cliche blacklists and the two check questions. The repo layout, the user-invoked versus model-invoked split, and the shape of the laoyeye router all follow Matt's [ask-matt](https://github.com/mattpocock/skills/tree/main/skills/engineering/ask-matt) and grill-me.
 
+## Installing alongside the upstreams
+
+Some people will have both this ring and the teachers' original repos installed. Three facts:
+
+- **Names never collide.** Vendored pieces carry a source prefix (matt-, kaz-, carl-); all 21 names are disjoint from what the upstreams publish, so installing this overwrites nothing.
+- **Content duplicates, harmlessly.** When the same piece exists on both sides, whichever copy the model picks behaves identically, because the copies here are byte-identical to the pinned upstream commits. The only cost is one extra description in context.
+- **The one thing to maintain is sync.** If an upstream changes behavior and this repo has not caught up, the duplication turns from harmless into unstable: the same sentence gets two different treatments. `python3 scripts/vendor.py pull` reconciles against the pinned commits and shows any drift.
+
 ## The twenty-one
 
 Replace the 【…】 placeholders with your own details. Bring your raw material along, context is cheap.
