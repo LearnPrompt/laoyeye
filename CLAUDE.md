@@ -6,13 +6,13 @@
 
 | | 原文放哪 | 生成到哪 | 守卫 |
 |---|---|---|---|
-| 卡兹克 13 条提示语 | `sources/prompts.md` | 各 `SKILL.md` 里的 markdown 代码块 | `python3 scripts/sync.py verify` |
-| 收录的 6 个 skill | `vendor/`（钉在 commit 上） | `skills/<bucket>/<name>/` 整个目录 | `python3 scripts/vendor.py verify` |
+| 14 条提示语（卡兹克 13 + 无署名 1） | `sources/prompts.md` | 各 `SKILL.md` 里的 markdown 代码块 | `python3 scripts/sync.py verify` |
+| 收录的 7 个 skill | `vendor/`（钉在 commit 上） | `skills/<bucket>/<name>/` 整个目录 | `python3 scripts/vendor.py verify` |
 
 ## 铁律：都不许手改
 
 - **提示语**：要改先改 `sources/prompts.md`，再 `python3 scripts/sync.py build`。顺序、编号、标点、换行、`【】` 占位符全都算字。作者写的是全角冒号就是全角冒号，不要顺手改成英文标点。
-- **收录的 skill**：`skills/` 下那六个目录整个是生成物，连 `references/` 和 `scripts/` 一起。要动只能动 `vendor/`，而 `vendor/` 只能靠 `python3 scripts/vendor.py pull` 从上游同步，不能手编。
+- **收录的 skill**：`skills/` 下那七个目录整个是生成物，连 `references/` 和 `scripts/` 一起。要动只能动 `vendor/`，而 `vendor/` 只能靠 `python3 scripts/vendor.py pull` 从上游同步，不能手编。
 - 想加自己的说明，写在代码块**外面**、或者写在 README 里。原文里只有原文。
 - 每次提交前两道都跑。细节见 [.agents/verbatim.md](./.agents/verbatim.md)。
 

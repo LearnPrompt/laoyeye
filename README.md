@@ -6,7 +6,7 @@
 
 所以我把今年用到的辅助思考类型的提示语都熔炼起来，做成了这个每个人都可以拥有的戒指老爷爷。
 
-一共 19 件，分六个场景。你不用记住它们，说出你卡在哪就行，老爷爷点人。
+一共 21 件，分六个场景。你不用记住它们，说出你卡在哪就行，老爷爷点人。
 
 ## 安装
 
@@ -22,7 +22,7 @@ npx skills@latest add LearnPrompt/laoyeye --skill fact-check
 
 不知道用哪件，在会话里敲 `/laoyeye`，说说你卡在哪，老爷爷指路并直接把对应的那件唤起来。
 
-你的 Agent 不支持 Skill 也没关系。卡兹克那 13 条提示语本来就不需要装任何东西，打开 [sources/prompts.md](./sources/prompts.md)，复制哪条用哪条，粘进任何一个 AI 都能跑。
+你的 Agent 不支持 Skill 也没关系。那 14 条提示语本来就不需要装任何东西，打开 [sources/prompts.md](./sources/prompts.md)，复制哪条用哪条，粘进任何一个 AI 都能跑。
 
 ## 为什么会有它
 
@@ -43,12 +43,14 @@ npx skills@latest add LearnPrompt/laoyeye --skill fact-check
 | 老师 | 教的是 | 收录了 | 许可 |
 |---|---|---|---|
 | [数字生命卡兹克](https://github.com/KKKKhazix/khazix-skills) | 怎么问、怎么学、怎么决策、怎么认识自己 | 13 条提示语原文，加领导、洁癖 | 原文 / MIT |
-| [Matt Pocock](https://github.com/mattpocock/skills) | 怎么被拷问到把每个分支都想清楚，怎么把一门东西真学下来 | 拷问、拷问我、教 | MIT |
+| [Matt Pocock](https://github.com/mattpocock/skills) | 怎么被拷问到把每个分支都想清楚，怎么把一门东西真学下来，怎么修一个难缠的 bug | 拷问、拷问我、教、诊断 | MIT |
 | [卡尔（我自己）](https://github.com/LearnPrompt/partner-skill) | 方案成型之后找人拆台 | 点子王 | MIT |
+
+另有一条乔哈里视窗，流传于网络没有署名，原作者如认领欢迎提 issue。
 
 那 13 条提示语出自卡兹克的[这篇](https://mp.weixin.qq.com/s/NAdhdFrUq9-BKelqzqpwBQ)和[这篇](https://mp.weixin.qq.com/s/L1ISA0FvxY_7OR994RttWw)。寓言故事那条的原始思路来自 Anthropic 的 [Amanda Askell](https://askell.io/)，卡兹克在她基础上加了防套路黑名单和两道检验题。仓库结构、user-invoked 与 model-invoked 的分法、老爷爷这个路由的形状，学的是 Matt 的 [ask-matt](https://github.com/mattpocock/skills/tree/main/skills/engineering/ask-matt) 和 grill-me。
 
-## 十九件
+## 二十一件
 
 【】里的内容换成你自己的信息。手上有原始材料就一起丢上去，这年头不怕上下文多。
 
@@ -61,6 +63,7 @@ npx skills@latest add LearnPrompt/laoyeye --skill fact-check
 | [苏格拉底式提问](./skills/asking/socratic-inquiry/SKILL.md) | 我不知道我到底想问什么 | 先别急着要答案，让它把你真正该问的那个问题问出来，最多六问就收 |
 | [拷问](./skills/asking/matt-grilling/SKILL.md) · Matt | 把这个方案盘到底 | 把方案画成决策树，每个分支都问到底，走空为止 |
 | [拷问我](./skills/asking/matt-grill-me/SKILL.md) · Matt | `/matt-grill-me` | 同一场拷问，改成只有你亲口喊才开始 |
+| [乔哈里视窗](./skills/asking/johari-window/SKILL.md) | 别猜我的需求，先搞清楚再答 | 先分清这件事你知我知谁不知，再决定怎么答 |
 
 ### 二、学习
 
@@ -81,6 +84,7 @@ npx skills@latest add LearnPrompt/laoyeye --skill fact-check
 | [第一性原理](./skills/solving/first-principles/SKILL.md) | 用第一性原理重新想一遍 | 别再打补丁了，拆回最底层重新推 |
 | [跨领域借解](./skills/solving/cross-domain-borrow/SKILL.md) | 别的行业怎么解决这个 | 你这个问题，别的行业可能十几年前就解决了 |
 | [点子王](./skills/solving/carl-idea-king/SKILL.md) · 卡尔 | 点子王，拆一下这个方案 | 假设方案会死，然后去找它是怎么死的 |
+| [诊断](./skills/solving/matt-diagnosing-bugs/SKILL.md) · Matt | 帮我排查这个 bug | 先拿到一个能稳定复现的红灯，再谈任何理论，修完带回归测试 |
 
 ### 四、决策
 
@@ -116,12 +120,12 @@ Skill 化的常见做法是把提示语拆成 Agent 风格的流程步骤、加�
 守卫有两道，都会退出 1：
 
 ```bash
-python3 scripts/sync.py verify     # 13 条提示语 vs sources/prompts.md，逐字
-python3 scripts/vendor.py verify   # 6 个收录的 skill vs vendor/ 与 vendor.lock.json，逐字
+python3 scripts/sync.py verify     # 14 条提示语 vs sources/prompts.md，逐字
+python3 scripts/vendor.py verify   # 7 个收录的 skill vs vendor/ 与 vendor.lock.json，逐字
 ```
 
 老师们的原文躺在 [vendor/](./vendor/)，钉在具体 commit 上。生成到 `skills/` 时只做一件事：改名字，避开跟上游仓库的重名。改了哪几处写在 `scripts/vendor.py` 的 patches 里，一目了然。想跟上游同步就跑 `python3 scripts/vendor.py pull`。
 
 ## License
 
-仓库自己的代码与文档 MIT。收录的 skill 各自沿用原许可，原样保存在 [vendor/](./vendor/) 下，含各自的 LICENSE。那 13 条提示语的著作权属原作者，本仓库只做封装和校验，不主张任何权利。
+仓库自己的代码与文档 MIT。收录的 skill 各自沿用原许可，原样保存在 [vendor/](./vendor/) 下，含各自的 LICENSE。提示语原文的著作权属各自原作者，本仓库只做封装和校验，不主张任何权利。

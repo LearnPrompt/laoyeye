@@ -14,7 +14,7 @@
 
 ## 收录来的 skill，同一条规矩
 
-`vendor/` 下是上游的 pristine 副本，钉在具体 commit 上，配 `vendor.lock.json` 里每个文件的 sha256。`skills/` 下那六个目录整个是从 vendor 重放出来的，连 `references/` 和 `scripts/` 一起。
+`vendor/` 下是上游的 pristine 副本，钉在具体 commit 上，配 `vendor.lock.json` 里每个文件的 sha256。`skills/` 下那七个目录整个是从 vendor 重放出来的，连 `references/` 和 `scripts/` 一起。
 
 重放时只允许一类改动，全部声明在 `scripts/vendor.py` 的 `VENDORED` patches 里：**改名**。改名是为了避开跟上游仓库的重名，跟着改的还有正文里指向被改名 skill 的那一句（grill-me 里的 `Call the Skill tool with "grilling"`），不改它就指向一个不存在的 skill。
 

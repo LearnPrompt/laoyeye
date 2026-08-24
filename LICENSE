@@ -24,8 +24,8 @@ SOFTWARE.
 
 本许可覆盖仓库自己的代码与文档。
 
-sources/prompts.md 及各 SKILL.md 代码块内的 12 段提示语原文，著作权属数字生命卡兹克，
-出处见 README 的老师们一节。
+sources/prompts.md 及各 SKILL.md 代码块内的提示语原文，著作权属各自原作者
+（13 段属数字生命卡兹克，乔哈里视窗一段流传于网络无署名），出处见 README 的老师们一节。
 
 vendor/ 下是收录进来的第三方 skill 的 pristine 副本，各自沿用原许可，
 各自的 LICENSE 原样保存在同目录下：

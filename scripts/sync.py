@@ -109,6 +109,13 @@ CATALOG = [
         "人生设计术提示语原文。基于斯坦福人生设计方法，用户想看清现在的位置、分清重力问题和可设计的真问题、规划未来五年时使用。这是一次多轮深度对话，六到九个主问题，最后产出八千到一万两千字的个人人生设计蓝图和三个奥德赛计划。",
         False, "Life Design", "Design three different five-year versions of your life",
     ),
+    (
+        "asking", "johari-window", "乔哈里视窗",
+        "先分清这件事你知我知谁不知，再决定怎么答",
+        "不解决某一个具体问题，是给整段协作定规矩：AI 先判断当前信息落在哪个区，再选回应方式。\n\n开放区（都知道）直接答不啰嗦；隐藏区（只有你知道）先问最关键的一两个问题；盲区（只有它知道）主动指出你忽略的角度而不是原地微调；未知区（都不知道）切成共同探索，给多个方向不替你锁定答案。\n\n嫌 AI 要么话太多、要么不问就猜的时候，把这条挂在会话开头。",
+        "乔哈里视窗协作提示语原文。用户想设定 AI 的协作方式、抱怨回答不贴需求、嫌追问太多或不问就猜、希望先判断信息状态再回应时使用。触发词包括 乔哈里、视窗、开放区、盲区、隐藏区、未知区、协作模式、别猜我的需求、先搞清楚再答。整段挂在会话或任务开头，约束之后的全部协作。",
+        True, "Johari Window", "Judge who knows what before choosing how to respond",
+    ),
 ]
 
 BUCKETS = {
@@ -174,7 +181,8 @@ def build():
             fm.append("disable-model-invocation: true")
         fm.append("---")
 
-        placeholders = sorted(set(re.findall(r"【[^】]*】", body)))
+        # 跨行的【…】是原文自带的引用括号（如乔哈里视窗整段），不是待填槽位
+        placeholders = sorted(set(re.findall(r"【[^】\n]{1,40}】", body)))
         parts = ["\n".join(fm), "", f"# {cn}", "", when, "", usage_block(bool(placeholders)), "", "```markdown", body.rstrip("\n"), "```"]
         if placeholders:
             parts += ["", "## 用户要填的位置", ""]
