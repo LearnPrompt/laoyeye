@@ -56,4 +56,4 @@ description: 乔哈里视窗协作提示语原文。用户想设定 AI 的协作
 
 ---
 
-提示语原文来自数字生命卡兹克，出处见仓库 README 的致谢。改动这段原文要走 `scripts/sync.py`，手改会被 verify 拦下。
+提示语原文流传于网络、无署名，出处见仓库 README 的致谢。改动这段原文要走 `scripts/sync.py`，手改会被 verify 拦下。

@@ -11,6 +11,8 @@
 - **[横纵分析法](./horizontal-vertical-analysis/SKILL.md)**（`horizontal-vertical-analysis`）：纵轴看它怎么走到今天，横轴看它跟对手差在哪。
 - **[事实核查](./fact-check/SKILL.md)**（`fact-check`）：把事实、推论、价值判断拆开，一条条验。
 - **[寓言故事](./parable/SKILL.md)**（`parable`）：不直接讲这个概念，给你讲个故事，读完你自己悟到。
+- **[记忆寓言法](./memory-parable/SKILL.md)**（`memory-parable`）：换个领域讲个故事，故事记住了，概念也就记住了。
+- **[大图小字讲解法](./eli5/SKILL.md)**（`eli5`）：把你当成完全不懂的人，用大图配几个字的 HTML 讲清楚。
 
 ## 只有你能唤起
 

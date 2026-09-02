@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """戒指老爷爷（laoyeye）的提示语同步与校验工具。
 
-真理只有一份：sources/prompts.md 里的 12 个代码块。
-build   把这 12 段原文灌进各个 SKILL.md。
+真理只有一份：sources/prompts.md 里的 17 个代码块。
+build   把这 17 段原文灌进各个 SKILL.md。
 verify  逐字比对各个 SKILL.md 里的提示语和 sources/prompts.md，有一个字不一样就报错退出 1。
 """
 import hashlib
@@ -14,7 +14,11 @@ ROOT = Path(__file__).resolve().parent.parent
 SOURCES = ROOT / "sources" / "prompts.md"
 SKILLS = ROOT / "skills"
 
-FENCE = re.compile(r"^``` ?markdown\n(.*?)^```[ \t]*$", re.S | re.M)
+
+# 反引号数量不写死成 3：no-fluff-output 那段原文自带一个三反引号的嵌套代码示例，
+# 外层围栏必须比原文里出现的最长反引号串多一个才不会被误判成提前收尾。
+# \1 反向引用逼着收尾围栏跟开头反引号数量一致，2/3/4 条其余段落照旧用三个。
+FENCE = re.compile(r"^(`{3,}) ?markdown\n(.*?)^\1[ \t]*$", re.S | re.M)
 
 # (bucket, dir, 中文名, 一句话, 什么时候用, description, model_invoked, display_name, short_description)
 CATALOG = [
@@ -116,6 +120,27 @@ CATALOG = [
         "乔哈里视窗协作提示语原文。用户想设定 AI 的协作方式、抱怨回答不贴需求、嫌追问太多或不问就猜、希望先判断信息状态再回应时使用。触发词包括 乔哈里、视窗、开放区、盲区、隐藏区、未知区、协作模式、别猜我的需求、先搞清楚再答。整段挂在会话或任务开头，约束之后的全部协作。",
         True, "Johari Window", "Judge who knows what before choosing how to respond",
     ),
+    (
+        "learning", "memory-parable", "记忆寓言法",
+        "换个领域讲个故事，故事记住了，概念也就记住了",
+        "跟第 13 段寓言故事同一个思路，但这是更短、留原样英文的版本：陈乔维Justin 在一次采访里听 Anthropic 的 Amanda Askell 提到这个方法后原样整理出来的，没有卡兹克那份加的防套路清单和检验题。\n\n适合无聊的时候不想刷手机、想顺手学一个陌生领域的概念又怕学完就忘时使用。领域现填，什么专业都能套。",
+        "记忆寓言提示语原文。用户想用故事记住一个抽象或陌生的概念，或者只是无聊想让 AI 讲个有意思的东西时使用。触发词包括 记忆寓言、用故事帮我记、讲个寓言、别让我背概念、研究生水平的概念、无聊的时候讲个故事、Amanda Askell 那个提示词。产出一则不点破概念的寓言，再解释概念和寓言里每个隐喻的对应关系。",
+        True, "Memory Parable", "Turn a concept into a story worth remembering",
+    ),
+    (
+        "asking", "no-fluff-output", "直给输出法",
+        "先给能做的下一步，寒暄客套和自我总结一律砍掉",
+        "GitHub 上 ayghri 发布的开源 Skill i-have-adhd，小门道在抖音视频里翻译演示后卡尔收录。核心思路：不是让回答更短，是让回答的结构适合注意力容易断的人直接照着做，先说下一步动作，多步骤编号，结尾给一件两分钟内能做的事，报错直说原因和修法，不说客套话。\n\n适合嫌 AI 回答绕、爱兜圈子、结尾总来一句「希望有帮助」的时候，把这条挂在会话开头。跟乔哈里视窗一样是设定协作规则，不是解决单次问题；说「恢复正常模式」或「stop adhd mode」就关掉。",
+        "直给输出法提示语原文。用户抱怨 AI 说话啰嗦绕圈子、想要更直接可执行的回答、看长篇容易走神时使用。触发词包括 别废话、直接说重点、说结论、别绕弯子、有话直说、别来虚的、先说怎么做、拒绝废话、ADHD 友好、专注力不够。整段挂在会话开头，约束之后所有回答的结构，说恢复正常模式才关掉。",
+        True, "No-Fluff Output", "Lead with the next action, cut the padding",
+    ),
+    (
+        "learning", "eli5", "大图小字讲解法",
+        "把你当成完全不懂的人，用大图配几个字的 HTML 讲清楚",
+        "苏乐在 X 上转述的 Anthropic 内部 Skill，名字就叫 eli5（explain like I'm 5）。核心只有一句话：把用户当成对这个主题一无所知的人，生成一个 HTML artifact，图占大头，字尽量少。\n\n适合想快速看懂一个陌生主题、又不想啃长篇文字时使用。原帖后半段的中文翻译收录当天赶上 X 大规模封锁自动化访问，只拿到被平台截断的片段，为了不替作者把话编完，这里只收录苏乐本人点名「整个 Skill 核心就一句话」的完整英文原句。",
+        "大图小字讲解法提示语原文。用户想快速看懂一个陌生主题、希望图多字少地讲清楚、提到 eli5 或完全不懂某个东西时使用。触发词包括 大图小字、eli5、当我什么都不懂、图文讲解、少量文字讲清楚、我完全不懂给我讲讲、生成一个讲解页面。产出一个大图配少量文字的 HTML 讲解页面。",
+        True, "Big Picture, Few Words", "Explain it with a big picture and barely any words",
+    ),
 ]
 
 BUCKETS = {
@@ -134,6 +159,23 @@ NOTES = {
 原文规则四要求每次提问前，用一句话说明上一条回答让你更新了什么判断。第一问之前还没有任何回答，这条在首轮无从执行。首轮直接问第一个问题，不要编造一句判断更新来凑格式；规则四从第二问起逐问执行。
 
 这是写在代码块外的下游补丁，原文未动。""",
+    "memory-parable": """## 领域怎么填
+
+原文最后一行 `Domain: [your field]` 里的 `[your field]` 要换成用户想学的领域，比如经济学、心理学、计算机、哲学。用户没说清楚就先问，别自己替他挑。""",
+    "eli5": """## 只收了核心那一句
+
+原帖后半段的中文翻译，收录当天赶上 X 大规模封锁自动化访问，只能拿到被平台截断的片段。为了不替原作者把话编完，这里只保留苏乐本人点名「整个 Skill 核心就一句话」的那句完整英文原句。想看更完整的上下文，去 sources/prompts.md 文件头的原帖链接自己核对。""",
+}
+
+# 每条提示语代码块下方的署名句，按 slug 查；查不到的用 DEFAULT_ATTRIBUTION。
+# 这张表本身也是"改动原文出处要走 sync.py"这条铁律管的对象，手改 SKILL.md
+# 里的署名句会被 verify 当成逐字漂移拦下。
+DEFAULT_ATTRIBUTION = "提示语原文来自数字生命卡兹克，出处见仓库 README 的致谢。改动这段原文要走 `scripts/sync.py`，手改会被 verify 拦下。"
+ATTRIBUTION = {
+    "johari-window": "提示语原文流传于网络、无署名，出处见仓库 README 的致谢。改动这段原文要走 `scripts/sync.py`，手改会被 verify 拦下。",
+    "memory-parable": "提示语原文来自陈乔维Justin（抖音），出处见仓库 README 的致谢。改动这段原文要走 `scripts/sync.py`，手改会被 verify 拦下。",
+    "no-fluff-output": "提示语原文来自 ayghri（GitHub 项目 i-have-adhd，经小门道抖音转发），出处见仓库 README 的致谢。改动这段原文要走 `scripts/sync.py`，手改会被 verify 拦下。",
+    "eli5": "提示语原文来自苏乐（X），出处见仓库 README 的致谢。改动这段原文要走 `scripts/sync.py`，手改会被 verify 拦下。",
 }
 
 _RUN_WITH_SLOTS = "把【】里的内容换成用户给的真实信息，然后严格照提示语里的规则做事"
@@ -162,7 +204,7 @@ def read_source_blocks():
     路径行是唯一能钉死配对关系的东西，所以它才是真正的校验。
     """
     text = SOURCES.read_text(encoding="utf-8")
-    blocks = FENCE.findall(text)
+    blocks = [body for _fence, body in FENCE.findall(text)]
     if len(blocks) != len(CATALOG):
         sys.exit(f"sources/prompts.md 里有 {len(blocks)} 段提示语，CATALOG 里有 {len(CATALOG)} 条，对不上")
     paths = PATH_LINE.findall(text)
@@ -177,6 +219,18 @@ def read_source_blocks():
 
 def skill_dir(bucket, name):
     return SKILLS / bucket / name
+
+
+def fence_for(body):
+    """围栏反引号数量：比原文里最长的一串反引号多一个，最少 3 个。
+
+    大多数段落原文里压根没有反引号，走默认的 3 个。no-fluff-output 那段
+    原文自己嵌了一段三反引号代码示例，这里就会算出 4，SKILL.md 里生成的
+    外层围栏跟着变成 4 个，两边不会互相咬到。
+    """
+    runs = re.findall(r"`+", body)
+    longest = max((len(r) for r in runs), default=0)
+    return "`" * max(3, longest + 1)
 
 
 def build():
@@ -195,12 +249,13 @@ def build():
         parts = ["\n".join(fm), "", f"# {cn}", "", when, "", usage_block(bool(placeholders))]
         if name in NOTES:
             parts += ["", NOTES[name]]
-        parts += ["", "```markdown", body.rstrip("\n"), "```"]
+        fence = fence_for(body)
+        parts += ["", f"{fence}markdown", body.rstrip("\n"), fence]
         if placeholders:
             parts += ["", "## 用户要填的位置", ""]
             parts += [f"- `{p}`" for p in placeholders]
             parts += ["", "用户没给全就先问缺的那一条，别自己替他编。"]
-        parts += ["", "---", "", "提示语原文来自数字生命卡兹克，出处见仓库 README 的致谢。改动这段原文要走 `scripts/sync.py`，手改会被 verify 拦下。", ""]
+        parts += ["", "---", "", ATTRIBUTION.get(name, DEFAULT_ATTRIBUTION), ""]
         (d / "SKILL.md").write_text("\n".join(parts), encoding="utf-8")
 
         yaml = ["interface:", f'  display_name: "{display}"', f'  short_description: "{short}"']
@@ -217,7 +272,7 @@ def _user_invoked(bucket, name):
 
 
 def write_bucket_readmes():
-    """每个 bucket 一份目录，本仓库原生的 12 条和收录来的老师们的 skill 一起列。"""
+    """每个 bucket 一份目录，本仓库原生的 17 条和收录来的老师们的 skill 一起列。"""
     import importlib.util
     spec = importlib.util.spec_from_file_location("vendor", ROOT / "scripts" / "vendor.py")
     vendor = importlib.util.module_from_spec(spec)
@@ -261,7 +316,7 @@ def verify():
             print(f"FENCE    {bucket}/{name} 里有 {len(found)} 个 markdown 代码块，应该只有 1 个")
             bad += 1
             continue
-        if found[0] != body:
+        if found[0][1] != body:
             print(f"DRIFT    {bucket}/{name} 的提示语和 sources/prompts.md 不一致")
             bad += 1
             continue

@@ -6,7 +6,7 @@
 
 所以我把今年用到的辅助思考类型的提示语都熔炼起来，做成了这个每个人都可以拥有的戒指老爷爷。
 
-一共 21 件，分六个场景。你不用记住它们，说出你卡在哪就行，老爷爷点人。
+一共 24 件，分六个场景。你不用记住它们，说出你卡在哪就行，老爷爷点人。
 
 ## 安装
 
@@ -14,7 +14,7 @@
 npx skills@latest add LearnPrompt/laoyeye
 ```
 
-装完就能用。想只装其中一件（注意 `--skill` 后面是空格不是等号，写成 `--skill=fact-check` 不会报错，会把 20 件全装上）：
+装完就能用。想只装其中一件（注意 `--skill` 后面是空格不是等号，写成 `--skill=fact-check` 不会报错，会把 25 件全装上）：
 
 ```bash
 npx skills@latest add LearnPrompt/laoyeye --skill fact-check
@@ -22,7 +22,7 @@ npx skills@latest add LearnPrompt/laoyeye --skill fact-check
 
 不知道用哪件，在会话里敲 `/laoyeye`，说说你卡在哪，老爷爷指路并直接把对应的那件唤起来。
 
-你的 Agent 不支持 Skill 也没关系。那 14 条提示语本来就不需要装任何东西，打开 [sources/prompts.md](./sources/prompts.md)，复制哪条用哪条，粘进任何一个 AI 都能跑。
+你的 Agent 不支持 Skill 也没关系。那 17 条提示语本来就不需要装任何东西，打开 [sources/prompts.md](./sources/prompts.md)，复制哪条用哪条，粘进任何一个 AI 都能跑。
 
 ## 为什么会有它
 
@@ -45,20 +45,23 @@ npx skills@latest add LearnPrompt/laoyeye --skill fact-check
 | [数字生命卡兹克](https://github.com/KKKKhazix/khazix-skills) | 怎么问、怎么学、怎么决策、怎么认识自己 | 13 条提示语原文，加领导、洁癖 | 原文 / MIT |
 | [Matt Pocock](https://github.com/mattpocock/skills) | 怎么被拷问到把每个分支都想清楚，怎么把一门东西真学下来，怎么修一个难缠的 bug | 拷问、拷问我、教、诊断 | MIT |
 | [卡尔（我自己）](https://github.com/LearnPrompt/partner-skill) | 方案成型之后找人拆台 | 点子王 | MIT |
+| [陈乔维Justin](https://v.douyin.com/fljKQMAoiGQ/) | 转述 Amanda Askell 那套记忆寓言法 | 记忆寓言法 | 原帖 / 署名转载，作者可提 issue 认领或下架 |
+| [ayghri](https://github.com/ayghri/i-have-adhd) | 让 AI 输出别绕弯子、先给下一步动作 | 直给输出法 | 原帖 / 署名转载，作者可提 issue 认领或下架 |
+| [苏乐](https://x.com/ai_suxiaole) | 转述 Anthropic 内部拿来讲概念的 Skill | 大图小字（eli5） | 原帖 / 署名转载，作者可提 issue 认领或下架 |
 
-另有一条乔哈里视窗，流传于网络没有署名，原作者如认领欢迎提 issue。
+另有一条乔哈里视窗，流传于网络没有署名，原作者如认领欢迎提 issue。记忆寓言法、直给输出法、大图小字这三条也是同样的性质：卡尔分别从抖音、GitHub、X 上看到后原样转录收录，不是这几位作者主动投稿，认领或要求下架都可以直接提 issue。直给输出法的原始出处 [ayghri/i-have-adhd](https://github.com/ayghri/i-have-adhd) 本身是 MIT 协议的开源仓库，这里只转录了其中 `SKILL.md` 的正文，完整项目和授权条款见上游链接。
 
-那 13 条提示语出自卡兹克的[这篇](https://mp.weixin.qq.com/s/NAdhdFrUq9-BKelqzqpwBQ)和[这篇](https://mp.weixin.qq.com/s/L1ISA0FvxY_7OR994RttWw)。寓言故事那条的原始思路来自 Anthropic 的 [Amanda Askell](https://askell.io/)，卡兹克在她基础上加了防套路黑名单和两道检验题。仓库结构、user-invoked 与 model-invoked 的分法、老爷爷这个路由的形状，学的是 Matt 的 [ask-matt](https://github.com/mattpocock/skills/tree/main/skills/engineering/ask-matt) 和 grill-me。
+那 13 条提示语出自卡兹克的[这篇](https://mp.weixin.qq.com/s/NAdhdFrUq9-BKelqzqpwBQ)和[这篇](https://mp.weixin.qq.com/s/L1ISA0FvxY_7OR994RttWw)。寓言故事那条的原始思路来自 Anthropic 的 [Amanda Askell](https://askell.io/)，卡兹克在她基础上加了防套路黑名单和两道检验题；记忆寓言法是同一个 Amanda Askell 思路的另一版转述，陈乔维Justin 在一次采访里听到后原样整理成英文原版，没加卡兹克那份防套路清单。仓库结构、user-invoked 与 model-invoked 的分法、老爷爷这个路由的形状，学的是 Matt 的 [ask-matt](https://github.com/mattpocock/skills/tree/main/skills/engineering/ask-matt) 和 grill-me。
 
 ## 跟上游同装会怎样
 
 有人会同时装老爷爷和老师们的原仓库。说清楚三句话：
 
-- **名字不会冲突。**收录件都带来源前缀（matt-、kaz-、carl-），21 个名字跟上游发布的名字零重合，安装不会覆盖你已装的任何东西。
+- **名字不会冲突。**收录件都带来源前缀（matt-、kaz-、carl-），24 个名字跟上游发布的名字零重合，安装不会覆盖你已装的任何东西。
 - **内容会重复，但无害。**同一件东西两边各有一份时，模型选中哪份拿到的行为都一样，因为这里的副本跟钉住的上游 commit 逐字一致。代价只是多占一份描述的上下文。
 - **要维护的只有同步。**上游哪天改了行为而这里没跟，重复才会从无害变成行为不稳定——同一句话，两次得到两种反应。`python3 scripts/vendor.py pull` 一条命令对账，照出漂移就重新收录。
 
-## 二十一件
+## 二十四件
 
 【】里的内容换成你自己的信息。手上有原始材料就一起丢上去，这年头不怕上下文多。
 
@@ -72,6 +75,7 @@ npx skills@latest add LearnPrompt/laoyeye --skill fact-check
 | [拷问](./skills/asking/matt-grilling/SKILL.md) · Matt | 把这个方案盘到底 | 把方案画成决策树，每个分支都问到底，走空为止 |
 | [拷问我](./skills/asking/matt-grill-me/SKILL.md) · Matt | `/matt-grill-me` | 同一场拷问，改成只有你亲口喊才开始 |
 | [乔哈里视窗](./skills/asking/johari-window/SKILL.md) | 别猜我的需求，先搞清楚再答 | 先分清这件事你知我知谁不知，再决定怎么答 |
+| [直给输出法](./skills/asking/no-fluff-output/SKILL.md) · ayghri | 别废话，直接说重点 | 先给能做的下一步，寒暄客套和自我总结一律砍掉 |
 
 ### 二、学习
 
@@ -82,6 +86,8 @@ npx skills@latest add LearnPrompt/laoyeye --skill fact-check
 | [横纵分析法](./skills/learning/horizontal-vertical-analysis/SKILL.md) | 深度研究一下这家公司 | 纵轴看它怎么走到今天，横轴看它跟对手差在哪 |
 | [事实核查](./skills/learning/fact-check/SKILL.md) | 这个说法是真的吗 | 把事实、推论、价值判断拆开，一条条验 |
 | [寓言故事](./skills/learning/parable/SKILL.md) | 用寓言给我讲讲这个概念 | 不直接讲这个概念，给你讲个故事，读完你自己悟到 |
+| [记忆寓言法](./skills/learning/memory-parable/SKILL.md) · 陈乔维Justin | 换个领域给我讲个故事记住它 | 换个领域讲个故事，故事记住了，概念也就记住了 |
+| [大图小字讲解法](./skills/learning/eli5/SKILL.md) · 苏乐 | 用大图配少量文字给我讲清楚 | 把你当成完全不懂的人，用大图配几个字的 HTML 讲清楚 |
 | [教](./skills/learning/matt-teach/SKILL.md) · Matt | `/matt-teach` | 把当前目录变成你的私人课堂，一节课一个小胜利，课件和速查表都留着 |
 
 ### 三、解决问题
@@ -128,7 +134,7 @@ Skill 化的常见做法是把提示语拆成 Agent 风格的流程步骤、加�
 守卫有两道，都会退出 1：
 
 ```bash
-python3 scripts/sync.py verify     # 14 条提示语 vs sources/prompts.md，逐字
+python3 scripts/sync.py verify     # 17 条提示语 vs sources/prompts.md，逐字
 python3 scripts/vendor.py verify   # 7 个收录的 skill vs vendor/ 与 vendor.lock.json，逐字
 ```
 

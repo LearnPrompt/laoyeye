@@ -1,0 +1,3 @@
+interface:
+  display_name: "No-Fluff Output"
+  short_description: "Lead with the next action, cut the padding"
