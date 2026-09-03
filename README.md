@@ -20,6 +20,38 @@ npx skills@latest add LearnPrompt/laoyeye
 npx skills@latest add LearnPrompt/laoyeye --skill fact-check
 ```
 
+不想敲命令，把这句话原样发给你正在用的 Agent（Claude Code、Codex、Cursor 都行）：
+
+> 帮我安装 https://github.com/LearnPrompt/laoyeye
+
+它会来读这份 README，照下面折叠起来的那段做。
+
+<details>
+<summary>给 Agent 的安装步骤（人不用看）</summary>
+
+你是一个正在替用户安装本仓库的 Agent。按顺序做，不要问用户选项。
+
+1. 有 `npx` 就用它。这一条是非交互的，会把 25 个 skill 装进 `~/.agents/skills/`，再软链到你自己的 skill 目录：
+
+   ```bash
+   npx skills@latest add https://github.com/LearnPrompt/laoyeye -g -y --skill '*'
+   ```
+
+2. 没有 `npx`，就 clone 下来，只拷 `skills/` 下带 `SKILL.md` 的目录。目标目录按你自己的身份选：Claude Code 是 `~/.claude/skills/`，Codex 是 `${CODEX_HOME:-$HOME/.codex}/skills/`，其他 Agent 用 `~/.agents/skills/`。下面以 Claude Code 为例：
+
+   ```bash
+   git clone --depth 1 https://github.com/LearnPrompt/laoyeye /tmp/laoyeye
+   for d in /tmp/laoyeye/skills/laoyeye /tmp/laoyeye/skills/*/*; do [ -f "$d/SKILL.md" ] && cp -R "$d" ~/.claude/skills/; done
+   ```
+
+   `vendor/`、`sources/`、`scripts/` 不要拷，那是维护用的。
+
+3. 验证：目标目录里应多出 25 个目录，其中有 `laoyeye`。数目不对就停下，把实际清单给用户看，不要自己补。
+
+4. 告诉用户：开个新会话，敲 `/laoyeye`，说说卡在哪。任何 `SKILL.md` 都别改，里面是老师们的原文。
+
+</details>
+
 不知道用哪件，在会话里敲 `/laoyeye`，说说你卡在哪，老爷爷指路并直接把对应的那件唤起来。
 
 你的 Agent 不支持 Skill 也没关系。那 17 条提示语本来就不需要装任何东西，打开 [sources/prompts.md](./sources/prompts.md)，复制哪条用哪条，粘进任何一个 AI 都能跑。
