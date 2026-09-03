@@ -2,6 +2,8 @@
 
 # laoyeye 戒指老爷爷
 
+![laoyeye](./assets/hero.jpg)
+
 In Chinese web novels the hero always has an old man living in his ring, who steps in with a plan when it matters. So why shouldn't we have our own old man, now that we work with AI all day.
 
 I took every thinking prompt I actually used this year and forged them into one ring. 老爷爷, laoyeye, the old man. Anyone can have one.
