@@ -6,7 +6,7 @@ In Chinese web novels the hero always has an old man living in his ring, who ste
 
 I took every thinking prompt I actually used this year and forged them into one ring. 老爷爷, laoyeye, the old man. Anyone can have one.
 
-21 pieces across six situations. You do not memorise them. You say what you are stuck on, and he picks.
+24 pieces across six situations. You do not memorise them. You say what you are stuck on, and he picks.
 
 ## Install
 
@@ -14,7 +14,7 @@ I took every thinking prompt I actually used this year and forged them into one 
 npx skills@latest add LearnPrompt/laoyeye
 ```
 
-That is the whole setup. For a single piece (note the space, not an equals sign — `--skill=fact-check` does not error, it quietly installs all 20):
+That is the whole setup. For a single piece (note the space, not an equals sign — `--skill=fact-check` does not error, it quietly installs all 25):
 
 ```bash
 npx skills@latest add LearnPrompt/laoyeye --skill fact-check
@@ -22,7 +22,7 @@ npx skills@latest add LearnPrompt/laoyeye --skill fact-check
 
 If you do not know which one fits, type `/laoyeye` in a session, say what you are stuck on, and he routes you and fires the right one.
 
-No skill support in your agent? The 14 prompts never needed an install anyway. Open [sources/prompts.md](./sources/prompts.md), copy the one you want, paste it into any AI. Those 12 are in Chinese, which is how their author wrote them and how they are kept here. Most models answer in whatever language you write back in.
+No skill support in your agent? The 17 prompts never needed an install anyway. Open [sources/prompts.md](./sources/prompts.md), copy the one you want, paste it into any AI. Most are in Chinese, which is how their authors wrote them and how they are kept here; memory-parable, no-fluff-output, and eli5 are kept in English for the same reason, since that is the language their authors published them in. Most models answer in whatever language you write back in.
 
 ## Why this exists
 
@@ -45,20 +45,23 @@ What lives in the ring is not mine alone. Whoever taught it owns it, and not one
 | [数字生命卡兹克 / Khazix](https://github.com/KKKKhazix/khazix-skills) | Asking, learning, deciding, knowing yourself | 13 prompts, plus leader and neat-freak | article / MIT |
 | [Matt Pocock](https://github.com/mattpocock/skills) | Being interrogated until every branch is settled, actually learning a subject, and diagnosing a stubborn bug | grilling, grill-me, teach, diagnosing-bugs | MIT |
 | [Carl (me)](https://github.com/LearnPrompt/partner-skill) | Tearing a finished-looking plan apart | idea-king | MIT |
+| [陈乔维Justin](https://v.douyin.com/fljKQMAoiGQ/) | Retold Amanda Askell's memory-parable method | memory-parable | reposted / attributed, open an issue to claim or take down |
+| [ayghri](https://github.com/ayghri/i-have-adhd) | Keeping AI output blunt, leading with the next action | no-fluff-output | reposted / attributed, open an issue to claim or take down |
+| [苏乐](https://x.com/ai_suxiaole) | Retold an internal Anthropic explainer skill | 大图小字 (eli5) | reposted / attributed, open an issue to claim or take down |
 
-One more prompt, the Johari window, circulates online unsigned; if you are its author, open an issue and claim it.
+One more prompt, the Johari window, circulates online unsigned; if you are its author, open an issue and claim it. The same goes for the three above — memory-parable, no-fluff-output, and eli5: Carl found and transcribed them from Douyin, GitHub, and X respectively, none of these authors submitted them here, and anyone can open an issue to claim or ask for a take-down. no-fluff-output's original source, [ayghri/i-have-adhd](https://github.com/ayghri/i-have-adhd), is itself an MIT-licensed open-source repo; only the `SKILL.md` body is transcribed here, see the upstream link for the full project and its license.
 
-The 13 prompts come from [this piece](https://mp.weixin.qq.com/s/NAdhdFrUq9-BKelqzqpwBQ) and [this one](https://mp.weixin.qq.com/s/L1ISA0FvxY_7OR994RttWw) by Khazix. The fable method started with Anthropic's [Amanda Askell](https://askell.io/); Khazix added the anti-cliche blacklists and the two check questions. The repo layout, the user-invoked versus model-invoked split, and the shape of the laoyeye router all follow Matt's [ask-matt](https://github.com/mattpocock/skills/tree/main/skills/engineering/ask-matt) and grill-me.
+The 13 prompts come from [this piece](https://mp.weixin.qq.com/s/NAdhdFrUq9-BKelqzqpwBQ) and [this one](https://mp.weixin.qq.com/s/L1ISA0FvxY_7OR994RttWw) by Khazix. The fable method started with Anthropic's [Amanda Askell](https://askell.io/); Khazix added the anti-cliche blacklists and the two check questions. memory-parable retells the same Amanda Askell method in a different, shorter version: 陈乔维Justin heard it in an interview and transcribed it straight into the English original, without Khazix's added blacklists. The repo layout, the user-invoked versus model-invoked split, and the shape of the laoyeye router all follow Matt's [ask-matt](https://github.com/mattpocock/skills/tree/main/skills/engineering/ask-matt) and grill-me.
 
 ## Installing alongside the upstreams
 
 Some people will have both this ring and the teachers' original repos installed. Three facts:
 
-- **Names never collide.** Vendored pieces carry a source prefix (matt-, kaz-, carl-); all 21 names are disjoint from what the upstreams publish, so installing this overwrites nothing.
+- **Names never collide.** Vendored pieces carry a source prefix (matt-, kaz-, carl-); all 24 names are disjoint from what the upstreams publish, so installing this overwrites nothing.
 - **Content duplicates, harmlessly.** When the same piece exists on both sides, whichever copy the model picks behaves identically, because the copies here are byte-identical to the pinned upstream commits. The only cost is one extra description in context.
 - **The one thing to maintain is sync.** If an upstream changes behavior and this repo has not caught up, the duplication turns from harmless into unstable: the same sentence gets two different treatments. `python3 scripts/vendor.py pull` reconciles against the pinned commits and shows any drift.
 
-## The twenty-one
+## The twenty-four
 
 Replace the 【…】 placeholders with your own details. Bring your raw material along, context is cheap.
 
@@ -72,6 +75,7 @@ The trigger column is what you actually say. The ones showing a slash command ne
 | [grilling](./skills/asking/matt-grilling/SKILL.md) · Matt | 把这个方案盘到底 | Maps the plan as a design tree and works every branch until the frontier is empty |
 | [grill-me](./skills/asking/matt-grill-me/SKILL.md) · Matt | `/matt-grill-me` | The same interrogation, started only when you ask for it by name |
 | [乔哈里视窗 / Johari window](./skills/asking/johari-window/SKILL.md) | 别猜我的需求，先搞清楚再答 | Judge who knows what before choosing how to respond |
+| [直给输出法 / No-fluff output](./skills/asking/no-fluff-output/SKILL.md) · ayghri | 别废话，直接说重点 | Lead with the next action, cut the padding |
 
 ### 2. Learn
 
@@ -82,6 +86,8 @@ The trigger column is what you actually say. The ones showing a slash command ne
 | [横纵分析法 / Horizontal-vertical](./skills/learning/horizontal-vertical-analysis/SKILL.md) | 深度研究一下这家公司 | Vertical for how it got here, horizontal for how it differs from rivals |
 | [事实核查 / Fact check](./skills/learning/fact-check/SKILL.md) | 这个说法是真的吗 | Split a claim into fact, inference, and value judgement, then verify each |
 | [寓言故事 / Parable](./skills/learning/parable/SKILL.md) | 用寓言给我讲讲这个概念 | Never names the concept. Tells you a story instead, and you work it out yourself |
+| [记忆寓言法 / Memory parable](./skills/learning/memory-parable/SKILL.md) · 陈乔维Justin | 换个领域给我讲个故事记住它 | Turn a concept into a story worth remembering |
+| [大图小字 / eli5](./skills/learning/eli5/SKILL.md) · 苏乐 | 用大图配少量文字给我讲清楚 | Explain it with a big picture and barely any words |
 | [teach](./skills/learning/matt-teach/SKILL.md) · Matt | `/matt-teach` | Turns this directory into your private classroom, one small win per lesson, lessons and reference sheets kept |
 
 ### 3. Solve
@@ -117,7 +123,7 @@ Two long interviews, half an hour and up. They never interrupt you on their own.
 | [挖掘隐藏天赋 / Hidden talent](./skills/self-knowledge/hidden-talent/SKILL.md) | `/hidden-talent` | Looking back, assembling unrelated experiences into a talent manual |
 | [人生设计术 / Life design](./skills/self-knowledge/life-design/SKILL.md) | `/life-design` | Looking forward, three different five-year versions all worth taking seriously |
 
-The old man himself lives at [skills/laoyeye](./skills/laoyeye/SKILL.md). Type `/laoyeye` to call him. His whole job is routing your situation to one of the twenty-one.
+The old man himself lives at [skills/laoyeye](./skills/laoyeye/SKILL.md). Type `/laoyeye` to call him. His whole job is routing your situation to one of the twenty-four.
 
 ## Why verbatim
 
@@ -128,7 +134,7 @@ These are finished work. Their effect comes from the specific wording, the pacin
 Two guards, both exit 1:
 
 ```bash
-python3 scripts/sync.py verify     # the 14 prompts against sources/prompts.md, character by character
+python3 scripts/sync.py verify     # the 17 prompts against sources/prompts.md, character by character
 python3 scripts/vendor.py verify   # the 7 vendored skills against vendor/ and vendor.lock.json
 ```
 

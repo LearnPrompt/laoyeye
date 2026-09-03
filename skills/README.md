@@ -13,4 +13,4 @@
 
 [`laoyeye/`](./laoyeye/SKILL.md) 是路由，不属于任何场景。不知道用哪条就敲 `/laoyeye`。
 
-各个 bucket 下的东西全是生成物：本仓库原生的 12 条来自 `scripts/sync.py build`，收录来的 5 个来自 `scripts/vendor.py build`。都不要手改，规矩见 [CLAUDE.md](../CLAUDE.md)。
+各个 bucket 下的东西全是生成物：本仓库原生的 17 条来自 `scripts/sync.py build`，收录来的 7 个来自 `scripts/vendor.py build`。都不要手改，规矩见 [CLAUDE.md](../CLAUDE.md)。

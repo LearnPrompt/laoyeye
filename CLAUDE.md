@@ -6,7 +6,7 @@
 
 | | 原文放哪 | 生成到哪 | 守卫 |
 |---|---|---|---|
-| 14 条提示语（卡兹克 13 + 无署名 1） | `sources/prompts.md` | 各 `SKILL.md` 里的 markdown 代码块 | `python3 scripts/sync.py verify` |
+| 17 条提示语（卡兹克 13 + 无署名 1 + 转载自其他作者 3） | `sources/prompts.md` | 各 `SKILL.md` 里的 markdown 代码块 | `python3 scripts/sync.py verify` |
 | 收录的 7 个 skill | `vendor/`（钉在 commit 上） | `skills/<bucket>/<name>/` 整个目录 | `python3 scripts/vendor.py verify` |
 
 ## 铁律：都不许手改
@@ -19,10 +19,10 @@
 ## 目录
 
 ```
-sources/prompts.md              卡兹克 12 条原文，唯一真理
+sources/prompts.md              17 条提示语原文，唯一真理
 vendor/                         老师们的 pristine 副本，钉在 commit 上
 vendor/vendor.lock.json         每个文件的 sha256、上游仓库和 commit
-scripts/sync.py                 12 条提示语的 build / verify
+scripts/sync.py                 17 条提示语的 build / verify
 scripts/vendor.py               收录 skill 的 build / verify / pull
 skills/<bucket>/<name>/         生成物，全部
 skills/laoyeye/SKILL.md          老爷爷路由，手写
@@ -53,7 +53,7 @@ skills/laoyeye/SKILL.md          老爷爷路由，手写
 - **模型可唤起**（默认）：`description` 里写足触发词，Agent 自己就能拿出来用。
 - **只有用户能唤起**：加 `disable-model-invocation: true`，同时在 `agents/openai.yaml` 里加 `policy.allow_implicit_invocation: false`。
 
-目前五条是用户唤起：`laoyeye`、`matt-grill-me`、`matt-teach`、`hidden-talent`、`life-design`。收录来的沿用上游的身份，不动。本仓库原生那 12 条的身份写在 `CATALOG` 的 `model_invoked` 布尔值上，别绕过 `sync.py` 直接改 frontmatter。
+目前五条是用户唤起：`laoyeye`、`matt-grill-me`、`matt-teach`、`hidden-talent`、`life-design`。收录来的沿用上游的身份，不动。本仓库原生那 17 条的身份写在 `CATALOG` 的 `model_invoked` 布尔值上，别绕过 `sync.py` 直接改 frontmatter。
 
 收录来的 skill 里，只有 mattpocock 那三条上游带 `agents/openai.yaml`。khazix 的和点子王没有，这里也不替它们造一个——造了就不是原样收录了。
 

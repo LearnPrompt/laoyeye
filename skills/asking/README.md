@@ -8,6 +8,7 @@
 
 - **[苏格拉底式提问](./socratic-inquiry/SKILL.md)**（`socratic-inquiry`）：先别急着要答案，让它把你真正该问的那个问题问出来。
 - **[乔哈里视窗](./johari-window/SKILL.md)**（`johari-window`）：先分清这件事你知我知谁不知，再决定怎么答。
+- **[直给输出法](./no-fluff-output/SKILL.md)**（`no-fluff-output`）：先给能做的下一步，寒暄客套和自我总结一律砍掉。
 - **[拷问 grilling](./matt-grilling/SKILL.md)**（`matt-grilling`，收录自 mattpocock-skills）：把方案画成决策树，每个分支都问到底，走空为止。苏格拉底六问就收，这条不收。
 
 ## 只有你能唤起
