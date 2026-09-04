@@ -38,7 +38,7 @@ skills/laoyeye/SKILL.md          老爷爷路由，手写
 
 ## 加东西
 
-**加一条提示语**：追加进 `sources/prompts.md` → 在 `scripts/sync.py` 的 `CATALOG` 里加一条（顺序必须跟文件里的块一一对应）→ build → verify。
+**加一条提示语**：追加进 `sources/prompts.md` → 在 `scripts/sync.py` 的 `CATALOG` 里加一条（顺序必须跟文件里的块一一对应）→ build → verify。同时在 `NOTES` 里给它写一段「跑完接哪条」，并把同一条接力加进路由的接力表，两边要对得上。
 
 **收录一个 skill**：把上游文件按原路径放进 `vendor/<repo>/` → 更新 `vendor/vendor.lock.json`（repo、commit、`raw` 模板、每个文件的 sha256）→ 在 `scripts/vendor.py` 的 `VENDORED` 里加一条 → build → verify → pull。上游许可必须允许再分发，并把上游的 LICENSE 一起放进 `vendor/<repo>/`。
 
