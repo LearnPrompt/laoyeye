@@ -18,6 +18,7 @@
 - 第 17 段（大图小字讲解法）：苏乐（X 账号 @ai_suxiaole）转述的 Anthropic 内部 Skill「eli5」，2026-09-03 由卡尔提供收录。
   https://x.com/ai_suxiaole/status/2093311383647494328
   原帖全文已经过 fxtwitter 镜像核对（2026-09-03）：提示语本身就是这一句英文，帖子其余部分是苏乐自己的评论。苏乐附的中文版写在 `skills/learning/eli5/SKILL.md` 代码块外的说明里，不进代码块。
+- 第 18 段（逆向法）：核心思路「先列出保证失败的做法再翻转」广泛流传于社区（Kevin Singh 的 15 Claude Prompts、Product Career Academy 等），2026-10-20 由卡尔编写收录。
 
 前 12 段的顺序和第一篇文章一致，之后按收录先后追加。**不要改动代码块里的任何一个字**，包括标点、序号、换行和【】占位符。
 改完这个文件跑 `python3 scripts/sync.py build`，把改动灌进各个 SKILL.md，
@@ -651,4 +652,26 @@ If yes, send.
 
 ``` markdown
 Explain like I'm someone who knows nothing about this topic, using a HTML artifact with big pictures and few words.
+```
+
+
+## 逆向法
+
+`skills/solving/inversion`
+
+``` markdown
+我要评估的计划/方案/决策是：【填写你正在推进或打算推进的计划、方案或决策，写清目标和现状】。
+
+请用逆向法帮我检验它的健壮性。
+
+第一步，列出 5 到 7 个如果想让这件事保证失败的做法。每条要足够具体，不要写泛泛的「不努力」「没计划」，要写成一个能照着执行就一定会把事搞砸的操作。
+
+第二步，按破坏力从大到小排序，说明每条为什么能致命。
+
+第三步，把每条翻转过来，变成一条必须遵守的规则。翻转要具体到能检查、能执行，不要变成「注意 XX」这种空话。
+
+最后请输出：
+1. 翻转后的规则清单，按优先级排列；
+2. 这些规则里最容易被忽视的那一条，以及它为什么容易被忽视；
+3. 一个现在就能做的防护动作。
 ```

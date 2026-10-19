@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """戒指老爷爷（laoyeye）的提示语同步与校验工具。
 
-真理只有一份：sources/prompts.md 里的 17 个代码块。
+真理只有一份：sources/prompts.md 里的 18 个代码块。
 build   把这 17 段原文灌进各个 SKILL.md。
 verify  逐字比对各个 SKILL.md 里的提示语和 sources/prompts.md，有一个字不一样就报错退出 1。
 """
@@ -141,6 +141,13 @@ CATALOG = [
         "大图小字讲解法提示语原文。用户想快速看懂一个陌生主题、希望图多字少地讲清楚、提到 eli5 或完全不懂某个东西时使用。要图、要一个能打开的页面时用它，只要文字讲清楚就不用它。触发词包括 大图小字、eli5、当我什么都不懂、图文讲解、少量文字讲清楚、我完全不懂给我讲讲、生成一个讲解页面。产出一个大图配少量文字的 HTML 讲解页面。",
         True, "Big Picture, Few Words", "Explain it with a big picture and barely any words",
     ),
+    (
+        "solving", "inversion", "逆向法",
+        "先列出怎么做保证失败，再把每条翻成必须遵守的规则",
+        "跟第一性原理互补。第一性原理从基本事实往上推，逆向法从失败往回推。\n\n适合手上已经有一个方案、但心里不踏实，想提前知道它会怎么死。列出保证失败的做法，按破坏力排序，再翻转成规则，最后给一条最容易被忽视的和一个立刻能做的防护动作。",
+        "逆向法提示语原文。用户担心方案有坑、想提前排雷、做风险预案、检验计划健壮性时使用。触发词包括 逆向法、怎么会失败、提前排雷、风险预案、什么会出错、怎么才能搞砸、反面思考、inversion、防护措施、保证失败。产出保证失败的做法清单、翻转后的规则、最容易被忽视的那条和一个立刻能做的防护动作。跟第一性原理互补：第一性原理往下挖回本质重推，逆向法从失败往回推找防线。",
+        True, "Inversion", "List how to guarantee failure, then flip each into a rule",
+    ),
 ]
 
 BUCKETS = {
@@ -209,7 +216,7 @@ NOTES = {
 三个视角收敛成两个选项，用 Skill 工具唤起 `steelman-both-sides`；只剩一个待验证的假设，用 Skill 工具唤起 `minimum-experiment`。""",
     "first-principles": """## 跑完接哪条
 
-新路径的验证第一步，用 Skill 工具唤起 `minimum-experiment` 设计成七天实验；想让人来拆台，用 Skill 工具唤起 `carl-idea-king`。""",
+新路径的验证第一步，用 Skill 工具唤起 `minimum-experiment` 设计成七天实验；想让人来拆台，用 Skill 工具唤起 `carl-idea-king`；想先列出所有致命点再上路，用 Skill 工具唤起 `inversion`。""",
     "cross-domain-borrow": """## 跑完接哪条
 
 借来的机制要在本行业验一次，用 Skill 工具唤起 `minimum-experiment`。""",
@@ -231,6 +238,9 @@ NOTES = {
     "life-design": """## 跑完接哪条
 
 三个奥德赛计划选不出，用 Skill 工具唤起 `steelman-both-sides`；选出来了想先小试一下，用 Skill 工具唤起 `minimum-experiment`。""",
+    "inversion": """## 跑完接哪条
+
+规则清单出来了、方案站得住，用 Skill 工具唤起 `kaz-leader` 写任务书开始派活；致命点太多、整个方案站不住，用 Skill 工具唤起 `first-principles` 回到基本事实重推。""",
 }
 
 # 每条提示语代码块下方的署名句，按 slug 查；查不到的用 DEFAULT_ATTRIBUTION。
@@ -242,6 +252,7 @@ ATTRIBUTION = {
     "memory-parable": "提示语原文来自陈乔维Justin（抖音），出处见仓库 README 的致谢。改动这段原文要走 `scripts/sync.py`，手改会被 verify 拦下。",
     "no-fluff-output": "提示语原文来自 ayghri（GitHub 项目 i-have-adhd，经小门道抖音转发），出处见仓库 README 的致谢。改动这段原文要走 `scripts/sync.py`，手改会被 verify 拦下。",
     "eli5": "提示语原文来自苏乐（X），出处见仓库 README 的致谢。改动这段原文要走 `scripts/sync.py`，手改会被 verify 拦下。",
+    "inversion": "提示语由卡尔编写收录，核心思路广泛流传于社区，出处见仓库 README 的致谢。改动这段原文要走 `scripts/sync.py`，手改会被 verify 拦下。",
 }
 
 _RUN_WITH_SLOTS = "先把本轮对话里用户已经说过的处境填进【】，只补真正缺的那一项，别让用户把说过的话再说一遍，然后严格照提示语里的规则做事"

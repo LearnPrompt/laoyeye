@@ -8,7 +8,7 @@
 
 所以我把今年用到的辅助思考类型的提示语都熔炼起来，做成了这个每个人都可以拥有的戒指老爷爷。
 
-一共 24 件，分六个场景。你不用记住它们，说出你卡在哪就行，老爷爷点人。
+一共 25 件，分六个场景。你不用记住它们，说出你卡在哪就行，老爷爷点人。
 
 ## 安装
 
@@ -16,7 +16,7 @@
 npx skills@latest add LearnPrompt/laoyeye
 ```
 
-装完就能用。想只装其中一件（注意 `--skill` 后面是空格不是等号，写成 `--skill=fact-check` 不会报错，会把 25 件全装上）：
+装完就能用。想只装其中一件（注意 `--skill` 后面是空格不是等号，写成 `--skill=fact-check` 不会报错，会把 26 件全装上）：
 
 ```bash
 npx skills@latest add LearnPrompt/laoyeye --skill fact-check
@@ -48,7 +48,7 @@ npx skills@latest add LearnPrompt/laoyeye --skill fact-check
 
    `vendor/`、`sources/`、`scripts/` 不要拷，那是维护用的。
 
-3. 验证：目标目录里应多出 25 个目录，其中有 `laoyeye`。数目不对就停下，把实际清单给用户看，不要自己补。
+3. 验证：目标目录里应多出 26 个目录，其中有 `laoyeye`。数目不对就停下，把实际清单给用户看，不要自己补。
 
 4. 告诉用户：开个新会话，敲 `/laoyeye`，说说卡在哪。任何 `SKILL.md` 都别改，里面是老师们的原文。
 
@@ -56,7 +56,7 @@ npx skills@latest add LearnPrompt/laoyeye --skill fact-check
 
 不知道用哪件，在会话里敲 `/laoyeye`，说说你卡在哪，老爷爷指路并直接把对应的那件唤起来。
 
-你的 Agent 不支持 Skill 也没关系。那 17 条提示语本来就不需要装任何东西，打开 [sources/prompts.md](./sources/prompts.md)，复制哪条用哪条，粘进任何一个 AI 都能跑。
+你的 Agent 不支持 Skill 也没关系。那 18 条提示语本来就不需要装任何东西，打开 [sources/prompts.md](./sources/prompts.md)，复制哪条用哪条，粘进任何一个 AI 都能跑。
 
 ## 为什么会有它
 
@@ -78,7 +78,7 @@ npx skills@latest add LearnPrompt/laoyeye --skill fact-check
 |---|---|---|---|
 | [数字生命卡兹克](https://github.com/KKKKhazix/khazix-skills) | 怎么问、怎么学、怎么决策、怎么认识自己 | 13 条提示语原文，加领导、洁癖 | 原文 / MIT |
 | [Matt Pocock](https://github.com/mattpocock/skills) | 怎么被拷问到把每个分支都想清楚，怎么把一门东西真学下来，怎么修一个难缠的 bug | 拷问、拷问我、教、诊断 | MIT |
-| [卡尔（我自己）](https://github.com/LearnPrompt/partner-skill) | 方案成型之后找人拆台 | 点子王 | MIT |
+| [卡尔（我自己）](https://github.com/LearnPrompt/partner-skill) | 方案成型之后找人拆台，提前列出致命点建防线 | 点子王、逆向法 | MIT |
 | [陈乔维Justin](https://v.douyin.com/fljKQMAoiGQ/) | 转述 Amanda Askell 那套记忆寓言法 | 记忆寓言法 | 原帖 / 署名转载，作者可提 issue 认领或下架 |
 | [ayghri](https://github.com/ayghri/i-have-adhd) | 让 AI 输出别绕弯子、先给下一步动作 | 直给输出法 | 原帖 / 署名转载，作者可提 issue 认领或下架 |
 | [苏乐](https://x.com/ai_suxiaole) | 转述 Anthropic 内部拿来讲概念的 Skill | 大图小字（eli5） | 原帖 / 署名转载，作者可提 issue 认领或下架 |
@@ -91,11 +91,11 @@ npx skills@latest add LearnPrompt/laoyeye --skill fact-check
 
 有人会同时装老爷爷和老师们的原仓库。说清楚三句话：
 
-- **名字不会冲突。**收录件都带来源前缀（matt-、kaz-、carl-），24 个名字跟上游发布的名字零重合，安装不会覆盖你已装的任何东西。
+- **名字不会冲突。**收录件都带来源前缀（matt-、kaz-、carl-），25 个名字跟上游发布的名字零重合，安装不会覆盖你已装的任何东西。
 - **内容会重复，但无害。**同一件东西两边各有一份时，模型选中哪份拿到的行为都一样，因为这里的副本跟钉住的上游 commit 逐字一致。代价只是多占一份描述的上下文。
 - **要维护的只有同步。**上游哪天改了行为而这里没跟，重复才会从无害变成行为不稳定——同一句话，两次得到两种反应。`python3 scripts/vendor.py pull` 一条命令对账，照出漂移就重新收录。
 
-## 二十四件
+## 二十五件
 
 【】里的内容换成你自己的信息。手上有原始材料就一起丢上去，这年头不怕上下文多。
 
@@ -131,6 +131,7 @@ npx skills@latest add LearnPrompt/laoyeye --skill fact-check
 | [专家会诊](./skills/solving/expert-panel/SKILL.md) | 找几个互补的专家会诊 | 组一个真正互补的专家团，然后让他们互相质疑 |
 | [第一性原理](./skills/solving/first-principles/SKILL.md) | 用第一性原理重新想一遍 | 别再打补丁了，拆回最底层重新推 |
 | [跨领域借解](./skills/solving/cross-domain-borrow/SKILL.md) | 别的行业怎么解决这个 | 你这个问题，别的行业可能十几年前就解决了 |
+| [逆向法](./skills/solving/inversion/SKILL.md) · 卡尔 | 这个方案会怎么失败 | 先列出怎么做保证失败，再把每条翻成必须遵守的规则 |
 | [点子王](./skills/solving/carl-idea-king/SKILL.md) · 卡尔 | 点子王，拆一下这个方案 | 假设方案会死，然后去找它是怎么死的 |
 | [诊断](./skills/solving/matt-diagnosing-bugs/SKILL.md) · Matt | 帮我排查这个 bug | 先拿到一个能稳定复现的红灯，再谈任何理论，修完带回归测试 |
 
@@ -157,7 +158,7 @@ npx skills@latest add LearnPrompt/laoyeye --skill fact-check
 | [挖掘隐藏天赋](./skills/self-knowledge/hidden-talent/SKILL.md) | `/hidden-talent` | 往过去看，从那些看起来毫无关系的经历里拼出一份天赋说明书 |
 | [人生设计术](./skills/self-knowledge/life-design/SKILL.md) | `/life-design` | 往未来看，给你三个完全不同、同样值得认真考虑的五年版本 |
 
-老爷爷本人在 [skills/laoyeye](./skills/laoyeye/SKILL.md)，敲 `/laoyeye` 叫他。他的活就是把你的处境路由到上面某一件。
+老爷爷本人在 [skills/laoyeye](./skills/laoyeye/SKILL.md)，敲 `/laoyeye` 叫他。他的活就是把你的处境路由到上面二十五件中的某一件。
 
 ## 为什么是原文
 
@@ -168,7 +169,7 @@ Skill 化的常见做法是把提示语拆成 Agent 风格的流程步骤、加�
 守卫有两道，都会退出 1：
 
 ```bash
-python3 scripts/sync.py verify     # 17 条提示语 vs sources/prompts.md，逐字
+python3 scripts/sync.py verify     # 18 条提示语 vs sources/prompts.md，逐字
 python3 scripts/vendor.py verify   # 7 个收录的 skill vs vendor/ 与 vendor.lock.json，逐字
 ```
 

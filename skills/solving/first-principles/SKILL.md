@@ -21,7 +21,7 @@ description: 第一性原理提示语原文。用户的方案在反复打补丁�
 
 ## 跑完接哪条
 
-新路径的验证第一步，用 Skill 工具唤起 `minimum-experiment` 设计成七天实验；想让人来拆台，用 Skill 工具唤起 `carl-idea-king`。
+新路径的验证第一步，用 Skill 工具唤起 `minimum-experiment` 设计成七天实验；想让人来拆台，用 Skill 工具唤起 `carl-idea-king`；想先列出所有致命点再上路，用 Skill 工具唤起 `inversion`。
 
 ```markdown
 我想解决的问题是：【填写你的问题】。

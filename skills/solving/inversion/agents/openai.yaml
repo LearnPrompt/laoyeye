@@ -1,0 +1,3 @@
+interface:
+  display_name: "Inversion"
+  short_description: "List how to guarantee failure, then flip each into a rule"

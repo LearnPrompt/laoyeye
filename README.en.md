@@ -8,7 +8,7 @@ In Chinese web novels the hero always has an old man living in his ring, who ste
 
 I took every thinking prompt I actually used this year and forged them into one ring. 老爷爷, laoyeye, the old man. Anyone can have one.
 
-24 pieces across six situations. You do not memorise them. You say what you are stuck on, and he picks.
+25 pieces across six situations. You do not memorise them. You say what you are stuck on, and he picks.
 
 ## Install
 
@@ -16,7 +16,7 @@ I took every thinking prompt I actually used this year and forged them into one 
 npx skills@latest add LearnPrompt/laoyeye
 ```
 
-That is the whole setup. For a single piece (note the space, not an equals sign — `--skill=fact-check` does not error, it quietly installs all 25):
+That is the whole setup. For a single piece (note the space, not an equals sign — `--skill=fact-check` does not error, it quietly installs all 26):
 
 ```bash
 npx skills@latest add LearnPrompt/laoyeye --skill fact-check
@@ -33,7 +33,7 @@ It will come read this README and follow the folded section below.
 
 You are an agent installing this repo for the user. Do the steps in order. Do not ask the user to pick options.
 
-1. If `npx` is available, use it. This is non-interactive: it installs all 25 skills into `~/.agents/skills/` and symlinks them into your own skill directory:
+1. If `npx` is available, use it. This is non-interactive: it installs all 26 skills into `~/.agents/skills/` and symlinks them into your own skill directory:
 
    ```bash
    npx skills@latest add https://github.com/LearnPrompt/laoyeye -g -y --skill '*'
@@ -48,7 +48,7 @@ You are an agent installing this repo for the user. Do the steps in order. Do no
 
    Do not copy `vendor/`, `sources/` or `scripts/`. Those are for maintenance.
 
-3. Verify: the target directory should have 25 new directories, one of them `laoyeye`. If the count is off, stop and show the user the actual list. Do not patch it up yourself.
+3. Verify: the target directory should have 26 new directories, one of them `laoyeye`. If the count is off, stop and show the user the actual list. Do not patch it up yourself.
 
 4. Tell the user: open a fresh session, type `/laoyeye`, and say what you are stuck on. Never edit any `SKILL.md`. They hold the teachers' original words.
 
@@ -56,7 +56,7 @@ You are an agent installing this repo for the user. Do the steps in order. Do no
 
 If you do not know which one fits, type `/laoyeye` in a session, say what you are stuck on, and he routes you and fires the right one.
 
-No skill support in your agent? The 17 prompts never needed an install anyway. Open [sources/prompts.md](./sources/prompts.md), copy the one you want, paste it into any AI. Most are in Chinese, which is how their authors wrote them and how they are kept here; memory-parable, no-fluff-output, and eli5 are kept in English for the same reason, since that is the language their authors published them in. Most models answer in whatever language you write back in.
+No skill support in your agent? The 18 prompts never needed an install anyway. Open [sources/prompts.md](./sources/prompts.md), copy the one you want, paste it into any AI. Most are in Chinese, which is how their authors wrote them and how they are kept here; memory-parable, no-fluff-output, and eli5 are kept in English for the same reason, since that is the language their authors published them in. Most models answer in whatever language you write back in.
 
 ## Why this exists
 
@@ -78,7 +78,7 @@ What lives in the ring is not mine alone. Whoever taught it owns it, and not one
 |---|---|---|---|
 | [数字生命卡兹克 / Khazix](https://github.com/KKKKhazix/khazix-skills) | Asking, learning, deciding, knowing yourself | 13 prompts, plus leader and neat-freak | article / MIT |
 | [Matt Pocock](https://github.com/mattpocock/skills) | Being interrogated until every branch is settled, actually learning a subject, and diagnosing a stubborn bug | grilling, grill-me, teach, diagnosing-bugs | MIT |
-| [Carl (me)](https://github.com/LearnPrompt/partner-skill) | Tearing a finished-looking plan apart | idea-king | MIT |
+| [Carl (me)](https://github.com/LearnPrompt/partner-skill) | Tearing a finished-looking plan apart, listing failure modes in advance | idea-king, inversion | MIT |
 | [陈乔维Justin](https://v.douyin.com/fljKQMAoiGQ/) | Retold Amanda Askell's memory-parable method | memory-parable | reposted / attributed, open an issue to claim or take down |
 | [ayghri](https://github.com/ayghri/i-have-adhd) | Keeping AI output blunt, leading with the next action | no-fluff-output | reposted / attributed, open an issue to claim or take down |
 | [苏乐](https://x.com/ai_suxiaole) | Retold an internal Anthropic explainer skill | 大图小字 (eli5) | reposted / attributed, open an issue to claim or take down |
@@ -91,11 +91,11 @@ The 13 prompts come from [this piece](https://mp.weixin.qq.com/s/NAdhdFrUq9-BKel
 
 Some people will have both this ring and the teachers' original repos installed. Three facts:
 
-- **Names never collide.** Vendored pieces carry a source prefix (matt-, kaz-, carl-); all 24 names are disjoint from what the upstreams publish, so installing this overwrites nothing.
+- **Names never collide.** Vendored pieces carry a source prefix (matt-, kaz-, carl-); all 25 names are disjoint from what the upstreams publish, so installing this overwrites nothing.
 - **Content duplicates, harmlessly.** When the same piece exists on both sides, whichever copy the model picks behaves identically, because the copies here are byte-identical to the pinned upstream commits. The only cost is one extra description in context.
 - **The one thing to maintain is sync.** If an upstream changes behavior and this repo has not caught up, the duplication turns from harmless into unstable: the same sentence gets two different treatments. `python3 scripts/vendor.py pull` reconciles against the pinned commits and shows any drift.
 
-## The twenty-four
+## The twenty-five
 
 Replace the 【…】 placeholders with your own details. Bring your raw material along, context is cheap.
 
@@ -131,6 +131,7 @@ The trigger column is what you actually say. The ones showing a slash command ne
 | [专家会诊 / Expert panel](./skills/solving/expert-panel/SKILL.md) | 找几个互补的专家会诊 | Three genuinely complementary views, then make them challenge each other |
 | [第一性原理 / First principles](./skills/solving/first-principles/SKILL.md) | 用第一性原理重新想一遍 | Stop patching, strip it to bedrock facts and rebuild |
 | [跨领域借解 / Cross-domain](./skills/solving/cross-domain-borrow/SKILL.md) | 别的行业怎么解决这个 | Another field may have solved your problem a decade ago |
+| [逆向法 / Inversion](./skills/solving/inversion/SKILL.md) · Carl | 这个方案会怎么失败 | List how to guarantee failure, then flip each into a rule |
 | [idea-king](./skills/solving/carl-idea-king/SKILL.md) · Carl | 点子王，拆一下这个方案 | Assume the plan will die, then go find out how |
 | [diagnosing-bugs](./skills/solving/matt-diagnosing-bugs/SKILL.md) · Matt | 帮我排查这个 bug | Get a reliably failing red light before any theory, and fix with a regression test |
 
@@ -157,7 +158,7 @@ Two long interviews, half an hour and up. They never interrupt you on their own.
 | [挖掘隐藏天赋 / Hidden talent](./skills/self-knowledge/hidden-talent/SKILL.md) | `/hidden-talent` | Looking back, assembling unrelated experiences into a talent manual |
 | [人生设计术 / Life design](./skills/self-knowledge/life-design/SKILL.md) | `/life-design` | Looking forward, three different five-year versions all worth taking seriously |
 
-The old man himself lives at [skills/laoyeye](./skills/laoyeye/SKILL.md). Type `/laoyeye` to call him. His whole job is routing your situation to one of the twenty-four.
+The old man himself lives at [skills/laoyeye](./skills/laoyeye/SKILL.md). Type `/laoyeye` to call him. His whole job is routing your situation to one of the twenty-five.
 
 ## Why verbatim
 
@@ -168,7 +169,7 @@ These are finished work. Their effect comes from the specific wording, the pacin
 Two guards, both exit 1:
 
 ```bash
-python3 scripts/sync.py verify     # the 17 prompts against sources/prompts.md, character by character
+python3 scripts/sync.py verify     # the 18 prompts against sources/prompts.md, character by character
 python3 scripts/vendor.py verify   # the 7 vendored skills against vendor/ and vendor.lock.json
 ```
 

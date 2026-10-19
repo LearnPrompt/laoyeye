@@ -6,7 +6,7 @@
 
 | | 原文放哪 | 生成到哪 | 守卫 |
 |---|---|---|---|
-| 17 条提示语（卡兹克 13 + 无署名 1 + 转载自其他作者 3） | `sources/prompts.md` | 各 `SKILL.md` 里的 markdown 代码块 | `python3 scripts/sync.py verify` |
+| 18 条提示语（卡兹克 13 + 无署名 1 + 转载自其他作者 3 + 卡尔编写 1） | `sources/prompts.md` | 各 `SKILL.md` 里的 markdown 代码块 | `python3 scripts/sync.py verify` |
 | 收录的 7 个 skill | `vendor/`（钉在 commit 上） | `skills/<bucket>/<name>/` 整个目录 | `python3 scripts/vendor.py verify` |
 
 ## 铁律：都不许手改
