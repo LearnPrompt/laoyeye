@@ -8,7 +8,7 @@ In Chinese web novels the hero always has an old man living in his ring, who ste
 
 I took every thinking prompt I actually used this year and forged them into one ring. 老爷爷, laoyeye, the old man. Anyone can have one.
 
-25 pieces across six situations. You do not memorise them. You say what you are stuck on, and he picks.
+28 pieces across six situations. You do not memorise them. You say what you are stuck on, and he picks.
 
 ## Install
 
@@ -56,7 +56,7 @@ You are an agent installing this repo for the user. Do the steps in order. Do no
 
 If you do not know which one fits, type `/laoyeye` in a session, say what you are stuck on, and he routes you and fires the right one.
 
-No skill support in your agent? The 18 prompts never needed an install anyway. Open [sources/prompts.md](./sources/prompts.md), copy the one you want, paste it into any AI. Most are in Chinese, which is how their authors wrote them and how they are kept here; memory-parable, no-fluff-output, and eli5 are kept in English for the same reason, since that is the language their authors published them in. Most models answer in whatever language you write back in.
+No skill support in your agent? The 21 prompts never needed an install anyway. Open [sources/prompts.md](./sources/prompts.md), copy the one you want, paste it into any AI. Most are in Chinese, which is how their authors wrote them and how they are kept here; memory-parable, no-fluff-output, and eli5 are kept in English for the same reason, since that is the language their authors published them in. Most models answer in whatever language you write back in.
 
 ## Why this exists
 
@@ -78,7 +78,7 @@ What lives in the ring is not mine alone. Whoever taught it owns it, and not one
 |---|---|---|---|
 | [数字生命卡兹克 / Khazix](https://github.com/KKKKhazix/khazix-skills) | Asking, learning, deciding, knowing yourself | 13 prompts, plus leader and neat-freak | article / MIT |
 | [Matt Pocock](https://github.com/mattpocock/skills) | Being interrogated until every branch is settled, actually learning a subject, and diagnosing a stubborn bug | grilling, grill-me, teach, diagnosing-bugs | MIT |
-| [Carl (me)](https://github.com/LearnPrompt/partner-skill) | Tearing a finished-looking plan apart, listing failure modes in advance | idea-king, inversion | MIT |
+| [Carl (me)](https://github.com/LearnPrompt/partner-skill) | Tearing a finished-looking plan apart, listing failure modes in advance, post-mortems, ranking what to do first, telling agents when to stop | idea-king, inversion, five-whys, opportunity-cost, traffic-light | MIT |
 | [陈乔维Justin](https://v.douyin.com/fljKQMAoiGQ/) | Retold Amanda Askell's memory-parable method | memory-parable | reposted / attributed, open an issue to claim or take down |
 | [ayghri](https://github.com/ayghri/i-have-adhd) | Keeping AI output blunt, leading with the next action | no-fluff-output | reposted / attributed, open an issue to claim or take down |
 | [苏乐](https://x.com/ai_suxiaole) | Retold an internal Anthropic explainer skill | 大图小字 (eli5) | reposted / attributed, open an issue to claim or take down |
@@ -91,11 +91,11 @@ The 13 prompts come from [this piece](https://mp.weixin.qq.com/s/NAdhdFrUq9-BKel
 
 Some people will have both this ring and the teachers' original repos installed. Three facts:
 
-- **Names never collide.** Vendored pieces carry a source prefix (matt-, kaz-, carl-); all 25 names are disjoint from what the upstreams publish, so installing this overwrites nothing.
+- **Names never collide.** Vendored pieces carry a source prefix (matt-, kaz-, carl-); all 28 names are disjoint from what the upstreams publish, so installing this overwrites nothing.
 - **Content duplicates, harmlessly.** When the same piece exists on both sides, whichever copy the model picks behaves identically, because the copies here are byte-identical to the pinned upstream commits. The only cost is one extra description in context.
 - **The one thing to maintain is sync.** If an upstream changes behavior and this repo has not caught up, the duplication turns from harmless into unstable: the same sentence gets two different treatments. `python3 scripts/vendor.py pull` reconciles against the pinned commits and shows any drift.
 
-## The twenty-five
+## The twenty-eight
 
 Replace the 【…】 placeholders with your own details. Bring your raw material along, context is cheap.
 
@@ -110,6 +110,7 @@ The trigger column is what you actually say. The ones showing a slash command ne
 | [grill-me](./skills/asking/matt-grill-me/SKILL.md) · Matt | `/matt-grill-me` | The same interrogation, started only when you ask for it by name |
 | [乔哈里视窗 / Johari window](./skills/asking/johari-window/SKILL.md) | 别猜我的需求，先搞清楚再答 | Judge who knows what before choosing how to respond |
 | [直给输出法 / No-fluff output](./skills/asking/no-fluff-output/SKILL.md) · ayghri | 别废话，直接说重点 | Lead with the next action, cut the padding |
+| [红绿灯 / Traffic light](./skills/asking/traffic-light/SKILL.md) · Carl | 做完就停，别无限往下跑 | Pin the original ask and end every turn with a green, yellow or red light |
 
 ### 2. Learn
 
@@ -132,6 +133,7 @@ The trigger column is what you actually say. The ones showing a slash command ne
 | [第一性原理 / First principles](./skills/solving/first-principles/SKILL.md) | 用第一性原理重新想一遍 | Stop patching, strip it to bedrock facts and rebuild |
 | [跨领域借解 / Cross-domain](./skills/solving/cross-domain-borrow/SKILL.md) | 别的行业怎么解决这个 | Another field may have solved your problem a decade ago |
 | [逆向法 / Inversion](./skills/solving/inversion/SKILL.md) · Carl | 这个方案会怎么失败 | List how to guarantee failure, then flip each into a rule |
+| [五问法 / Five whys](./skills/solving/five-whys/SKILL.md) · Carl | 帮我复盘这次为什么搞砸了 | Ask why one layer at a time until you hit a fixable system cause |
 | [idea-king](./skills/solving/carl-idea-king/SKILL.md) · Carl | 点子王，拆一下这个方案 | Assume the plan will die, then go find out how |
 | [diagnosing-bugs](./skills/solving/matt-diagnosing-bugs/SKILL.md) · Matt | 帮我排查这个 bug | Get a reliably failing red light before any theory, and fix with a regression test |
 
@@ -141,6 +143,7 @@ The trigger column is what you actually say. The ones showing a slash command ne
 |---|---|---|
 | [双向钢人论证 / Steelman both sides](./skills/deciding/steelman-both-sides/SKILL.md) | 两边都论证到最强再让我选 | When both options look right, argue each at its strongest |
 | [最小实验 / Minimum experiment](./skills/deciding/minimum-experiment/SKILL.md) | 设计个七天能跑完的实验 | Stop simulating it in your head. Run it for seven days and let reality hand you the data |
+| [机会成本与可逆性 / Opportunity cost](./skills/deciding/opportunity-cost/SKILL.md) · Carl | 这几件事先做哪个 | Ask what you give up and whether you can undo it, then rank |
 
 ### 5. Do
 
@@ -158,7 +161,7 @@ Two long interviews, half an hour and up. They never interrupt you on their own.
 | [挖掘隐藏天赋 / Hidden talent](./skills/self-knowledge/hidden-talent/SKILL.md) | `/hidden-talent` | Looking back, assembling unrelated experiences into a talent manual |
 | [人生设计术 / Life design](./skills/self-knowledge/life-design/SKILL.md) | `/life-design` | Looking forward, three different five-year versions all worth taking seriously |
 
-The old man himself lives at [skills/laoyeye](./skills/laoyeye/SKILL.md). Type `/laoyeye` to call him. His whole job is routing your situation to one of the twenty-five.
+The old man himself lives at [skills/laoyeye](./skills/laoyeye/SKILL.md). Type `/laoyeye` to call him. His whole job is routing your situation to one of the twenty-eight.
 
 ## Why verbatim
 
@@ -169,7 +172,7 @@ These are finished work. Their effect comes from the specific wording, the pacin
 Two guards, both exit 1:
 
 ```bash
-python3 scripts/sync.py verify     # the 18 prompts against sources/prompts.md, character by character
+python3 scripts/sync.py verify     # the 21 prompts against sources/prompts.md, character by character
 python3 scripts/vendor.py verify   # the 7 vendored skills against vendor/ and vendor.lock.json
 ```
 

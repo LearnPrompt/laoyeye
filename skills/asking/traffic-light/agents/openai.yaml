@@ -1,0 +1,3 @@
+interface:
+  display_name: "Traffic Light"
+  short_description: "Pin the original ask and end every turn with a green, yellow or red light"
