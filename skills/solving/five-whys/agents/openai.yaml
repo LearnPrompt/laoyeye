@@ -1,0 +1,3 @@
+interface:
+  display_name: "Five Whys"
+  short_description: "Ask why one layer at a time until you hit a fixable system cause"

@@ -1,0 +1,3 @@
+interface:
+  display_name: "Opportunity Cost & Reversibility"
+  short_description: "Ask what you give up and whether you can undo it, then rank"
