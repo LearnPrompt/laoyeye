@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """戒指老爷爷（laoyeye）的提示语同步与校验工具。
 
-真理只有一份：sources/prompts.md 里的 18 个代码块。
-build   把这 17 段原文灌进各个 SKILL.md。
+真理只有一份：sources/prompts.md 里的 23 个代码块。
+build   把这 23 段原文灌进各个 SKILL.md。
 verify  逐字比对各个 SKILL.md 里的提示语和 sources/prompts.md，有一个字不一样就报错退出 1。
 """
 import hashlib
@@ -169,6 +169,20 @@ CATALOG = [
         "红绿灯协作提示语原文。用户嫌 Agent 刹不住车、做完了还一直列优化清单、被模型说啥点啥拉着跑、想让 AI 做完就停、想省 token 额度、分不清哪些是要它做的哪些是它自己加的时使用。触发词包括 红绿灯、进度条、刹不住车、做完就停、别无限往下跑、钉住需求、别加戏、范围蔓延、scope creep、什么时候算做完、可以归档了吗。整段挂在会话或任务开头，约束之后每一轮的收尾。写代码时还会附上先说假设、能简就简、只动该动的、按验收标准收工这几条规矩。",
         True, "Traffic Light", "Pin the original ask and end every turn with a green, yellow or red light",
     ),
+    (
+        "solving", "cognitive-reappraisal", "认知重评",
+        "被一句话困住的时候，把那句自动想法核一遍，写出更站得住的一句和一个小动作",
+        "适合被一句评论、一次否定困住，反复转「我是不是不行」的时候。一次只问一个问题，把自动想法的原句、情绪分数、支持和反对的证据摆开，再写一句更平衡的替代想法。\n\n跟事实核查对着：事实核查查的是别人的说法，这条查的是你自己脑子里那句话。提到自伤或者已经撑不住，这条会停下来，建议找专业的人。这不是治疗。",
+        "认知重评提示语原文，Beck 的想法记录。用户被一句话或一条评论困住、内耗、反复觉得自己不行、想太多、自动冒出负面念头时使用。触发词包括 认知重评、想法记录、CBT、内耗、我是不是不行、被一句话伤到、想太多、自动想法、思维偏差、情绪上来了、对自己太苛刻。一次只问一个问题，产出一句更平衡的替代想法和一个很小的动作。别人的说法要查真假，用 fact-check。提到自伤或已经严重到做不了记录，停下来建议专业帮助，这不是治疗。",
+        True, "Cognitive Reappraisal", "Check your own thought, then write a fairer one and one small action",
+    ),
+    (
+        "deciding", "implementation-intention", "执行意图",
+        "事情已经定了却开不了头，写成如果碰到什么、我就做什么",
+        "适合知道该做什么、就是迟迟不动的时候。先走一遍愿望、最好的结果、最可能的内在障碍和计划，再收成一两句今天就能照着做的如果那么。\n\n跟最小实验对着：最小实验是还没定、要拿现实验证，这条是已经定了，只差开始。",
+        "执行意图提示语原文，Gollwitzer 的如果那么加上 Oettingen 的 WOOP。用户已经知道该做什么但开不了头、拖延、明天再说、计划停在纸上时使用。触发词包括 执行意图、如果那么、WOOP、拖延、开不了头、知道但不动、行动计划、implementation intention、明天开始、老是拖。产出 1 到 3 句今天就能照做的如果那么，其中一句对付内在障碍。还没定要不要做、要拿现实验证，用 minimum-experiment。",
+        True, "Implementation Intention", "Turn a decision into if-then lines you can follow today",
+    ),
 ]
 
 BUCKETS = {
@@ -284,6 +298,12 @@ NOTES = {
 ## 跑完接哪条
 
 这条是会话级设定，没有下游。可以跟 `johari-window`、`no-fluff-output` 一起挂在会话开头，互不冲突。亮了黄灯、那份后续计划要交给 agent 跑，用 Skill 工具唤起 `kaz-leader`。""",
+    "cognitive-reappraisal": """## 跑完接哪条
+
+替代想法和那个小动作用户今天自己做得了，到此为止。小动作知道会拖，用 Skill 工具唤起 `implementation-intention`。小动作要交给 agent 干，用 Skill 工具唤起 `kaz-leader`。""",
+    "implementation-intention": """## 跑完接哪条
+
+动作是用户自己今天做的，到此为止。如果那么里的动作要交给 agent 去跑，用 Skill 工具唤起 `kaz-leader`。""",
 }
 
 # 每条提示语代码块下方的署名句，按 slug 查；查不到的用 DEFAULT_ATTRIBUTION。
@@ -299,6 +319,8 @@ ATTRIBUTION = {
     "five-whys": "提示语由卡尔编写收录，思路来自 tjboudreaux 的 cc-thinking-skills（thinking-five-whys-plus），出处见仓库 README 的致谢。改动这段原文要走 `scripts/sync.py`，手改会被 verify 拦下。",
     "opportunity-cost": "提示语由卡尔编写收录，单向门双向门的说法来自 Jeff Bezos 的致股东信，出处见仓库 README 的致谢。改动这段原文要走 `scripts/sync.py`，手改会被 verify 拦下。",
     "traffic-light": "提示语原文来自卡尔的AI沃茨（X），写代码那四条参考 multica-ai/andrej-karpathy-skills，出处见仓库 README 的致谢。改动这段原文要走 `scripts/sync.py`，手改会被 verify 拦下。",
+    "cognitive-reappraisal": "提示语由卡尔编写收录，思路来自 Aaron Beck 的认知行为疗法想法记录，出处见仓库 README 的致谢。改动这段原文要走 `scripts/sync.py`，手改会被 verify 拦下。",
+    "implementation-intention": "提示语由卡尔编写收录，思路来自 Peter Gollwitzer 的执行意图和 Gabriele Oettingen 的 WOOP，出处见仓库 README 的致谢。改动这段原文要走 `scripts/sync.py`，手改会被 verify 拦下。",
 }
 
 _RUN_WITH_SLOTS = "先把本轮对话里用户已经说过的处境填进【】，只补真正缺的那一项，别让用户把说过的话再说一遍，然后严格照提示语里的规则做事"
@@ -325,7 +347,7 @@ PATH_LINE = re.compile(r"^`skills/([^/`]+)/([^/`]+)`\s*$", re.M)
 
 
 def read_source_blocks():
-    """按顺序取出 12+ 段原文，并确认每段上面那行路径跟 CATALOG 一一对上。
+    """按顺序取出全部 23 段原文，并确认每段上面那行路径跟 CATALOG 一一对上。
 
     只比对数量是不够的：块的顺序和 CATALOG 的顺序一旦错位，build 会把每段
     原文写进错误的 SKILL.md，而 verify 用同一套错位配对再比一遍，照样全绿。
@@ -402,7 +424,7 @@ def _user_invoked(bucket, name):
 
 
 def write_bucket_readmes():
-    """每个 bucket 一份目录，本仓库原生的 21 条和收录来的老师们的 skill 一起列。"""
+    """每个 bucket 一份目录，本仓库原生的 23 条和收录来的老师们的 skill 一起列。"""
     import importlib.util
     spec = importlib.util.spec_from_file_location("vendor", ROOT / "scripts" / "vendor.py")
     vendor = importlib.util.module_from_spec(spec)

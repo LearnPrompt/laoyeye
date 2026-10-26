@@ -8,7 +8,7 @@ In Chinese web novels the hero always has an old man living in his ring, who ste
 
 I took every thinking prompt I actually used this year and forged them into one ring. 老爷爷, laoyeye, the old man. Anyone can have one.
 
-28 pieces across six situations. You do not memorise them. You say what you are stuck on, and he picks.
+30 pieces across six situations. You do not memorise them. You say what you are stuck on, and he picks.
 
 ## Install
 
@@ -16,7 +16,7 @@ I took every thinking prompt I actually used this year and forged them into one 
 npx skills@latest add LearnPrompt/laoyeye
 ```
 
-That is the whole setup. For a single piece (note the space, not an equals sign — `--skill=fact-check` does not error, it quietly installs all 26):
+That is the whole setup. For a single piece (note the space, not an equals sign — `--skill=fact-check` does not error, it quietly installs all 31):
 
 ```bash
 npx skills@latest add LearnPrompt/laoyeye --skill fact-check
@@ -33,7 +33,7 @@ It will come read this README and follow the folded section below.
 
 You are an agent installing this repo for the user. Do the steps in order. Do not ask the user to pick options.
 
-1. If `npx` is available, use it. This is non-interactive: it installs all 26 skills into `~/.agents/skills/` and symlinks them into your own skill directory:
+1. If `npx` is available, use it. This is non-interactive: it installs all 31 skills into `~/.agents/skills/` and symlinks them into your own skill directory:
 
    ```bash
    npx skills@latest add https://github.com/LearnPrompt/laoyeye -g -y --skill '*'
@@ -48,7 +48,7 @@ You are an agent installing this repo for the user. Do the steps in order. Do no
 
    Do not copy `vendor/`, `sources/` or `scripts/`. Those are for maintenance.
 
-3. Verify: the target directory should have 26 new directories, one of them `laoyeye`. If the count is off, stop and show the user the actual list. Do not patch it up yourself.
+3. Verify: the target directory should have 31 new directories, one of them `laoyeye`. If the count is off, stop and show the user the actual list. Do not patch it up yourself.
 
 4. Tell the user: open a fresh session, type `/laoyeye`, and say what you are stuck on. Never edit any `SKILL.md`. They hold the teachers' original words.
 
@@ -56,7 +56,7 @@ You are an agent installing this repo for the user. Do the steps in order. Do no
 
 If you do not know which one fits, type `/laoyeye` in a session, say what you are stuck on, and he routes you and fires the right one.
 
-No skill support in your agent? The 21 prompts never needed an install anyway. Open [sources/prompts.md](./sources/prompts.md), copy the one you want, paste it into any AI. Most are in Chinese, which is how their authors wrote them and how they are kept here; memory-parable, no-fluff-output, and eli5 are kept in English for the same reason, since that is the language their authors published them in. Most models answer in whatever language you write back in.
+No skill support in your agent? The 23 prompts never needed an install anyway. Open [sources/prompts.md](./sources/prompts.md), copy the one you want, paste it into any AI. Most are in Chinese, which is how their authors wrote them and how they are kept here; memory-parable, no-fluff-output, and eli5 are kept in English for the same reason, since that is the language their authors published them in. Most models answer in whatever language you write back in.
 
 ## Why this exists
 
@@ -78,24 +78,24 @@ What lives in the ring is not mine alone. Whoever taught it owns it, and not one
 |---|---|---|---|
 | [数字生命卡兹克 / Khazix](https://github.com/KKKKhazix/khazix-skills) | Asking, learning, deciding, knowing yourself | 13 prompts, plus leader and neat-freak | article / MIT |
 | [Matt Pocock](https://github.com/mattpocock/skills) | Being interrogated until every branch is settled, actually learning a subject, and diagnosing a stubborn bug | grilling, grill-me, teach, diagnosing-bugs | MIT |
-| [Carl (me)](https://github.com/LearnPrompt/partner-skill) | Tearing a finished-looking plan apart, listing failure modes in advance, post-mortems, ranking what to do first, telling agents when to stop | idea-king, inversion, five-whys, opportunity-cost, traffic-light | MIT |
+| [Carl (me)](https://github.com/LearnPrompt/partner-skill) | Tearing a finished-looking plan apart, listing failure modes in advance, post-mortems, ranking what to do first, telling agents when to stop, reappraising a thought that is eating at you, writing if-then plans when you already know the next step | idea-king, inversion, five-whys, opportunity-cost, traffic-light, cognitive-reappraisal, implementation-intention | MIT |
 | [陈乔维Justin](https://v.douyin.com/fljKQMAoiGQ/) | Retold Amanda Askell's memory-parable method | memory-parable | reposted / attributed, open an issue to claim or take down |
 | [ayghri](https://github.com/ayghri/i-have-adhd) | Keeping AI output blunt, leading with the next action | no-fluff-output | reposted / attributed, open an issue to claim or take down |
 | [苏乐](https://x.com/ai_suxiaole) | Retold an internal Anthropic explainer skill | 大图小字 (eli5) | reposted / attributed, open an issue to claim or take down |
 
 One more prompt, the Johari window, circulates online unsigned; if you are its author, open an issue and claim it. The same goes for the three above — memory-parable, no-fluff-output, and eli5: Carl found and transcribed them from Douyin, GitHub, and X respectively, none of these authors submitted them here, and anyone can open an issue to claim or ask for a take-down. no-fluff-output's original source, [ayghri/i-have-adhd](https://github.com/ayghri/i-have-adhd), is itself an MIT-licensed open-source repo; only the `SKILL.md` body is transcribed here, see the upstream link for the full project and its license.
 
-The 13 prompts come from [this piece](https://mp.weixin.qq.com/s/NAdhdFrUq9-BKelqzqpwBQ) and [this one](https://mp.weixin.qq.com/s/L1ISA0FvxY_7OR994RttWw) by Khazix. The fable method started with Anthropic's [Amanda Askell](https://askell.io/); Khazix added the anti-cliche blacklists and the two check questions. memory-parable retells the same Amanda Askell method in a different, shorter version: 陈乔维Justin heard it in an interview and transcribed it straight into the English original, without Khazix's added blacklists. The repo layout, the user-invoked versus model-invoked split, and the shape of the laoyeye router all follow Matt's [ask-matt](https://github.com/mattpocock/skills/tree/main/skills/engineering/ask-matt) and grill-me.
+The 13 prompts come from [this piece](https://mp.weixin.qq.com/s/NAdhdFrUq9-BKelqzqpwBQ) and [this one](https://mp.weixin.qq.com/s/L1ISA0FvxY_7OR994RttWw) by Khazix. The fable method started with Anthropic's [Amanda Askell](https://askell.io/); Khazix added the anti-cliche blacklists and the two check questions. memory-parable retells the same Amanda Askell method in a different, shorter version: 陈乔维Justin heard it in an interview and transcribed it straight into the English original, without Khazix's added blacklists. The repo layout, the user-invoked versus model-invoked split, and the shape of the laoyeye router all follow Matt's [ask-matt](https://github.com/mattpocock/skills/tree/main/skills/engineering/ask-matt) and grill-me. Cognitive reappraisal uses Aaron Beck's CBT thought record. Implementation intentions come from Peter Gollwitzer, and WOOP from Gabriele Oettingen. Carl wrote the Chinese prompts fresh.
 
 ## Installing alongside the upstreams
 
 Some people will have both this ring and the teachers' original repos installed. Three facts:
 
-- **Names never collide.** Vendored pieces carry a source prefix (matt-, kaz-, carl-); all 28 names are disjoint from what the upstreams publish, so installing this overwrites nothing.
+- **Names never collide.** Vendored pieces carry a source prefix (matt-, kaz-, carl-); all 30 names are disjoint from what the upstreams publish, so installing this overwrites nothing.
 - **Content duplicates, harmlessly.** When the same piece exists on both sides, whichever copy the model picks behaves identically, because the copies here are byte-identical to the pinned upstream commits. The only cost is one extra description in context.
 - **The one thing to maintain is sync.** If an upstream changes behavior and this repo has not caught up, the duplication turns from harmless into unstable: the same sentence gets two different treatments. `python3 scripts/vendor.py pull` reconciles against the pinned commits and shows any drift.
 
-## The twenty-eight
+## The thirty
 
 Replace the 【…】 placeholders with your own details. Bring your raw material along, context is cheap.
 
@@ -134,6 +134,7 @@ The trigger column is what you actually say. The ones showing a slash command ne
 | [跨领域借解 / Cross-domain](./skills/solving/cross-domain-borrow/SKILL.md) | 别的行业怎么解决这个 | Another field may have solved your problem a decade ago |
 | [逆向法 / Inversion](./skills/solving/inversion/SKILL.md) · Carl | 这个方案会怎么失败 | List how to guarantee failure, then flip each into a rule |
 | [五问法 / Five whys](./skills/solving/five-whys/SKILL.md) · Carl | 帮我复盘这次为什么搞砸了 | Ask why one layer at a time until you hit a fixable system cause |
+| [认知重评 / Cognitive reappraisal](./skills/solving/cognitive-reappraisal/SKILL.md) · Carl | 我是不是不行，帮我看看这句想法 | Check your own thought, then write a fairer one and one small action |
 | [idea-king](./skills/solving/carl-idea-king/SKILL.md) · Carl | 点子王，拆一下这个方案 | Assume the plan will die, then go find out how |
 | [diagnosing-bugs](./skills/solving/matt-diagnosing-bugs/SKILL.md) · Matt | 帮我排查这个 bug | Get a reliably failing red light before any theory, and fix with a regression test |
 
@@ -144,6 +145,7 @@ The trigger column is what you actually say. The ones showing a slash command ne
 | [双向钢人论证 / Steelman both sides](./skills/deciding/steelman-both-sides/SKILL.md) | 两边都论证到最强再让我选 | When both options look right, argue each at its strongest |
 | [最小实验 / Minimum experiment](./skills/deciding/minimum-experiment/SKILL.md) | 设计个七天能跑完的实验 | Stop simulating it in your head. Run it for seven days and let reality hand you the data |
 | [机会成本与可逆性 / Opportunity cost](./skills/deciding/opportunity-cost/SKILL.md) · Carl | 这几件事先做哪个 | Ask what you give up and whether you can undo it, then rank |
+| [执行意图 / Implementation intention](./skills/deciding/implementation-intention/SKILL.md) · Carl | 知道该做，就是开不了头 | Turn a decision into if-then lines you can follow today |
 
 ### 5. Do
 
@@ -161,7 +163,7 @@ Two long interviews, half an hour and up. They never interrupt you on their own.
 | [挖掘隐藏天赋 / Hidden talent](./skills/self-knowledge/hidden-talent/SKILL.md) | `/hidden-talent` | Looking back, assembling unrelated experiences into a talent manual |
 | [人生设计术 / Life design](./skills/self-knowledge/life-design/SKILL.md) | `/life-design` | Looking forward, three different five-year versions all worth taking seriously |
 
-The old man himself lives at [skills/laoyeye](./skills/laoyeye/SKILL.md). Type `/laoyeye` to call him. His whole job is routing your situation to one of the twenty-eight.
+The old man himself lives at [skills/laoyeye](./skills/laoyeye/SKILL.md). Type `/laoyeye` to call him. His whole job is routing your situation to one of the thirty.
 
 ## Why verbatim
 
@@ -172,7 +174,7 @@ These are finished work. Their effect comes from the specific wording, the pacin
 Two guards, both exit 1:
 
 ```bash
-python3 scripts/sync.py verify     # the 21 prompts against sources/prompts.md, character by character
+python3 scripts/sync.py verify     # the 23 prompts against sources/prompts.md, character by character
 python3 scripts/vendor.py verify   # the 7 vendored skills against vendor/ and vendor.lock.json
 ```
 
