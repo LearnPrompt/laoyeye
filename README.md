@@ -8,7 +8,7 @@
 
 所以我把今年用到的辅助思考类型的提示语都熔炼起来，做成了这个每个人都可以拥有的戒指老爷爷。
 
-一共 28 件，分六个场景。你不用记住它们，说出你卡在哪就行，老爷爷点人。
+一共 30 件，分六个场景。你不用记住它们，说出你卡在哪就行，老爷爷点人。
 
 ## 安装
 
@@ -16,7 +16,7 @@
 npx skills@latest add LearnPrompt/laoyeye
 ```
 
-装完就能用。想只装其中一件（注意 `--skill` 后面是空格不是等号，写成 `--skill=fact-check` 不会报错，会把 26 件全装上）：
+装完就能用。想只装其中一件（注意 `--skill` 后面是空格不是等号，写成 `--skill=fact-check` 不会报错，会把 31 件全装上）：
 
 ```bash
 npx skills@latest add LearnPrompt/laoyeye --skill fact-check
@@ -33,7 +33,7 @@ npx skills@latest add LearnPrompt/laoyeye --skill fact-check
 
 你是一个正在替用户安装本仓库的 Agent。按顺序做，不要问用户选项。
 
-1. 有 `npx` 就用它。这一条是非交互的，会把 28 个 skill 装进 `~/.agents/skills/`，再软链到你自己的 skill 目录：
+1. 有 `npx` 就用它。这一条是非交互的，会把 31 个 skill 装进 `~/.agents/skills/`，再软链到你自己的 skill 目录：
 
    ```bash
    npx skills@latest add https://github.com/LearnPrompt/laoyeye -g -y --skill '*'
@@ -48,7 +48,7 @@ npx skills@latest add LearnPrompt/laoyeye --skill fact-check
 
    `vendor/`、`sources/`、`scripts/` 不要拷，那是维护用的。
 
-3. 验证：目标目录里应多出 26 个目录，其中有 `laoyeye`。数目不对就停下，把实际清单给用户看，不要自己补。
+3. 验证：目标目录里应多出 31 个目录，其中有 `laoyeye`。数目不对就停下，把实际清单给用户看，不要自己补。
 
 4. 告诉用户：开个新会话，敲 `/laoyeye`，说说卡在哪。任何 `SKILL.md` 都别改，里面是老师们的原文。
 
@@ -56,7 +56,7 @@ npx skills@latest add LearnPrompt/laoyeye --skill fact-check
 
 不知道用哪件，在会话里敲 `/laoyeye`，说说你卡在哪，老爷爷指路并直接把对应的那件唤起来。
 
-你的 Agent 不支持 Skill 也没关系。那 21 条提示语本来就不需要装任何东西，打开 [sources/prompts.md](./sources/prompts.md)，复制哪条用哪条，粘进任何一个 AI 都能跑。
+你的 Agent 不支持 Skill 也没关系。那 23 条提示语本来就不需要装任何东西，打开 [sources/prompts.md](./sources/prompts.md)，复制哪条用哪条，粘进任何一个 AI 都能跑。
 
 ## 为什么会有它
 
@@ -78,24 +78,24 @@ npx skills@latest add LearnPrompt/laoyeye --skill fact-check
 |---|---|---|---|
 | [数字生命卡兹克](https://github.com/KKKKhazix/khazix-skills) | 怎么问、怎么学、怎么决策、怎么认识自己 | 13 条提示语原文，加领导、洁癖 | 原文 / MIT |
 | [Matt Pocock](https://github.com/mattpocock/skills) | 怎么被拷问到把每个分支都想清楚，怎么把一门东西真学下来，怎么修一个难缠的 bug | 拷问、拷问我、教、诊断 | MIT |
-| [卡尔（我自己）](https://github.com/LearnPrompt/partner-skill) | 方案成型之后找人拆台，提前列出致命点建防线，事后复盘挖根因，多件事排先后 | 点子王、逆向法、五问法、机会成本与可逆性、红绿灯 | MIT |
+| [卡尔（我自己）](https://github.com/LearnPrompt/partner-skill) | 方案成型之后找人拆台，提前列出致命点建防线，事后复盘挖根因，多件事排先后，被自己的念头困住时重评，知道该做却开不了头时写成如果那么 | 点子王、逆向法、五问法、机会成本与可逆性、红绿灯、认知重评、执行意图 | MIT |
 | [陈乔维Justin](https://v.douyin.com/fljKQMAoiGQ/) | 转述 Amanda Askell 那套记忆寓言法 | 记忆寓言法 | 原帖 / 署名转载，作者可提 issue 认领或下架 |
 | [ayghri](https://github.com/ayghri/i-have-adhd) | 让 AI 输出别绕弯子、先给下一步动作 | 直给输出法 | 原帖 / 署名转载，作者可提 issue 认领或下架 |
 | [苏乐](https://x.com/ai_suxiaole) | 转述 Anthropic 内部拿来讲概念的 Skill | 大图小字（eli5） | 原帖 / 署名转载，作者可提 issue 认领或下架 |
 
 另有一条乔哈里视窗，流传于网络没有署名，原作者如认领欢迎提 issue。记忆寓言法、直给输出法、大图小字这三条也是同样的性质：卡尔分别从抖音、GitHub、X 上看到后原样转录收录，不是这几位作者主动投稿，认领或要求下架都可以直接提 issue。直给输出法的原始出处 [ayghri/i-have-adhd](https://github.com/ayghri/i-have-adhd) 本身是 MIT 协议的开源仓库，这里只转录了其中 `SKILL.md` 的正文，完整项目和授权条款见上游链接。
 
-那 13 条提示语出自卡兹克的[这篇](https://mp.weixin.qq.com/s/NAdhdFrUq9-BKelqzqpwBQ)和[这篇](https://mp.weixin.qq.com/s/L1ISA0FvxY_7OR994RttWw)。寓言故事那条的原始思路来自 Anthropic 的 [Amanda Askell](https://askell.io/)，卡兹克在她基础上加了防套路黑名单和两道检验题；记忆寓言法是同一个 Amanda Askell 思路的另一版转述，陈乔维Justin 在一次采访里听到后原样整理成英文原版，没加卡兹克那份防套路清单。仓库结构、user-invoked 与 model-invoked 的分法、老爷爷这个路由的形状，学的是 Matt 的 [ask-matt](https://github.com/mattpocock/skills/tree/main/skills/engineering/ask-matt) 和 grill-me。
+那 13 条提示语出自卡兹克的[这篇](https://mp.weixin.qq.com/s/NAdhdFrUq9-BKelqzqpwBQ)和[这篇](https://mp.weixin.qq.com/s/L1ISA0FvxY_7OR994RttWw)。寓言故事那条的原始思路来自 Anthropic 的 [Amanda Askell](https://askell.io/)，卡兹克在她基础上加了防套路黑名单和两道检验题；记忆寓言法是同一个 Amanda Askell 思路的另一版转述，陈乔维Justin 在一次采访里听到后原样整理成英文原版，没加卡兹克那份防套路清单。仓库结构、user-invoked 与 model-invoked 的分法、老爷爷这个路由的形状，学的是 Matt 的 [ask-matt](https://github.com/mattpocock/skills/tree/main/skills/engineering/ask-matt) 和 grill-me。认知重评用的是 Aaron Beck 认知行为疗法里的想法记录，执行意图来自 Peter Gollwitzer，WOOP 来自 Gabriele Oettingen，中文提示语由卡尔重新编写。
 
 ## 跟上游同装会怎样
 
 有人会同时装老爷爷和老师们的原仓库。说清楚三句话：
 
-- **名字不会冲突。**收录件都带来源前缀（matt-、kaz-、carl-），28 个名字跟上游发布的名字零重合，安装不会覆盖你已装的任何东西。
+- **名字不会冲突。**收录件都带来源前缀（matt-、kaz-、carl-），30 个名字跟上游发布的名字零重合，安装不会覆盖你已装的任何东西。
 - **内容会重复，但无害。**同一件东西两边各有一份时，模型选中哪份拿到的行为都一样，因为这里的副本跟钉住的上游 commit 逐字一致。代价只是多占一份描述的上下文。
 - **要维护的只有同步。**上游哪天改了行为而这里没跟，重复才会从无害变成行为不稳定——同一句话，两次得到两种反应。`python3 scripts/vendor.py pull` 一条命令对账，照出漂移就重新收录。
 
-## 二十八件
+## 三十件
 
 【】里的内容换成你自己的信息。手上有原始材料就一起丢上去，这年头不怕上下文多。
 
@@ -134,6 +134,7 @@ npx skills@latest add LearnPrompt/laoyeye --skill fact-check
 | [跨领域借解](./skills/solving/cross-domain-borrow/SKILL.md) | 别的行业怎么解决这个 | 你这个问题，别的行业可能十几年前就解决了 |
 | [逆向法](./skills/solving/inversion/SKILL.md) · 卡尔 | 这个方案会怎么失败 | 先列出怎么做保证失败，再把每条翻成必须遵守的规则 |
 | [五问法](./skills/solving/five-whys/SKILL.md) · 卡尔 | 帮我复盘这次为什么搞砸了 | 失败了别急着找人背锅，一层层问为什么，挖到能改的系统原因 |
+| [认知重评](./skills/solving/cognitive-reappraisal/SKILL.md) · 卡尔 | 我是不是不行，帮我看看这句想法 | 被一句话困住的时候，把那句自动想法核一遍，写出更站得住的一句和一个小动作 |
 | [点子王](./skills/solving/carl-idea-king/SKILL.md) · 卡尔 | 点子王，拆一下这个方案 | 假设方案会死，然后去找它是怎么死的 |
 | [诊断](./skills/solving/matt-diagnosing-bugs/SKILL.md) · Matt | 帮我排查这个 bug | 先拿到一个能稳定复现的红灯，再谈任何理论，修完带回归测试 |
 
@@ -144,6 +145,7 @@ npx skills@latest add LearnPrompt/laoyeye --skill fact-check
 | [双向钢人论证](./skills/deciding/steelman-both-sides/SKILL.md) | 两边都论证到最强再让我选 | 两个选项都有道理的时候，把两边都论证到最强 |
 | [最小实验](./skills/deciding/minimum-experiment/SKILL.md) | 设计个七天能跑完的实验 | 别再推演了，花七天真跑一次，让现实给你数据 |
 | [机会成本与可逆性](./skills/deciding/opportunity-cost/SKILL.md) · 卡尔 | 这几件事先做哪个 | 每件事先问放弃什么、能不能退回来、不做会怎样，再排先后 |
+| [执行意图](./skills/deciding/implementation-intention/SKILL.md) · 卡尔 | 知道该做，就是开不了头 | 事情已经定了却开不了头，写成如果碰到什么、我就做什么 |
 
 ### 五、动手
 
@@ -161,7 +163,7 @@ npx skills@latest add LearnPrompt/laoyeye --skill fact-check
 | [挖掘隐藏天赋](./skills/self-knowledge/hidden-talent/SKILL.md) | `/hidden-talent` | 往过去看，从那些看起来毫无关系的经历里拼出一份天赋说明书 |
 | [人生设计术](./skills/self-knowledge/life-design/SKILL.md) | `/life-design` | 往未来看，给你三个完全不同、同样值得认真考虑的五年版本 |
 
-老爷爷本人在 [skills/laoyeye](./skills/laoyeye/SKILL.md)，敲 `/laoyeye` 叫他。他的活就是把你的处境路由到上面二十八件中的某一件。
+老爷爷本人在 [skills/laoyeye](./skills/laoyeye/SKILL.md)，敲 `/laoyeye` 叫他。他的活就是把你的处境路由到上面三十件中的某一件。
 
 ## 为什么是原文
 
@@ -172,7 +174,7 @@ Skill 化的常见做法是把提示语拆成 Agent 风格的流程步骤、加�
 守卫有两道，都会退出 1：
 
 ```bash
-python3 scripts/sync.py verify     # 21 条提示语 vs sources/prompts.md，逐字
+python3 scripts/sync.py verify     # 23 条提示语 vs sources/prompts.md，逐字
 python3 scripts/vendor.py verify   # 7 个收录的 skill vs vendor/ 与 vendor.lock.json，逐字
 ```
 

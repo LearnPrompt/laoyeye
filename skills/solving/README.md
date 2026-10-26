@@ -11,5 +11,6 @@
 - **[跨领域借解](./cross-domain-borrow/SKILL.md)**（`cross-domain-borrow`）：你这个问题，别的行业可能十几年前就解决了。
 - **[逆向法](./inversion/SKILL.md)**（`inversion`）：先列出怎么做保证失败，再把每条翻成必须遵守的规则。
 - **[五问法](./five-whys/SKILL.md)**（`five-whys`）：失败了别急着找人背锅，一层层问为什么，挖到能改的系统原因。
+- **[认知重评](./cognitive-reappraisal/SKILL.md)**（`cognitive-reappraisal`）：被一句话困住的时候，把那句自动想法核一遍，写出更站得住的一句和一个小动作。
 - **[诊断 diagnosing-bugs](./matt-diagnosing-bugs/SKILL.md)**（`matt-diagnosing-bugs`，收录自 mattpocock-skills）：先拿到一个能稳定复现的红灯，再谈任何理论。修完带回归测试。
 - **[点子王 idea-king](./carl-idea-king/SKILL.md)**（`carl-idea-king`，收录自 partner-skill）：第一性原理拆解加对抗式审查，方案成型之后找人拆台用。
