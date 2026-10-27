@@ -23,4 +23,4 @@
 
 一个 Skill 要用另一个 Skill，写成明确的指令：用 Skill 工具唤起 `<名字>`。不要写成 `../别的目录/FILE.md` 的跨目录引用，也不要只丢一个 `/名字` 让模型猜。
 
-只有模型可唤起的 Skill 能被这样调用。用户唤起的 Skill 谁也调不动，包括别的 Skill。`laoyeye` 是用户唤起的，所以它能唤起那 26 条模型可唤起的，但它唤不动 `matt-grill-me`、`matt-teach`、`hidden-talent` 和 `life-design`，只能告诉用户自己敲。
+只有模型可唤起的 Skill 能被这样调用。用户唤起的 Skill 谁也调不动，包括别的 Skill。`laoyeye` 是用户唤起的，所以它能唤起那 27 条模型可唤起的，但它唤不动 `matt-grill-me`、`matt-teach`、`hidden-talent` 和 `life-design`，只能告诉用户自己敲。

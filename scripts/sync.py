@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """戒指老爷爷（laoyeye）的提示语同步与校验工具。
 
-真理只有一份：sources/prompts.md 里的 23 个代码块。
-build   把这 23 段原文灌进各个 SKILL.md。
+真理只有一份：sources/prompts.md 里的 24 个代码块。
+build   把这 24 段原文灌进各个 SKILL.md。
 verify  逐字比对各个 SKILL.md 里的提示语和 sources/prompts.md，有一个字不一样就报错退出 1。
 """
 import hashlib
@@ -183,6 +183,13 @@ CATALOG = [
         "执行意图提示语原文，Gollwitzer 的如果那么加上 Oettingen 的 WOOP。用户已经知道该做什么但开不了头、拖延、明天再说、计划停在纸上时使用。触发词包括 执行意图、如果那么、WOOP、拖延、开不了头、知道但不动、行动计划、implementation intention、明天开始、老是拖。产出 1 到 3 句今天就能照做的如果那么，其中一句对付内在障碍。还没定要不要做、要拿现实验证，用 minimum-experiment。",
         True, "Implementation Intention", "Turn a decision into if-then lines you can follow today",
     ),
+    (
+        "solving", "self-framing", "自建框架再自查",
+        "先为这件事现写一套分析框架，跑完再查自己漏了什么",
+        "适合问题已经能说清，但直接要一个答案不放心，觉得套用现成框架会漏掉这件事特有的地方。\n\n它先说清这是哪一类问题、好答案必须满足什么，再为这件事现写一套分析框架并亮出来，按框架跑完，检查自己漏掉的假设、视角、数据和失败方式，以及懂行的人会攻击哪里。最多改两轮就停。最后交最终答案、用过的框架、还剩下的已知未知。\n\n专家会诊是几个角色互相质疑，这条只查自己刚才那份分析。事实核查去对说法的真假，这条把缺的证据记成已知未知。第一性原理把补丁拆回基本事实重推，这条不要求推倒重来。逆向法先列保证失败的做法，这条只在自查里点一条没想过的失败方式。苏格拉底式提问问的是用户，这条问的是自己的分析。",
+        "自建框架再自查提示语原文。用户觉得直接要答案会漏、嫌套用现成框架、想让 AI 先为这一个问题现写分析框架再自查盲点时使用。触发词包括 自建框架、再自查、元认知、元认知自校、你漏了什么、分析框架、别用套话、盲点、自查一下、先定框架再答、别直接给结论。先说清问题类型和好答案要满足什么，亮出自己写的框架，按框架跑，再查漏掉的假设、视角、数据和失败方式，以及懂行的人会攻击哪里，最多改两轮。最后交最终答案、用过的框架、还剩下的已知未知。要几个角色互相质疑用 expert-panel，要核实说法真假用 fact-check，要拆回基本事实重推用 first-principles，要列保证失败的做法用 inversion，要反过来追问用户用 socratic-inquiry。",
+        True, "Self-Framing", "Write a frame for this problem, run it, then audit what you missed",
+    ),
 ]
 
 BUCKETS = {
@@ -304,6 +311,9 @@ NOTES = {
     "implementation-intention": """## 跑完接哪条
 
 动作是用户自己今天做的，到此为止。如果那么里的动作要交给 agent 去跑，用 Skill 工具唤起 `kaz-leader`。""",
+    "self-framing": """## 跑完接哪条
+
+已知未知里有一条会翻掉结论的说法要核实，用 Skill 工具唤起 `fact-check`。剩下的未知靠继续想补不上，用 Skill 工具唤起 `minimum-experiment`。自查说明整套做法是补丁摞补丁，用 Skill 工具唤起 `first-principles`。最终答案已经能派给 agent 干，用 Skill 工具唤起 `kaz-leader`。""",
 }
 
 # 每条提示语代码块下方的署名句，按 slug 查；查不到的用 DEFAULT_ATTRIBUTION。
@@ -321,6 +331,7 @@ ATTRIBUTION = {
     "traffic-light": "提示语原文来自卡尔的AI沃茨（X），写代码那四条参考 multica-ai/andrej-karpathy-skills，出处见仓库 README 的致谢。改动这段原文要走 `scripts/sync.py`，手改会被 verify 拦下。",
     "cognitive-reappraisal": "提示语由卡尔编写收录，思路来自 Aaron Beck 的认知行为疗法想法记录，出处见仓库 README 的致谢。改动这段原文要走 `scripts/sync.py`，手改会被 verify 拦下。",
     "implementation-intention": "提示语由卡尔编写收录，思路来自 Peter Gollwitzer 的执行意图和 Gabriele Oettingen 的 WOOP，出处见仓库 README 的致谢。改动这段原文要走 `scripts/sync.py`，手改会被 verify 拦下。",
+    "self-framing": "提示语由卡尔编写收录，机制受 Cranot/super-hermes（MIT）启发，出处见仓库 README 的致谢。改动这段原文要走 `scripts/sync.py`，手改会被 verify 拦下。",
 }
 
 _RUN_WITH_SLOTS = "先把本轮对话里用户已经说过的处境填进【】，只补真正缺的那一项，别让用户把说过的话再说一遍，然后严格照提示语里的规则做事"
@@ -347,7 +358,7 @@ PATH_LINE = re.compile(r"^`skills/([^/`]+)/([^/`]+)`\s*$", re.M)
 
 
 def read_source_blocks():
-    """按顺序取出全部 23 段原文，并确认每段上面那行路径跟 CATALOG 一一对上。
+    """按顺序取出全部 24 段原文，并确认每段上面那行路径跟 CATALOG 一一对上。
 
     只比对数量是不够的：块的顺序和 CATALOG 的顺序一旦错位，build 会把每段
     原文写进错误的 SKILL.md，而 verify 用同一套错位配对再比一遍，照样全绿。
@@ -424,7 +435,7 @@ def _user_invoked(bucket, name):
 
 
 def write_bucket_readmes():
-    """每个 bucket 一份目录，本仓库原生的 23 条和收录来的老师们的 skill 一起列。"""
+    """每个 bucket 一份目录，本仓库原生的 24 条和收录来的老师们的 skill 一起列。"""
     import importlib.util
     spec = importlib.util.spec_from_file_location("vendor", ROOT / "scripts" / "vendor.py")
     vendor = importlib.util.module_from_spec(spec)
