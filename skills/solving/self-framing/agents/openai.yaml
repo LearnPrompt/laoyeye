@@ -1,0 +1,3 @@
+interface:
+  display_name: "Self-Framing"
+  short_description: "Write a frame for this problem, run it, then audit what you missed"
