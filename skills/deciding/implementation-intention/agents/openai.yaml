@@ -1,0 +1,3 @@
+interface:
+  display_name: "Implementation Intention"
+  short_description: "Turn a decision into if-then lines you can follow today"
