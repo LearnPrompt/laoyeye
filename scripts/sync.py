@@ -148,6 +148,27 @@ CATALOG = [
         "逆向法提示语原文。用户担心方案有坑、想提前排雷、做风险预案、检验计划健壮性时使用。触发词包括 逆向法、怎么会失败、提前排雷、风险预案、什么会出错、怎么才能搞砸、反面思考、inversion、防护措施、保证失败。产出保证失败的做法清单、翻转后的规则、最容易被忽视的那条和一个立刻能做的防护动作。跟第一性原理互补：第一性原理往下挖回本质重推，逆向法从失败往回推找防线。",
         True, "Inversion", "List how to guarantee failure, then flip each into a rule",
     ),
+    (
+        "solving", "five-whys", "五问法",
+        "失败了别急着找人背锅，一层层问为什么，挖到能改的系统原因",
+        "适合事情已经搞砸了，直接原因也知道了，但心里清楚换个人来大概还是会出同样的错。一次问一个为什么，每层要证据，分叉单独挖，挖到流程、工具、信息、激励这一层再停，最后每个根因配一个能检查的改进动作。\n\n跟逆向法正好一前一后：逆向法在事前列出会怎么死，五问法在事后查清楚是怎么死的。",
+        "五问法复盘提示语原文。用户的事情已经失败、出了事故、上线炸了、项目黄了，直接原因知道但想找到系统根因时使用。触发词包括 五问法、5 why、five whys、复盘、事故复盘、失败复盘、根因分析、为什么会这样、怎么避免再犯、post-mortem。一次只问一个为什么，产出带证据标注的因果链、按类别分好的根因清单和每条根因的改进动作。东西还坏着要修，用 matt-diagnosing-bugs；事情还没做想提前排雷，用 inversion。",
+        True, "Five Whys", "Ask why one layer at a time until you hit a fixable system cause",
+    ),
+    (
+        "deciding", "opportunity-cost", "机会成本与可逆性",
+        "每件事先问放弃什么、能不能退回来、不做会怎样，再排先后",
+        "适合手上好几件事不知道先干哪件，或者一件事纠结做还是不做。每个选项都过三个问题：做了放弃什么，做错了能不能退回来，不做会怎样。能退回来的双向门就快定，退不回来的单向门才放慢。\n\n双向钢人只吃两个选项，最小实验管验证不管排序，这条补的就是这块。",
+        "机会成本与可逆性提示语原文。用户手上好几件事不知道先做哪件、要排优先级，或者在纠结一件事做还是不做时使用。触发词包括 机会成本、先做哪个、优先级、排个序、该不该做、做还是不做、值不值得、单向门、双向门、可逆、能不能反悔、不做会怎样。产出每个选项放弃什么、可不可逆、不做的后果和定下来的节奏，再给排好的先后顺序和今天就能开始的第一个动作。只有两个都很有道理的选项要论证，用 steelman-both-sides。",
+        True, "Opportunity Cost & Reversibility", "Ask what you give up and whether you can undo it, then rank",
+    ),
+    (
+        "asking", "traffic-light", "红绿灯",
+        "钉住原始需求，每轮末尾亮一盏灯，做完就停手，不被 Agent 拉着无限往下跑",
+        "卡尔的AI沃茨在 X 上发的「进度提示语」。核心思路：Agent 推荐下一步做什么，本身就是认知陷阱，它永远不会主动告诉你做完了。所以开工先钉住原始需求，每轮回复最后一行亮一盏灯。绿灯还差几项继续干，黄灯原始需求做完了、剩下的能串成一份下一轮计划，红灯做完了、剩下的零零碎碎存个档就结束。黄灯红灯都停手等你拍板。\n\n跟乔哈里视窗、直给输出法一样是给整段协作定规矩，挂在会话或任务开头。乔哈里管先弄清楚要什么，直给管说话别绕，红绿灯管什么时候该停。",
+        "红绿灯协作提示语原文。用户嫌 Agent 刹不住车、做完了还一直列优化清单、被模型说啥点啥拉着跑、想让 AI 做完就停、想省 token 额度、分不清哪些是要它做的哪些是它自己加的时使用。触发词包括 红绿灯、进度条、刹不住车、做完就停、别无限往下跑、钉住需求、别加戏、范围蔓延、scope creep、什么时候算做完、可以归档了吗。整段挂在会话或任务开头，约束之后每一轮的收尾。写代码时还会附上先说假设、能简就简、只动该动的、按验收标准收工这几条规矩。",
+        True, "Traffic Light", "Pin the original ask and end every turn with a green, yellow or red light",
+    ),
 ]
 
 BUCKETS = {
@@ -241,6 +262,28 @@ NOTES = {
     "inversion": """## 跑完接哪条
 
 规则清单出来了、方案站得住，用 Skill 工具唤起 `kaz-leader` 写任务书开始派活；致命点太多、整个方案站不住，用 Skill 工具唤起 `first-principles` 回到基本事实重推。""",
+    "five-whys": """## 跑完接哪条
+
+改进动作要交给 agent 去落地，用 Skill 工具唤起 `kaz-leader` 写任务书；挖出来的根因说明整个做法从底子上就不对，用 Skill 工具唤起 `first-principles` 重推；改进方案定了想先排一遍雷，用 Skill 工具唤起 `inversion`。""",
+    "opportunity-cost": """## 跑完接哪条
+
+排到最后只剩两个都有道理、分不出先后的，用 Skill 工具唤起 `steelman-both-sides`；排第一的那件是单向门、缺的信息靠想补不上，用 Skill 工具唤起 `minimum-experiment` 让现实回答；第一件定了要派给 agent 干，用 Skill 工具唤起 `kaz-leader`。""",
+    "traffic-light": """## 写代码的时候再加四条
+
+原文管的是什么时候停。写代码时 Agent 还爱犯另外几种毛病，参考 multica-ai/andrej-karpathy-skills 里整理的 Karpathy 那几条观察，在代码块外补四条规矩，跟原文一起执行：
+
+1. 先说假设。动手前把你对需求的理解和拿不准的地方列出来，有好几种理解就都摆出来，拿不准就问，别自己挑一个闷头写。
+2. 能简就简。只写需求要的东西，不加没人要的功能、抽象和配置项。五十行能写完的别写成两百行。
+3. 只动该动的。每一行改动都要能对上这次的需求，不顺手重构、不改格式、不删你没看懂的注释和代码。顺手看到的问题记进搁置，别直接改。
+4. 先定验收标准。开工时把「目标」那一行写成能检查的标准，比如哪条测试要通过、哪个命令要跑出什么结果。标准全部满足就是做完，亮灯停手。
+
+目标已经达成但还想再加点东西，按原文就是黄灯或红灯：停下来，把想加的写成计划或存档，等用户拍板，不要自己接着干。
+
+这是写在代码块外的补充，原文未动。
+
+## 跑完接哪条
+
+这条是会话级设定，没有下游。可以跟 `johari-window`、`no-fluff-output` 一起挂在会话开头，互不冲突。亮了黄灯、那份后续计划要交给 agent 跑，用 Skill 工具唤起 `kaz-leader`。""",
 }
 
 # 每条提示语代码块下方的署名句，按 slug 查；查不到的用 DEFAULT_ATTRIBUTION。
@@ -253,6 +296,9 @@ ATTRIBUTION = {
     "no-fluff-output": "提示语原文来自 ayghri（GitHub 项目 i-have-adhd，经小门道抖音转发），出处见仓库 README 的致谢。改动这段原文要走 `scripts/sync.py`，手改会被 verify 拦下。",
     "eli5": "提示语原文来自苏乐（X），出处见仓库 README 的致谢。改动这段原文要走 `scripts/sync.py`，手改会被 verify 拦下。",
     "inversion": "提示语由卡尔编写收录，核心思路广泛流传于社区，出处见仓库 README 的致谢。改动这段原文要走 `scripts/sync.py`，手改会被 verify 拦下。",
+    "five-whys": "提示语由卡尔编写收录，思路来自 tjboudreaux 的 cc-thinking-skills（thinking-five-whys-plus），出处见仓库 README 的致谢。改动这段原文要走 `scripts/sync.py`，手改会被 verify 拦下。",
+    "opportunity-cost": "提示语由卡尔编写收录，单向门双向门的说法来自 Jeff Bezos 的致股东信，出处见仓库 README 的致谢。改动这段原文要走 `scripts/sync.py`，手改会被 verify 拦下。",
+    "traffic-light": "提示语原文来自卡尔的AI沃茨（X），写代码那四条参考 multica-ai/andrej-karpathy-skills，出处见仓库 README 的致谢。改动这段原文要走 `scripts/sync.py`，手改会被 verify 拦下。",
 }
 
 _RUN_WITH_SLOTS = "先把本轮对话里用户已经说过的处境填进【】，只补真正缺的那一项，别让用户把说过的话再说一遍，然后严格照提示语里的规则做事"
@@ -356,7 +402,7 @@ def _user_invoked(bucket, name):
 
 
 def write_bucket_readmes():
-    """每个 bucket 一份目录，本仓库原生的 17 条和收录来的老师们的 skill 一起列。"""
+    """每个 bucket 一份目录，本仓库原生的 21 条和收录来的老师们的 skill 一起列。"""
     import importlib.util
     spec = importlib.util.spec_from_file_location("vendor", ROOT / "scripts" / "vendor.py")
     vendor = importlib.util.module_from_spec(spec)
