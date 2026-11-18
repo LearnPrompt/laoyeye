@@ -1,0 +1,3 @@
+interface:
+  display_name: "Common-Cause Retro"
+  short_description: "Review a stretch of bugs for one shared cause"

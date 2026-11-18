@@ -1,0 +1,3 @@
+interface:
+  display_name: "Challenge the Question"
+  short_description: "Check whether the question itself is the wrong one"

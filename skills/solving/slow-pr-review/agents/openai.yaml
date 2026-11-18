@@ -1,0 +1,3 @@
+interface:
+  display_name: "Slow PR Review"
+  short_description: "Find the slowest recent PRs and what stalls them"
