@@ -1,6 +1,6 @@
 ---
 name: five-whys
-description: 五问法复盘提示语原文。用户的事情已经失败、出了事故、上线炸了、项目黄了，直接原因知道但想找到系统根因时使用。触发词包括 五问法、5 why、five whys、复盘、事故复盘、失败复盘、根因分析、为什么会这样、怎么避免再犯、post-mortem。一次只问一个为什么，产出带证据标注的因果链、按类别分好的根因清单和每条根因的改进动作。东西还坏着要修，用 matt-diagnosing-bugs；事情还没做想提前排雷，用 inversion。
+description: 五问法复盘提示语原文。用户的事情已经失败、出了事故、上线炸了、项目黄了，直接原因知道但想找到系统根因时使用。触发词包括 五问法、5 why、five whys、复盘、事故复盘、失败复盘、根因分析、为什么会这样、怎么避免再犯、post-mortem。一次只问一个为什么，产出带证据标注的因果链、按类别分好的根因清单和每条根因的改进动作。东西还坏着要修，用 matt-diagnosing-bugs；事情还没做想提前排雷，用 inversion。一段时间里的一批 Bug、返工、回滚要找共同根因，用 common-cause-retro。
 ---
 
 # 五问法
@@ -21,7 +21,7 @@ description: 五问法复盘提示语原文。用户的事情已经失败、出�
 
 ## 跑完接哪条
 
-改进动作要交给 agent 去落地，用 Skill 工具唤起 `kaz-leader` 写任务书；挖出来的根因说明整个做法从底子上就不对，用 Skill 工具唤起 `first-principles` 重推；改进方案定了想先排一遍雷，用 Skill 工具唤起 `inversion`。
+改进动作要交给 agent 去落地，用 Skill 工具唤起 `kaz-leader` 写任务书；挖出来的根因说明整个做法从底子上就不对，用 Skill 工具唤起 `first-principles` 重推；改进方案定了想先排一遍雷，用 Skill 工具唤起 `inversion`。要看的是一段时间里的一批 Bug、返工、回滚，找共同根因并沉淀成规则、自动化或 Skill，用 Skill 工具唤起 `common-cause-retro`。
 
 ```markdown
 这次出问题的事是：【写清楚出了什么事、什么时候、造成了什么后果】。

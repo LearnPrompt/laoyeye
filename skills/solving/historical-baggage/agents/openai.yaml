@@ -1,0 +1,3 @@
+interface:
+  display_name: "Historical Baggage"
+  short_description: "Read the git history for leftovers that can go"

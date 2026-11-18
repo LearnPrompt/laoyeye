@@ -6,7 +6,7 @@
 
 | | 原文放哪 | 生成到哪 | 守卫 |
 |---|---|---|---|
-| 24 条提示语（卡兹克 13 + 无署名 1 + 转载自其他作者 3 + 卡尔编写或收录 7） | `sources/prompts.md` | 各 `SKILL.md` 里的 markdown 代码块 | `python3 scripts/sync.py verify` |
+| 32 条提示语（卡兹克 13 + 2026-11-16 帖子新收 8 + 无署名 1 + 转载自其他作者 3 + 卡尔编写或收录 7） | `sources/prompts.md` | 各 `SKILL.md` 里的 markdown 代码块 | `python3 scripts/sync.py verify` |
 | 收录的 7 个 skill | `vendor/`（钉在 commit 上） | `skills/<bucket>/<name>/` 整个目录 | `python3 scripts/vendor.py verify` |
 
 ## 铁律：都不许手改
@@ -19,10 +19,12 @@
 ## 目录
 
 ```
-sources/prompts.md              24 条提示语原文，唯一真理
+sources/prompts.md              32 条提示语原文，唯一真理
+sources/khazix-2026-11-16-agent-prompts.txt
+                                2026-11-16 帖子全文 10 句。第 1、5 句映射已有条目
 vendor/                         老师们的 pristine 副本，钉在 commit 上
 vendor/vendor.lock.json         每个文件的 sha256、上游仓库和 commit
-scripts/sync.py                 24 条提示语的 build / verify
+scripts/sync.py                 32 条提示语的 build / verify
 scripts/vendor.py               收录 skill 的 build / verify / pull
 skills/<bucket>/<name>/         生成物，全部
 skills/laoyeye/SKILL.md          老爷爷路由，手写
@@ -32,7 +34,7 @@ skills/laoyeye/SKILL.md          老爷爷路由，手写
 
 ## 命名：前缀只为解决重名
 
-上游已经用某个名字发布过的 skill，收进来时加来源前缀（`matt-`、`kaz-`、`carl-`），这样用户同时装了上游和戒指老爷爷也不会撞车。没在别处以 skill 形式发布过的，保持原名——卡兹克那 13 条提示语只在文章里出现过，所以 `fact-check` 就叫 `fact-check`。
+上游已经用某个名字发布过的 skill，收进来时加来源前缀（`matt-`、`kaz-`、`carl-`），这样用户同时装了上游和戒指老爷爷也不会撞车。没在别处以 skill 形式发布过的，保持原名。卡兹克那 13 条提示语只在文章里出现过，所以 `fact-check` 就叫 `fact-check`。2026-11-16 那 8 条短提示同样只在帖子里出现过，保持原名。
 
 改名是 `scripts/vendor.py` 里 `VENDORED` 的 patches 声明的唯一一类改动。grill-me 正文里那句 `Call the Skill tool with "grilling"` 也跟着改成 `matt-grilling`，否则改完名它就指向一个不存在的 skill。这条也在 patches 里，一目了然。
 
@@ -53,7 +55,7 @@ skills/laoyeye/SKILL.md          老爷爷路由，手写
 - **模型可唤起**（默认）：`description` 里写足触发词，Agent 自己就能拿出来用。
 - **只有用户能唤起**：加 `disable-model-invocation: true`，同时在 `agents/openai.yaml` 里加 `policy.allow_implicit_invocation: false`。
 
-目前五条是用户唤起：`laoyeye`、`matt-grill-me`、`matt-teach`、`hidden-talent`、`life-design`。收录来的沿用上游的身份，不动。本仓库原生那 24 条的身份写在 `CATALOG` 的 `model_invoked` 布尔值上，别绕过 `sync.py` 直接改 frontmatter。
+目前五条是用户唤起：`laoyeye`、`matt-grill-me`、`matt-teach`、`hidden-talent`、`life-design`。收录来的沿用上游的身份，不动。本仓库原生那 32 条的身份写在 `CATALOG` 的 `model_invoked` 布尔值上，别绕过 `sync.py` 直接改 frontmatter。
 
 收录来的 skill 里，只有 mattpocock 那三条上游带 `agents/openai.yaml`。khazix 的和点子王没有，这里也不替它们造一个——造了就不是原样收录了。
 

@@ -10,6 +10,8 @@
 - **[乔哈里视窗](./johari-window/SKILL.md)**（`johari-window`）：先分清这件事你知我知谁不知，再决定怎么答。
 - **[直给输出法](./no-fluff-output/SKILL.md)**（`no-fluff-output`）：先给能做的下一步，寒暄客套和自我总结一律砍掉。
 - **[红绿灯](./traffic-light/SKILL.md)**（`traffic-light`）：钉住原始需求，每轮末尾亮一盏灯，做完就停手，不被 Agent 拉着无限往下跑。
+- **[对齐再出三版](./align-then-three/SKILL.md)**（`align-then-three`）：先问清不清晰的地方，对齐喜好，再出三版方案。
+- **[问题定义核查](./challenge-the-question/SKILL.md)**（`challenge-the-question`）：先核对问题本身对不对，症状和手段别当成原因和目标。
 - **[拷问 grilling](./matt-grilling/SKILL.md)**（`matt-grilling`，收录自 mattpocock-skills）：把方案画成决策树，每个分支都问到底，走空为止。苏格拉底六问就收，这条不收。
 
 ## 只有你能唤起
